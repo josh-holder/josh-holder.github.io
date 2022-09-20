@@ -22,6 +22,9 @@ github_username: josh-holder
 minimal_mistakes_skin: dark
 search: true
 
+minima:
+  skin: dark
+
 # Build settings
 markdown: kramdown
 remote_theme: mmistakes/minimal-mistakes
@@ -62,13 +65,8 @@ author:
 GN&C @NASA, NSF Graduate Research Fellow @UW Aero."
   links:
     - label: "LinkedIn"
-      # icon: "fa-brands fa-linkedin"
       icon: "fab fa-fw fa-linkedin"
       url: "https://www.linkedin.com/in/joshua-holder-798386155/"
-    - label: "josh.holder72@gmail.com"
-      # icon: "fa-brands fa-linkedin"
-      icon: "far fa-fw fa-envelope"
-      url: "josh.holder72@gmail.com"
     # - label: "Twitter"
     #   icon: "fab fa-fw fa-twitter-square"
     #   url: "https://twitter.com/"
@@ -78,6 +76,8 @@ GN&C @NASA, NSF Graduate Research Fellow @UW Aero."
     - label: "Stack Overflow"
       icon: "fab fa-fw fa-stack-overflow"
       url: "https://stackoverflow.com/users/12960701/jgholder"
+    - label: "josh.holder72@gmail.com"
+      icon: "far fa-fw fa-envelope"
 
 footer:
   links:
