@@ -16,7 +16,7 @@
 title: Josh Holder - Website
 email:
 description: >- # this means to ignore newlines until "baseurl:"
-  Every once in a while when I do something interesting, I'll try to post it here. Included but not limited to, game-playing AI, large wooden structures, general musings, and more.
+  Every once in a while when I do something interesting, I'll try to post it here. Included but not limited to, game-playing AI, large wooden structures, general musings.
 twitter_username: username
 github_username: username
 minimal_mistakes_skin: default
@@ -61,18 +61,18 @@ author:
   avatar : "/assets/images/prof_pic_nasa_small.jpeg"
   bio    : "I write code for spaceships. GN&C @ NASA, NSF Graduate Research Fellow @UW Aero."
   links:
-    # - label: "Website"
-    #   icon: "fas fa-fw fa-link"
-    #   url: "https://"
+    - label: "LinkedIn"
+      icon: "<i class="fa-brands fa-linkedin"></i>"
+      url: "https://www.linkedin.com/in/joshua-holder-798386155/"
     # - label: "Twitter"
     #   icon: "fab fa-fw fa-twitter-square"
     #   url: "https://twitter.com/"
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
-      url: "https://github.com/"
-    # - label: "Instagram"
-    #   icon: "fab fa-fw fa-instagram"
-    #   url: "https://instagram.com/"
+      url: "https://github.com/josh-holder"
+    - label: "Stack Overflow"
+      icon: "<i class="fa-brands fa-stack-overflow"></i>"
+      url: "https://stackoverflow.com/users/12960701/jgholder"
 
 footer:
   links:
