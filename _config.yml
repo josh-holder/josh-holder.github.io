@@ -62,10 +62,10 @@ author:
   name   : "Josh Holder"
   avatar : "/assets/images/prof_pic_nasa_small.jpeg"
   bio    : "I write code for spaceships. 
-GN&C @ NASA, NSF Graduate Research Fellow @UW Aero."
+GN&C @NASA, NSF Graduate Research Fellow @UW Aero."
   links:
     - label: "LinkedIn"
-      icon: "<i class="fa-brands fa-linkedin"></i>"
+      icon: "fa-brands fa-linkedin"
       url: "https://www.linkedin.com/in/joshua-holder-798386155/"
     # - label: "Twitter"
     #   icon: "fab fa-fw fa-twitter-square"
@@ -74,7 +74,7 @@ GN&C @ NASA, NSF Graduate Research Fellow @UW Aero."
       icon: "fab fa-fw fa-github"
       url: "https://github.com/josh-holder"
     - label: "Stack Overflow"
-      icon: "<i class="fa-brands fa-stack-overflow"></i>"
+      icon: "fa-brands fa-stack-overflow"
       url: "https://stackoverflow.com/users/12960701/jgholder"
 
 footer:
