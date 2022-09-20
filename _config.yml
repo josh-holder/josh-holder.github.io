@@ -94,7 +94,7 @@ footer:
 defaults:
   # _posts
   - fonts:
-      size: 14pt
+      size: 14px
   - scope:
       path: ""
       type: posts
