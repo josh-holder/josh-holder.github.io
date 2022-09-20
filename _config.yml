@@ -17,8 +17,8 @@ title: Josh Holder - Website
 email:
 description: >- # this means to ignore newlines until "baseurl:"
   Every once in a while when I do something interesting, I'll try to post it here. Included but not limited to, game-playing AI, large wooden structures, general musings.
-twitter_username: username
-github_username: username
+# twitter_username: josh-holder
+github_username: josh-holder
 minimal_mistakes_skin: default
 search: true
 
@@ -57,9 +57,10 @@ plugins:
   - jekyll-include-cache
 
 author:
-  name   : "First Lastname"
+  name   : "Josh Holder"
   avatar : "/assets/images/prof_pic_nasa_small.jpeg"
-  bio    : "I write code for spaceships. GN&C @ NASA, NSF Graduate Research Fellow @UW Aero."
+  bio    : "I write code for spaceships. 
+GN&C @ NASA, NSF Graduate Research Fellow @UW Aero."
   links:
     - label: "LinkedIn"
       icon: "<i class="fa-brands fa-linkedin"></i>"
