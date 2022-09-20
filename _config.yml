@@ -19,7 +19,7 @@ description: >- # this means to ignore newlines until "baseurl:"
   Every once in a while when I do something interesting, I'll try to post it here. Included but not limited to, game-playing AI, large wooden structures, general musings.
 # twitter_username: josh-holder
 github_username: josh-holder
-minimal_mistakes_skin: default
+minimal_mistakes_skin: dark
 search: true
 
 # Build settings
@@ -30,9 +30,6 @@ permalink: /:categories/:title/
 paginate: 5 # amount of posts to show
 paginate_path: /page:num/
 timezone: # https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
-
-minima:
-  skin: dark
 
 include:
   - _pages
@@ -68,6 +65,10 @@ GN&C @NASA, NSF Graduate Research Fellow @UW Aero."
       # icon: "fa-brands fa-linkedin"
       icon: "fab fa-fw fa-linkedin"
       url: "https://www.linkedin.com/in/joshua-holder-798386155/"
+    - label: "josh.holder72@gmail.com"
+      # icon: "fa-brands fa-linkedin"
+      icon: "far fa-fw fa-envelope"
+      url: "josh.holder72@gmail.com"
     # - label: "Twitter"
     #   icon: "fab fa-fw fa-twitter-square"
     #   url: "https://twitter.com/"
@@ -75,7 +76,7 @@ GN&C @NASA, NSF Graduate Research Fellow @UW Aero."
       icon: "fab fa-fw fa-github"
       url: "https://github.com/josh-holder"
     - label: "Stack Overflow"
-      icon: "fa-brands fa-stack-overflow"
+      icon: "fab fa-fw fa-stack-overflow"
       url: "https://stackoverflow.com/users/12960701/jgholder"
 
 footer:
