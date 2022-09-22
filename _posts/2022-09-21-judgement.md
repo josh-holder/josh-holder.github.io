@@ -9,7 +9,7 @@ tags:
   - Machine Learning
 ---
 
-An ongoing investigation into the use of machine learning algorithms to optimally play [Judgement](https://en.wikipedia.org/wiki/Kachufool), a card game which I've played far, *far* too much of [(repository here)](https://github.com/josh-holder/JudgmentBot).
+An ongoing investigation into the use of machine learning algorithms to optimally play [Judgement](https://en.wikipedia.org/wiki/Kachufool), a playing card game which I've played far, *far* too much of [(repository here)](https://github.com/josh-holder/JudgmentBot).
 {: .notice}
 
 ### Quick Links
