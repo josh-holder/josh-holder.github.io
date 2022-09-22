@@ -61,7 +61,7 @@ plugins:
 author:
   name   : "Josh Holder"
   avatar : "/assets/images/prof_pic_nasa_small.jpeg"
-  bio    : "I write code for spaceships. 
+  bio    : "I write code for spaceships (and other things). 
 GN&C @NASA, NSF Graduate Research Fellow @UW Aero."
   links:
     - label: "LinkedIn"
