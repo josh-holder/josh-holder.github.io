@@ -68,13 +68,23 @@ Additionally, the betting problem is a form of problem that is the bread and but
 
 Betting is a subproblem in Judgement which comprises a large part of the complexity of the game. At the start of every round of Judgement, the player is dealt a hand of cards, and based on this hand of cards, needs to respond with a number of hands they think they can win. For example, if the player has all Aces, a high card, they might expect to win a higher number of rounds than if they strictly 2s, a low card. 
 
-In simple terms, as input, you have a set of cards, and as output, you have a single integer. This is a textbook classification problem, and thus a standard neural network is a perfect choice for this algorithm!
+In simple terms, as input, you have a set of cards, and as output, you have a single integer. This is a textbook classification problem, and thus a standard neural network is a perfect choice for this algorithm! 
 
-#### Neural Network architecture
+#### Neural Network Architecture
 
-In reality, the input output relationship is slightly more complex, but still well within the capabilities of a neural network:
+In plain english, the architecture input/output relationship should look something like this:
 
+![simple_bet_arch](/assets/judgement/simple_bet.png)
 
+However, in reality, when trying to make this palatable for a neural network to take as input, things need to get a bit more complicated for several reasons:
+
+1. The list of bets that have been made can be different in size depending on where you are in the betting order, ranging from length 0 to length 3. Neural networks generally don't like inputs of varying sizes (although [there are ways around this](https://ai.stackexchange.com/questions/2008/how-can-neural-networks-deal-with-varying-input-sizes))
+2. When people bet zero, the round is fundamentally different than a round in which noone bets zero, thus the neural network has to have access to this information. Based on the way that I planned to work around issue 1, the neural network would lose access to this information, so it had to be specifically relayed to the algorithm another way. This of course bakes in a certain amount of human knowledge into the very structure of the algorithm and isn't the cleanest solution, so a natural improvement is switching to RNNs for this piece of data.
+3. Input data should have a mean of or around zero. This means that the representation of cards in hand should best be represented as -0.5 if the card is not present, and 0.5 if the card is present (rather than the natural choices of 0 and 1.)
+
+These considerations result in an architecture of the following form:
+
+![complex_bet_arch](/assets/judgement/complex_bet.png)
 
 ### 5. Playing AI
 
