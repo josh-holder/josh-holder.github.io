@@ -8,6 +8,7 @@ title: "Awards"
 * July 2022 - **Alan Chapman Award**, Rice University
 * May 2022 - **Best Gaming, Creative, or Innovative Technology**, Rice University
   * In connection with medical-robotics related Senior Capstone project at Rice
+* May 2022 - **Phi Beta Kappa, Summa cum laude graduation honors**, Rice University
 * April 2022 - **NSF Graduate Research Fellowship**, National Science Foundation
 * January 2022 - **Most Outstanding MECH Senior**, Rice University
 * Fall 2020 - **NASA Pathways Special Achievement Award**, NASA Johnson Space Center

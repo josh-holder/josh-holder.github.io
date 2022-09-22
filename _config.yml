@@ -81,15 +81,14 @@ GN&C @NASA, NSF Graduate Research Fellow @UW Aero."
 
 footer:
   links:
-    - label: "Twitter"
-      icon: "fab fa-fw fa-twitter-square"
-      url: "https://twitter.com/"
+    - label: "LinkedIn"
+      icon: "fab fa-fw fa-linkedin"
+      url: "https://www.linkedin.com/in/joshua-holder-798386155/"
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
-      url: "https://github.com/"
-    - label: "Instagram"
-      icon: "fab fa-fw fa-instagram"
-      url: "https://instagram.com/"
+      url: "https://github.com/josh-holder"
+    - label: "josh.holder72@gmail.com"
+      icon: "far fa-fw fa-envelope"
 
 defaults:
   # _posts
