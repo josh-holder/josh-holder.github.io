@@ -9,7 +9,7 @@ tags:
   - Machine Learning
 ---
 
-An ongoing investigation into the use of machine learning algorithms to optimally play [Judgement](https://en.wikipedia.org/wiki/Kachufool), a card game which I've played far, *far* too much of [repository here](https://github.com/josh-holder/JudgmentBot).
+An ongoing investigation into the use of machine learning algorithms to optimally play [Judgement](https://en.wikipedia.org/wiki/Kachufool), a card game which I've played far, *far* too much of [(repository here)](https://github.com/josh-holder/JudgmentBot).
 {: .notice}
 
 ### Quick Links
@@ -70,7 +70,7 @@ Using these different elements, different types of agents can be created. For ex
 
 ### 4. Betting AI
 
-Betting is a subproblem in Judgement which comprises a large part of the complexity of the game. At the start of every round of Judgement, the player is dealt a hand of cards, and based on this hand of cards, needs to respond with a number of hands they think they can win. For example, if the player has all Aces, a high card, they might expect to win a higher number of rounds than if they strictly 2s, a low card. 
+Betting is a subproblem in Judgement which comprises a large part of the complexity of the game. At the start of every round of Judgement, the player is dealt a hand of cards, and based on this hand of cards, needs to respond with a number of hands they think they can win. For example, if the player has all Aces, a high card, they might expect to win a higher number of rounds than if they have all 2s, a low card. 
 
 In simple terms, as input, you have a set of cards, and as output, you have a single integer. This is a textbook classification problem, and thus a standard neural network is a perfect choice for this algorithm! 
 
@@ -94,17 +94,17 @@ This is somewhat more complex, but very manageable by a neural network (the laye
 
 #### Acquiring betting data
 
-Even the best neural network architecture is limited by the amount of training data it can acquire. Unfortunately, the scoring sheet didn't record what cards each player had when making their bet, so data had to be collected in another way. Luckily, with the league I had a captive, Judgement-obssessed source of data generation.
+Even the best neural network architecture is limited by the amount of training data it can acquire. Unfortunately, the scoring sheet didn't record what cards each player had when making their bet, so data had to be collected in another way. Luckily, through the league I had a captive, Judgement-obsessed source of data generation.
 
 All I had to do was write some code which could generate sensible-seeming Judgement situations and hands (not as easy as it sounds - see `bet_data_generator.py`), wrap it in a clean UI, and recruit some friends to use the UI and bet as they would in a real game. 
 
 ![bet_record_ui](/assets/judgement/betrecord_ui.png)
 
-For a few weeks, in their free time my friends (Robert Alexander and Alyson Resnick were especially prolific) would crank out some Judgement bets and send me their data to be used in training my AI. By the time the semester ended, I had a few thousand bet situations saved, and could begin training the AI.
+For a few weeks my friends would crank out Judgement bets in their free time (Robert Alexander and Alyson Resnick were especially prolific) and send me their data to be used in training the AI. By the time the semester ended, I had a few thousand bet situations saved, and could begin training in earnest.
 
 #### Initial training results
 
-Initial training results, even with this relatively small amount of trainin data, were shockingly positive. In a head to head match between:
+Initial training results, even with this relatively small amount of data, were shockingly positive. In a head to head match between an:
 
 1. Agent betting with Neural Network, playing cards with simple algorithm
 2. Agent betting with simple algorithm, playing cards with simple algorithm
@@ -113,7 +113,7 @@ Initial training results, even with this relatively small amount of trainin data
 
 The agent betting with the Neural Network performs far and away the best of any agent:
 
-![mlbet_perform](/assets/judgement/mlbet_perform.png)
+![mlbet_perform](/assets/judgement/mlbet_perform.jpg)
 
 For context, in typical human games, each player averages ~280 points. Sure, this algorithm's opponents were easier than other humans, but relative to the amount of training data and effort put into the algorithm, performance is surprisingly good. This can clearly be used as a baseline while moving on to the card-playing part of the AI.
 
@@ -121,13 +121,13 @@ For context, in typical human games, each player averages ~280 points. Sure, thi
 
 Creating a card-playing AI using machine learning will be a significantly harder challenge. First of all, there is no simple way to collect training data.
 
-Because of this lack of training data, reinforcement learning seems significantly more attractive - by using millions of games of self-play, we can generate our own training data! Additionally, in contrast to many other reinforcement learning environments, the reward landscape is not as sparse. Although points are only awarded after all cards in a hand have been played, each time you play a card you can get feedback on whether or not you won the hand.
+Because of this lack of training data, reinforcement learning is an attractive option - by using millions of games of self-play, we can generate our own training data! Additionally, in contrast to many other reinforcement learning environments, the reward landscape is not as sparse. Although points are only awarded after all cards in a hand have been played (after up to 13 decisions have been made), each time you play a card you can get feedback on whether or not you won the hand.
 
-Therefore, if we split the neural network evaluation into two parts: "grand strategy", determining whether we WANT to win a hand given our eventual goal, and "micro strategy", whether playing a given card will win us a hand, we may be able to use a much more rich reward environment to accelerate training.
+Therefore, if we split the neural network evaluation into two parts: "grand strategy", determining whether we WANT to win a hand given our eventual goal, and "micro strategy", whether playing a given card will win us a hand, we may be able to use a much richer reward environment to accelerate training.
 
-On the other hand, just because you want to win a hand doesn't mean you want to play the card that is MOST LIKELY to win a hand - sometimes you might want to save your best cards for later, even if they would increase your chances to win. From an architectural perspective, though, combining grand and micro strategy is a challenge, and one that is currently being worked on.
+On the other hand, just because you want to win a hand doesn't mean you want to play the card that is MOST LIKELY to win a hand - sometimes you might want to save your best cards for later, even if they would increase your chances to win now. From an architectural perspective, though, combining grand and micro strategy is a challenge. 
 
-Stay tuned for more updates - IN PROGRESS.
+With all of these considerations in play, I'm still in the process of formulating the best way to structure the algorithm for optimal performance. Stay tuned for more updates - IN PROGRESS.
 
 ### 6. Combined AI
 
