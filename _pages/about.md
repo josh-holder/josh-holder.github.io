@@ -5,9 +5,9 @@ title: "About"
 
 Grew up in Westchester NY, went to school at Rice University in Houston TX, now completing my US tour by attending grad school at the University of Washington.
 
-Professionally, interested in GN&C, splacecraft flight software, machine learning. (see [LinkedIn](https://www.linkedin.com/in/joshua-holder-798386155/) for updated resume stuff)
+Professionally, interested in GN&C, spacecraft flight software, machine learning. (see [LinkedIn](https://www.linkedin.com/in/joshua-holder-798386155/) for updated resume stuff)
 
-Un-professionally, interested in violin, soccer, music, books, hiking, reading, strategy games, travel, meeting as many new people as I can, and making large wooden structures for the bit (see below)
+Unprofessionally, interested in violin, soccer, music, books, hiking, reading, strategy games, travel, meeting as many new people as I can, and making large wooden structures for the bit (see below)
 
 {:refdef: style="text-align: center;"}
 ![mrworldwide](/assets/images/mrworldwide.jpg)
