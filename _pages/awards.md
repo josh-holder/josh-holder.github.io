@@ -3,6 +3,20 @@ permalink: /awards/
 title: "Awards"
 ---
 
-## Hehe
+*Summer 2020 - Shining Star Intern Award, NASA Headquarters*
 
-lol aword
+*May 2022 - Best Gaming, Creative, or Innovative Technology, Rice University*
+
+*April 2022 - NSF Graduate Research Fellowship, National Science Foundation*
+
+*January 2022 - Most Outstanding MECH Senior, Rice University*
+
+*Fall 2020 - NASA Pathways Special Achievement Award, NASA Johnson Space Center*
+
+*Summer 2020 - NASA Pathways Special Achievement Award, NASA Johnson Space Center*
+
+*December 2019 - Chevron Scholarship, Rice University*
+
+*May 2019 - Louis J. Walsh Scholarship, Rice University*
+
+*June 2017 - National AP Scholar, College Board*
