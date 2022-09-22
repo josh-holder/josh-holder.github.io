@@ -9,26 +9,24 @@ tags:
   - Machine Learning
 ---
 
-An ongoing investigation into the use of machine learning algorithms to optimally play [Judgement](https://en.wikipedia.org/wiki/Kachufool), a card game which I've played far, *far* too much of.
+An ongoing investigation into the use of machine learning algorithms to optimally play [Judgement](https://en.wikipedia.org/wiki/Kachufool), a card game which I've played far, *far* too much of [repository here](https://github.com/josh-holder/JudgmentBot).
 {: .notice}
 
 ### Quick Links
 
-[](#1-beginning-of-an-obsession)
+[Background: The League of Judgement](#1-background-the-league-of-judgement)
 
-[No Unique Thoughts](#2-no-unique-thoughts)
+[Overall Architecture of a Judgement AI](#2-overall-architecture-of-a-judgement-ai)
 
-[SPL-T Strategy](#3-spl-t-strategy)
+[Training Environment](#3-training-environment)
 
-[Probabilistic Weighting Algorithm](#4-probabilistic-weighting-algorithm)
+[Betting AI](#4-betting-ai)
 
-[Final Algorithm - "ParanoidPlay"](#5-final-algorithm-paranoidplay)
+[Card-playing AI](#5-card-playing-ai)
 
-[Going Beyond the World Record - Human-AI Collaboration](#6-going-beyond-the-world-record---human-ai-collaboration)
+[Combined AI](#6-combined-ai)
 
-[A Note on Machine/Reinforcement Learning as Applied to SPL-T](#a-note-on-machinereinforcement-learning-as-applied-to-spl-t)
-
-### 1. Background
+### 1. Background: The League of Judgement
 
 Over my college career, I've played a LOT of the trick-taking card game called Judgement/Kachufool (rules [here](https://card-games.wonderhowto.com/how-to/play-card-game-judgment-0122237/)). An embarassing amount, almost. So much so that I developed an entire software based infastructure around the game, including automated scoring:
 
@@ -44,13 +42,7 @@ and an entire league system complete with seeding and playoffs, where eight of m
 
 After all this effort and the heights of competition that were reached in the Judgement League, it was only natural that I would try to use computers to defeat my friends at the game.
 
-### 2. Note on the suitability of machine learning for Judgement
-
-For the same reason that I was able to generate advanced statistics for the game, Judgement is actually uniquely suited for the application of machine learning. Because it's convenient for scoring to happen within an Excel spreadsheet, the data from thousands of hands of Judgement was already precollected. For certain parts of a Judgement playing AI, I can use this data to augment the learning process.
-
-Within the game, there are also several sub-problems, many of which are perfectly suited for machine learning. One such subproblem is betting, which comprises a large part of the complexity of the game. At the start of every round of Judgement, the player is dealt a hand of cards, and based on this hand of cards, needs to respond with a number of hands they think they can win. For example, if the player has all Aces, they might expect to win a higher number of rounds than if they strictly 2s. This is a textbook classification problem! As input, you have a set of cards, and as output, you have a single number. More on this later.
-
-### 3. Overall architecture of a Judgement AI
+### 2. Overall architecture of a Judgement AI
 
 Judgement can really be thought of multiple separate games in a single game.
 
@@ -63,6 +55,18 @@ This is quite convenient, as when separated in this way, the game is actually ra
 *A note on the suitability of machine learning for Judgement:* For the same reason that I was able to generate advanced statistics for the game, Judgement is actually uniquely suited for the application of machine learning. Because it's convenient for scoring to happen within an Excel spreadsheet, the data from thousands of hands of Judgement was already precollected. For certain parts of a Judgement playing AI, I can use this data to augment the learning process.
 
 Additionally, the betting problem is a form of problem that is the bread and butter of machine learning, as I'll discuss in the next section.
+
+### 3. Training Environment
+
+To facilitate my future AI training endeavours, I needed a simulation environment within which to simulate an arbitrary number of games of Judgement. Within `JudgmentGame.py`, I encoded the rules of the game and the architecture to ask for bets and moves from multiple agents and simulate out an entire game. Within `JudgementAgent.py`, I created the default class which would provide the structure that a Judgement agent would need to have to interact with a `JudgementGame` object and declare it's bets and moves.
+
+On top of this foundation, I wrote entirely random betting and card-playing algorithms, as well as a simplistic betting algorithm and a simplistic card-playing algorithm to which aim to be slightly better than random.
+
+The simple betting algorithm takes into account how ambitious the bets made by the other Agents have already been - if other agents have made large bets and have high hopes of winning many rounds, the simple betting algorithm will tend to bet lower, and vice versa. Importantly, this algorithm pays no attention to the cards it is dealt.
+
+The simple card-playing algorithm implements a very bare-bones Judgement playing strategy, similar to a beginner player. If the agent has not yet reached its goal, it will try to win the round by playing the *highest* card possible, unless it cannot win, in which case it plays the *lowest* card possible. On the other hand, if its goal has already been reached, it attempts to lose the round wherever possible.
+
+Using these different elements, different types of agents can be created. For example, one agent could bet randomly and play simplistically, while another agent could bet simplistically and play randomly, and the head-to-head performance of these agents can be compared using `compare_agents.py`. This architecture will be invaluable in testing other, more advanced Judgement bots.
 
 ### 4. Betting AI
 
@@ -86,6 +90,47 @@ These considerations result in an architecture of the following form:
 
 ![complex_bet_arch](/assets/judgement/complex_bet.png)
 
-### 5. Playing AI
+This is somewhat more complex, but very manageable by a neural network (the layers sizes were chose by trial and error - having many more layers introduced issues with overfitting.)
+
+#### Acquiring betting data
+
+Even the best neural network architecture is limited by the amount of training data it can acquire. Unfortunately, the scoring sheet didn't record what cards each player had when making their bet, so data had to be collected in another way. Luckily, with the league I had a captive, Judgement-obssessed source of data generation.
+
+All I had to do was write some code which could generate sensible-seeming Judgement situations and hands (not as easy as it sounds - see `bet_data_generator.py`), wrap it in a clean UI, and recruit some friends to use the UI and bet as they would in a real game. 
+
+![bet_record_ui](/assets/judgement/betrecord_ui.png)
+
+For a few weeks, in their free time my friends (Robert Alexander and Alyson Resnick were especially prolific) would crank out some Judgement bets and send me their data to be used in training my AI. By the time the semester ended, I had a few thousand bet situations saved, and could begin training the AI.
+
+#### Initial training results
+
+Initial training results, even with this relatively small amount of trainin data, were shockingly positive. In a head to head match between:
+
+1. Agent betting with Neural Network, playing cards with simple algorithm
+2. Agent betting with simple algorithm, playing cards with simple algorithm
+3. Agent betting randomly, playing cards with simple algorithm
+4. Agent betting and playing randomly
+
+The agent betting with the Neural Network performs far and away the best of any agent:
+
+![mlbet_perform](/assets/judgement/mlbet_perform.png)
+
+For context, in typical human games, each player averages ~280 points. Sure, this algorithm's opponents were easier than other humans, but relative to the amount of training data and effort put into the algorithm, performance is surprisingly good. This can clearly be used as a baseline while moving on to the card-playing part of the AI.
+
+### 5. Card-playing AI
+
+Creating a card-playing AI using machine learning will be a significantly harder challenge. First of all, there is no simple way to collect training data.
+
+Because of this lack of training data, reinforcement learning seems significantly more attractive - by using millions of games of self-play, we can generate our own training data! Additionally, in contrast to many other reinforcement learning environments, the reward landscape is not as sparse. Although points are only awarded after all cards in a hand have been played, each time you play a card you can get feedback on whether or not you won the hand.
+
+Therefore, if we split the neural network evaluation into two parts: "grand strategy", determining whether we WANT to win a hand given our eventual goal, and "micro strategy", whether playing a given card will win us a hand, we may be able to use a much more rich reward environment to accelerate training.
+
+On the other hand, just because you want to win a hand doesn't mean you want to play the card that is MOST LIKELY to win a hand - sometimes you might want to save your best cards for later, even if they would increase your chances to win. From an architectural perspective, though, combining grand and micro strategy is a challenge, and one that is currently being worked on.
+
+Stay tuned for more updates - IN PROGRESS.
 
 ### 6. Combined AI
+
+Once both the card-playing and betting AI have been designed, they can be combined into a single agent.
+
+Stay tuned for more updates - IN PROGRESS.
