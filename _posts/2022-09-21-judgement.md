@@ -46,6 +46,8 @@ After all this effort and the heights of competition that were reached in the Ju
 
 Judgement can really be thought of multiple separate games in a single game.
 
+![flow](/assets/judgement/judgement_flow.png)
+
 As shown in the flow chart above, after cards are dealt, the player bets how many hands they think they can win. Once all bets are determined, the players then actually play out the rounds, trying to win exactly as many hands as they predicted while preventing other players from doing so.
 
 These two aspects of the game can be thought of as entirely separate. The input and output space corresponding to choosing a bet (IN: a hand of cards, other player's bets, etc. OUT: a single integer) are completely different than the input and output space of choosing a card from a hand of several cards, multiple times in a row until your hand is empty (IN: a hand of cards, the cards already in play, etc. OUT: a card in the players hand). Any attempt at developing an AI would have to separate these two parts of the game into separate algorithms.
