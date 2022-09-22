@@ -3,6 +3,16 @@ permalink: /about/
 title: "About"
 ---
 
-Tempor velit sint sunt ipsum tempor enim ad qui ullamco. Est dolore anim ad velit duis dolore minim sunt aliquip amet commodo labore. Ut eu pariatur aute ea aute excepteur laborum. Esse ea esse excepteur minim mollit qui cillum excepteur ex dolore magna. Labore deserunt fugiat incididunt incididunt sint ea. Consequat dolore aute laboris quis proident quis non et est consectetur ex eiusmod sit culpa.
+Grew up in Westchester NY, went to school at Rice University in Houston TX, now completing my US tour by attending grad school at the University of Washington.
 
-Cupidatat ea do et in excepteur in. Ad nostrud ut est esse eu duis ea sunt eiusmod. Aliquip tempor veniam sint elit fugiat. Velit incididunt laboris amet incididunt labore dolore irure velit excepteur commodo deserunt laborum. Consectetur eu fugiat veniam veniam Lorem labore magna eiusmod. Ea occaecat reprehenderit pariatur consectetur minim labore ut aliquip.
+Professionally, interested in GN&C, splacecraft flight software, machine learning.
+
+Un-professionally, interested in violin, soccer, music, books, hiking, reading, strategy games, travel, meeting as many new people as I can.
+
+Resume:
+
+<object data="/assets/8.29.22FlightControlResume" type="application/pdf" width="700px" height="700px">
+    <embed src="/assets/8.29.22FlightControlResume">
+        <p>This browser does not support PDFs. Please download the PDF to view it: <a href="/assets/8.29.22FlightControlResume">Download PDF</a>.</p>
+    </embed>
+</object>
