@@ -75,7 +75,7 @@ GN&C @NASA, NSF Graduate Research Fellow @UW Aero."
       url: "https://github.com/josh-holder"
     - label: "josh.holder72@gmail.com"
       icon: "far fa-fw fa-envelope"
-      url: "josh.holder72@gmail.com"
+      url: "https://mail.google.com/mail/u/0/#inbox"
     - label: "Stack Overflow"
       icon: "fab fa-fw fa-stack-overflow"
       url: "https://stackoverflow.com/users/12960701/jgholder"
@@ -91,7 +91,7 @@ footer:
       url: "https://github.com/josh-holder"
     - label: "josh.holder72@gmail.com"
       icon: "far fa-fw fa-envelope"
-      url: "josh.holder72@gmail.com"
+      url: "https://mail.google.com/mail/u/0/#inbox"
 
 defaults:
   # _posts
