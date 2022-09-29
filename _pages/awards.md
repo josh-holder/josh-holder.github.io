@@ -10,6 +10,7 @@ title: "Awards"
   * In connection with medical-robotics related Senior Capstone project at Rice
 * May 2022 - **Phi Beta Kappa, summa cum laude graduation honors**, Rice University
 * April 2022 - **NSF Graduate Research Fellowship**, National Science Foundation
+* April 2022 - **ARCS Scholar**, ARCS Foundation
 * January 2022 - **Most Outstanding MECH Senior**, Rice University
 * Fall 2020 - **NASA Pathways Special Achievement Award**, NASA Johnson Space Center
 * Summer 2020 - **NASA Pathways Special Achievement Award**, NASA Johnson Space Center
