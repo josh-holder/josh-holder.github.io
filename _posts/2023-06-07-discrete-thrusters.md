@@ -19,6 +19,10 @@ An investigation on the effect of discrete, on-off thruster constraints in traje
 
 Autonomous spacecraft rendezvous is an extremely challenging problem - a typical setup involves maneuvering a multi-ton, multi-million dollar vehicle within inches and degree-seconds of another multi-ton, multi-million dollar vehicle. Did I mention that both vehicles are already moving at ~7km/s? And that every extra pound of fuel you use probably cost thousands of dollars to lug to space?
 
+{:refdef: style="text-align: center;"}
+![base_docking](/assets/discrete_trajopt/1280px-Progress_M-05M_docking.jpg)
+{: refdef}
+
 I'm consistently shocked that this was first [accomplished by the Soviets in 1967](https://en.wikipedia.org/wiki/Docking_and_berthing_of_spacecraft), with laughably little compute and decades before the first self driving car. One factor that makes this problem far more tractable is that it can be performed in a highly controlled environment, using vehicles for which we have relatively accurate but nonetheless imperfect dynamics models. (Compare this to the problem of autonomous driving, which must be solved in highly dynamic environments, and while interacting with human drivers for which we have no accurate dynamics model.)
 
 What strategies exist to solve problems of this type, where we have a clear objective (reaching a destination using minimum fuel) and a relatively accurate dynamics models with some measure of uncertainty? In general, we can use "trajectory optimization" to compute paths for the spacecraft to take as they move towards eachother. What about when they inevitably diverge from that plan, given that we've acknowledged our dynamics model is imperfect - clearly, we need some way of adapting on the fly.
