@@ -37,7 +37,7 @@ In the rest of this blog, I'll explore how we can apply this framework to spacec
 
 We're now ready to describe the mathematics of our problem in such a way that we can apply existing optimization techniques. First, we need to define the way that the system evolves over time, both with and without thruster firings.
 
-## Autonomous Dynamics
+#### Autonomous Dynamics
 
 We're interested in the 6-DOF problem, which means we need to define both how the spacecraft translates AND rotates in space, in 3 dimensions.
 
@@ -53,3 +53,5 @@ $$\begin{bmatrix}x_{t+1}\\ y_{t+1} \\ z_{t+1} \\ \dot{x}_{t+1} \\ \dot{y}_{t+1} 
 test
 
 $help$
+
+$ help $
