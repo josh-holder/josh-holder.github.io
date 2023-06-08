@@ -44,3 +44,7 @@ We're interested in the 6-DOF problem, which means we need to define both how th
 For the translational dynamics, we assume a circular orbit, and we can thus use the blissfully simple [Clohessy Wiltshire equations](https://en.wikipedia.org/wiki/Clohessy%E2%80%93Wiltshire_equations) for relative motion in orbit. While the inclusion of orbital mechanics make them somewhat more complicated than a simple double integrator model, they still remain relatively workable.
 
 Attitude dynamics are another story, as anyone who has attempted to write a flight or robotics simulator no doubt understands. Rather than deal with the singularities associated with 3-dimensional representations of attitude (Euler angles, rodrigues parameters, etc.), I chose to use quaternions. (I like [this reference](https://vanhunteradams.com/Estimation/MUKF.html) for a quick review on attitude representations.)
+
+Using discrete time dynamics, our autonomous system (the system without input) then evolves as follows:
+
+$\begin{bmatrix}x_{t+1}\\ y_{t+1}\end{bmatrix}$
