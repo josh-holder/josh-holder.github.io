@@ -47,4 +47,5 @@ Attitude dynamics are another story, as anyone who has attempted to write a flig
 
 Using discrete time dynamics, our autonomous system (the system without input) then evolves as follows:
 
-$\begin{bmatrix}x_{t+1}\\ y_{t+1}\end{bmatrix}$
+$\begin{bmatrix}x_{t+1}\\ y_{t+1} \\ z_{t+1} \\ \dot{x}_{t+1} \\ \dot{y}_{t+1} \\ \dot{z}_{t+1} \\
+                q_{s,t+1} \\ q_{x,t+1} \\ q_{y,t+1} \\ q_{z,t+1} \\ \omega_{x,t+1} \\ \omega_{y,t+1} \\ \omega_{z,t+1}\end{bmatrix}$
