@@ -33,3 +33,10 @@ In the rest of this blog, I'll explore how we can apply this framework to spacec
 
 We're now ready to describe the mathematics of our problem in such a way that we can apply existing optimization techniques. First, we need to define the way that the system evolves over time, both with and without thruster firings.
 
+## Autonomous Dynamics
+
+We're interested in the 6-DOF problem, which means we need to define both how the spacecraft translates AND rotates in space, in 3 dimensions.
+
+For the translational dynamics, we assume a circular orbit, and we can thus use the blissfully simple [Clohessy Wiltshire equations](https://en.wikipedia.org/wiki/Clohessy%E2%80%93Wiltshire_equations) for relative motion in orbit. While the inclusion of orbital mechanics make them somewhat more complicated than a simple double integrator model, they still remain relatively workable.
+
+Attitude dynamics are another story, as anyone who has attempted to write a flight or robotics simulator no doubt understands. Rather than deal with the singularities associated with 3-dimensional representations of attitude (Euler angles, rodrigues parameters, etc.), I chose to use quaternions. (I like [this reference](https://vanhunteradams.com/Estimation/MUKF.html) for a quick review on attitude representations.)
