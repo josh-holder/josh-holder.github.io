@@ -1,4 +1,4 @@
----
+<!-- ---
 permalink: /awards/
 title: "Awards"
 ---
@@ -16,4 +16,4 @@ title: "Awards"
 * Summer 2020 - **NASA Pathways Special Achievement Award**, NASA Johnson Space Center
 * December 2019 - **Chevron Scholarship**, Rice University
 * May 2019 - **Louis J. Walsh Scholarship**, Rice University
-* June 2017 - **National AP Scholar**, College Board
+* June 2017 - **National AP Scholar**, College Board -->
