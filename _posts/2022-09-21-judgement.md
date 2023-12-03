@@ -1,8 +1,3 @@
-<style>
-body, p {
-    font-size: 10px;
-}
-</style>
 ---
 title: "Human-level Trick-Taking Card Game AI "
 excerpt_separator: "<!--more-->"
