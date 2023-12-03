@@ -20,7 +20,7 @@ Leveraging RL and supervized learning to optimally play [Judgement](https://en.w
 
 [Background: The League of Judgement](#1-background-the-league-of-judgement)
 
-[Key Insight: Architecture](#2-overall-architecture-of-a-judgement-ai)
+[Key Insight: Creative NN Architecture](#2-overall-architecture-of-a-judgement-ai)
 
 [Training Environment](#3-training-environment)
 
@@ -42,7 +42,7 @@ advanced statistics (and there about 25 more stats not in this screenshot):
 
 and an entire league system complete with seeding and playoffs, where eight of my friends and I played dozens of games of Judgement at locations as varied as coffee shops, the laundry room, and of course IHOP:
 
-![ihop](/assets/judgement/ihop.JPG){: width="500px"}
+![ihop](/assets/judgement/ihop_wide.JPG){: width="500px"}
 
 After all this effort and the heights of competition that were reached in the Judgement League, it was only natural that I would try to use computers to defeat my friends at the game.
 
