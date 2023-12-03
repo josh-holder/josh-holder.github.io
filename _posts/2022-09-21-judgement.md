@@ -9,6 +9,10 @@ tags:
   - Machine Learning
 ---
 
+body, p {
+    font-size: 12px;
+}
+
 Leveraging RL and supervized learning to optimally play [Judgement](https://en.wikipedia.org/wiki/Kachufool), a playing card game which I've played far, *far* too much of [(repository here)](https://github.com/josh-holder/JudgmentBot), with applications to general trick-taking games.
 {: .notice}
 
@@ -30,15 +34,15 @@ Leveraging RL and supervized learning to optimally play [Judgement](https://en.w
 
 Over my college career, I played a LOT of the trick-taking card game called Judgement/Kachufool (rules [here](https://card-games.wonderhowto.com/how-to/play-card-game-judgment-0122237/)). An embarassing amount, almost. So much so that I developed an entire software based infastructure around the game, including automated scoring:
 
-![scoring](/assets/judgement/judgement_scoring.png){: width="300px"}
+![scoring](/assets/judgement/judgement_scoring.png){: width="500px"}
 
 advanced statistics (and there about 25 more stats not in this screenshot):
 
-![stats](/assets/judgement/judgement_stats.png)
+![stats](/assets/judgement/judgement_stats.png){: width="500px"}
 
 and an entire league system complete with seeding and playoffs, where eight of my friends and I played dozens of games of Judgement at locations as varied as coffee shops, the laundry room, and of course IHOP:
 
-![ihop](/assets/judgement/ihop.JPG)
+![ihop](/assets/judgement/ihop.JPG){: width="500px"}
 
 After all this effort and the heights of competition that were reached in the Judgement League, it was only natural that I would try to use computers to defeat my friends at the game.
 
