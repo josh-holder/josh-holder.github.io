@@ -35,7 +35,7 @@ Leveraging RL and supervized learning to optimally play [Judgement](https://en.w
 
 Over my college career, I played a LOT of the trick-taking card game called Judgement/Kachufool (rules [here](https://card-games.wonderhowto.com/how-to/play-card-game-judgment-0122237/)). An embarassing amount, almost. So much so that I developed an entire software based infastructure around the game, including automated scoring:
 
-![scoring](/assets/judgement/judgement_scoring.png)
+![scoring](/assets/judgement/judgement_scoring.png){: width="300px"}
 
 advanced statistics (and there about 25 more stats not in this screenshot):
 
