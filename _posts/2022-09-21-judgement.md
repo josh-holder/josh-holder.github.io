@@ -1,3 +1,8 @@
+<style>
+body, p {
+    font-size: 10px;
+}
+</style>
 ---
 title: "Human-level Trick-Taking Card Game AI "
 excerpt_separator: "<!--more-->"
@@ -16,7 +21,7 @@ Leveraging RL and supervized learning to optimally play [Judgement](https://en.w
 
 [Background: The League of Judgement](#1-background-the-league-of-judgement)
 
-[Overall Architecture of a Judgement AI](#2-overall-architecture-of-a-judgement-ai)
+[Key Insight: Architecture](#2-overall-architecture-of-a-judgement-ai)
 
 [Training Environment](#3-training-environment)
 
@@ -28,7 +33,7 @@ Leveraging RL and supervized learning to optimally play [Judgement](https://en.w
 
 ### 1. Background: The League of Judgement
 
-Over my college career, I've played a LOT of the trick-taking card game called Judgement/Kachufool (rules [here](https://card-games.wonderhowto.com/how-to/play-card-game-judgment-0122237/)). An embarassing amount, almost. So much so that I developed an entire software based infastructure around the game, including automated scoring:
+Over my college career, I played a LOT of the trick-taking card game called Judgement/Kachufool (rules [here](https://card-games.wonderhowto.com/how-to/play-card-game-judgment-0122237/)). An embarassing amount, almost. So much so that I developed an entire software based infastructure around the game, including automated scoring:
 
 ![scoring](/assets/judgement/judgement_scoring.png)
 
