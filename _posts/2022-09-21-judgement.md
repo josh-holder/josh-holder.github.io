@@ -8,12 +8,12 @@ tags:
   - Game Theory
   - Machine Learning
 ---
-
+<!-- 
 <style>
 body, p {
     font-size: 10px;
 }
-</style>
+</style> -->
 
 Leveraging RL and supervized learning to optimally play [Judgement](https://en.wikipedia.org/wiki/Kachufool), a playing card game which I've played far, *far* too much of [(repository here)](https://github.com/josh-holder/JudgmentBot), with applications to general trick-taking games.
 {: .notice}
