@@ -1,5 +1,5 @@
 ---
-title: "Judgement Card Game AI"
+title: "Human-level Trick-Taking Card Game AI "
 excerpt_separator: "<!--more-->"
 categories:
   - Independent Project
@@ -9,7 +9,7 @@ tags:
   - Machine Learning
 ---
 
-An ongoing investigation into the use of machine learning algorithms to optimally play [Judgement](https://en.wikipedia.org/wiki/Kachufool), a playing card game which I've played far, *far* too much of [(repository here)](https://github.com/josh-holder/JudgmentBot).
+Leveraging RL and supervized learning to optimally play [Judgement](https://en.wikipedia.org/wiki/Kachufool), a playing card game which I've played far, *far* too much of [(repository here)](https://github.com/josh-holder/JudgmentBot), with applications to general trick-taking games.
 {: .notice}
 
 ### Quick Links
