@@ -15,7 +15,7 @@ body, p {
 }
 </style> -->
 
-Leveraging a 2016 Macbook Pro along with reinforcement, imitation, and supervized learning to optimally play [Judgement](https://en.wikipedia.org/wiki/Kachufool), a playing card game which I've played far, *far* too much of [(repository here - try your hand at beating the bot!)](https://github.com/josh-holder/JudgmentBot), with applications to general trick-taking games.
+Leveraging a 2016 Macbook Pro along with reinforcement, imitation, and supervised learning to beat humans at [Judgement](https://en.wikipedia.org/wiki/Kachufool), a playing card game which I've played far, *far* too much of [(repository here - try your hand at beating the bot!)](https://github.com/josh-holder/JudgmentBot), with applications to general trick-taking games.
 {: .notice}
 
 ### Quick Links
@@ -175,7 +175,7 @@ Here, I started to deeply relate to perhaps [the most famous RL blogpost](https:
 
 First, I tested this algorithm against the heuristic agents previously mentioned.
 
-![beat_heuristic](/assets/judgement/trained_results.png)
+![beat_heuristic](/assets/judgement/trained_results.png){: width="400px"}
 
 Clearly, the RL-trained agent blows the agent it was trained on out of the water, showing clear improvement from the bootstrapped solution. It's all well and good to beat the training data, but I knew I wouldn't be satisfied unless the bot could beat *me*. Thus, I played a few games - although I did manage to win my first two games against the bot, it performed respectably. And in the third game, it finally happened:
 
