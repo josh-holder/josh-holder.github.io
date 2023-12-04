@@ -15,7 +15,7 @@ body, p {
 }
 </style> -->
 
-Leveraging a 2016 Macbook and reinforcement, imitation, and supervized learning to optimally play [Judgement](https://en.wikipedia.org/wiki/Kachufool), a playing card game which I've played far, *far* too much of [(repository here - try your hand at beating the bot!)](https://github.com/josh-holder/JudgmentBot), with applications to general trick-taking games.
+Leveraging a 2016 Macbook Pro along with reinforcement, imitation, and supervized learning to optimally play [Judgement](https://en.wikipedia.org/wiki/Kachufool), a playing card game which I've played far, *far* too much of [(repository here - try your hand at beating the bot!)](https://github.com/josh-holder/JudgmentBot), with applications to general trick-taking games.
 {: .notice}
 
 ### Quick Links
@@ -132,40 +132,65 @@ The other significant nuance is how to deal with information on other agents. Th
 
 Thus, the architecture of the action model is structured as follows:
 
-![eval_model](/assets/judgement/eval_model.png){: width="300px"} ![act_model](/assets/judgement/act_model.png){: width="300px"}
+![eval_model](/assets/judgement/eval_model.png){: width="500px"}
+
+![act_model](/assets/judgement/act_model.png){: width="500px"}
 
 
-#### Initial training results
-
-Initial training results, even with this relatively small amount of data, were shockingly positive. In a head to head match between an:
-
-1. Agent betting with Neural Network, playing cards with simple algorithm
-2. Agent betting with simple algorithm, playing cards with simple algorithm
-3. Agent betting randomly, playing cards with simple algorithm
-4. Agent betting and playing randomly
-
-The agent betting with the Neural Network performs far and away the best of any agent:
-
-![mlbet_perform](/assets/judgement/mlbet_perform.jpg)
-
-For context, in typical human games, each player averages ~280 points. Sure, this algorithm's opponents were easier than other humans, but relative to the amount of training data and effort put into the algorithm, performance is surprisingly good. This can clearly be used as a baseline while moving on to the card-playing part of the AI.
+In order to choose a card to play, an agent calls the action model on each feasible card to play in the hand (which also calls the evaluation model as a byproduct), and selects the card which returned the highest expected value out of the model.
 
 ### 5. Training: RL, SL, and the Kitchen Sink
 
-Creating a card-playing AI using machine learning will be a significantly harder challenge. First of all, there is no simple way to collect training data.
+It was now time for the training process. Again, due to limited compute, I used the groundwork I had laid to bootstrap the model to a reasonable starting point before attempting to use end-to-end reinforcement learning.
 
-Because of this lack of training data, reinforcement learning is an attractive option - by using millions of games of self-play, we can generate our own training data! Additionally, in contrast to many other reinforcement learning environments, the reward landscape is not as sparse. Although points are only awarded after all cards in a hand have been played (after up to 13 decisions have been made), each time you play a card you can get feedback on whether or not you won the hand.
+#### Bootstrapping policies with supervised and "imitation" learning
 
-Therefore, if we split the neural network evaluation into two parts: "grand strategy", determining whether we WANT to win a hand given our eventual goal, and "micro strategy", whether playing a given card will win us a hand, we may be able to use a much richer reward environment to accelerate training.
+To bootstrap the betting model, I set up a simple supervised learning pipeline on the human-collected data. This was shockingly effective - by combining the ML betting model with a simple trick-taking policy (the heuristic algorithm), I could blow other agents out of the water and score around 200 points, a respectable score for humans (albeit against significantly weaker opponents).
 
-On the other hand, just because you want to win a hand doesn't mean you want to play the card that is MOST LIKELY to win a hand - sometimes you might want to save your best cards for later, even if they would increase your chances to win now. From an architectural perspective, though, combining grand and micro strategy is a challenge. 
+![mlbet_perform](/assets/judgement/mlbet_perform.jpg){: width="500px"}
 
-With all of these considerations in play, I'm still in the process of formulating the best way to structure the algorithm for optimal performance. Stay tuned for more updates - IN PROGRESS.
+To pretrain the action and evaluation models, I implemented to simplest possible version of imitation learning - I simulated several thousand games of the heuristic policy + the bootstrapped betting model, collected data, and then trained the initial action and evaluation models in a supervised fashion on the collected data.
+
+#### Self-play
+
+After pretraining, I had an agent with performance similar to the ML Bet + Simple Algorithm from the previous chart. Critically, though, the action policy was now a neural network, and thus had the potential to become far better with further training. To go beyond the heuristic policies towards a policy that could be truly human level, I had no other options but to turn to pure reinforcement learning and self play.
+
+I was aware that this would be a highly challenging learning environment:
+
+1. In multiagent settings, there can be possibly infinite Nash Equilibria, making local minima more worrisome. Self-play in this scenario might converge to a strange meta which doesn't translate to the meta associated with human play.
+2. By training three networks at once, training would be slow, and the optimization environment would likely be extremely challenging. Gradient updates in one of the three networks could counteract updates in another network
+3. Due to simplications in the network architecture, the agents wouldn't have access to all the same information that human players due, inherently limiting the ceiling of performance
+
+Despite this though, I decided to push ahead and see how far I could get. 
+
+My first attempt was [DQN](https://arxiv.org/abs/1312.5602) - implementing the necessary data pipelines, replay buffers, gradient updates, was a level of software engineering my Mechanical Engineering training did not at all prepare me for. I have a newfound respect for data scientists and viscerally understand statements to the effect of "the hard part of machine learning is wrangling data." Eventually, though, I was able to get training up and running (`dqn_train.py`) and started seeing significant score improvements.
+
+However, I ran into a persistent issue throughout the training, which was that DQN necessitated a high computational load, memory, and RAM requirement to fit the entire replay buffer in memory - I continually had to reduce the size of the buffer and make other compromises, and felt that this was hindering performance. At a certain point in development I had the bright idea to switch from TD-learning style updates to Monte-Carlo estimates of rewards. My thinking at the time was that this would reduce the size of my replay buffer, provide more accurate ideas of my rewards, and reduce computational load by reducing calls to the action model. It did have the effect of speeding training and reducing memory requirements, but perhaps unsurprisingly, I soon began to run into issues with gradient explosion which were frustratingly stubborn. ([This stackoverflow post](https://ai.stackexchange.com/questions/34952/is-using-monte-carlo-estimate-of-returns-in-deep-q-learning-possible), which I discovered later, provides a compelling explanation for why this bright idea may not have been so bright.)
+
+Not knowing how to fix this at the time, I decided to shift to a [A3C](https://arxiv.org/pdf/1602.01783.pdf) approach to training, which would hopefully increase training stability, remove the annoying memory requirements for the replay buffer, and allow me to take advantage of greater parallelization. After implementing this (`a3c_train.py`), the gradient explosion issues were gone due to the increased stability from taking training data from disparate parts of the state space, but training simply refused to improve further.
+
+Here, I started to deeply relate to perhaps [the most famous RL blogpost](https://www.alexirpan.com/2018/02/14/rl-hard.html). RL truly *is* hard, and most infuriatingly, provides little signal as to *why* things aren't working when performance refuses to go up. I flailed around for quite a while, tried different evaluation metrics, hijacked my lab computer's GPU, and yet the agent was still firmly stuck. I still have a plethora of ideas of how to further improve performance, but wanting to move onto other personal projects, I decided to simply see if I could quantify just how far the self-play had gotten me and get some closure.
 
 ### 6. Testing the AI
 
-Once both the card-playing and betting AI have been designed, they can be combined into a single agent.
+First, I tested this algorithm against the heuristic agents previously mentioned.
 
-Stay tuned for more updates - IN PROGRESS.
+Clearly, the RL-trained agent is significantly more performant than the simple heuristic algorithm.
+
+Of course, I knew I wouldn't be satisfied unless the bot could beat ME. Thus, I played a few games - although I did manage to win my first two games against the bot, it performed respectably. And in the third game, it finally happened:
+
+![beat_human](/assets/judgement/beat_human.png){: width="500px"}
+
+It beat me, and with an extremely impressive score of 713! Although the policy is still inconsistent and likely exploitable, scoring 700+ points and outperforming a human player is no small feat, and demonstrated significant understanding of the mechanics and strategy of Judgement. After over a year of work, I finally feel satisfied.
 
 ### 7. Towards Superhuman Performance
+
+Despite having the ability to beat an experienced Judgement player on a good day, the bot is still far from superhuman performance. I have several ideas for further improving performance, which I may or may not attempt in the future.
+
+1. Buy a GPU and train larger models, for longer! This would allow me to use larger replay buffers and true TD-learning updates to see how far I can push DQN.
+2. Implement true MARL strategies, rather than applying naïve single agent RL training approaches to the multi-agent setting
+3. Rather than RL, use [counterfactual regret minimization](https://arxiv.org/pdf/1811.00164.pdf) as was used to achieve superhuman performance in multi-agent poker
+4. Try new training methods - perhaps it's best to train each model one at a time in sequence. This could improve stability because when gradient are updates are made w/r/t one model, behavior of other models is consistent
+5. Increase the amount of information available to models (although this would also require significant increases in computing resources).
+
+Overall, this was a fantastic excuse to level up my software engineering, machine learning practitioner, and Judgment-playing skills. One day, I'd love to apply these ideas to achieve superhuman AI at not only Judgment, but all trick-taking card games.
