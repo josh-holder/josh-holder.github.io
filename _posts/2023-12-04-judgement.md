@@ -175,13 +175,13 @@ Here, I started to deeply relate to perhaps [the most famous RL blogpost](https:
 
 First, I tested this algorithm against the heuristic agents previously mentioned.
 
-Clearly, the RL-trained agent is significantly more performant than the simple heuristic algorithm.
+![beat_heuristic](/assets/judgement/trained_results.png)
 
-Of course, I knew I wouldn't be satisfied unless the bot could beat ME. Thus, I played a few games - although I did manage to win my first two games against the bot, it performed respectably. And in the third game, it finally happened:
+Clearly, the RL-trained agent blows the agent it was trained on out of the water, showing clear improvement from the bootstrapped solution. It's all well and good to beat the training data, but I knew I wouldn't be satisfied unless the bot could beat *me*. Thus, I played a few games - although I did manage to win my first two games against the bot, it performed respectably. And in the third game, it finally happened:
 
 ![beat_human](/assets/judgement/beat_human.png){: width="500px"}
 
-It beat me, and with an extremely impressive score of 713! Although the policy is still inconsistent and likely exploitable, scoring 700+ points and outperforming a human player is no small feat, and demonstrated significant understanding of the mechanics and strategy of Judgement. After over a year of work, I finally feel satisfied.
+It beat me, and with an extremely impressive score of 724! Although the policy is still inconsistent and likely exploitable, scoring 700+ points and outperforming a human player is no small feat, and demonstrated significant understanding of the mechanics and strategy of Judgement. After over a year of work, I finally feel satisfied.
 
 ### 7. Towards Superhuman Performance
 
@@ -193,4 +193,4 @@ Despite having the ability to beat an experienced Judgement player on a good day
 4. Try new training methods - perhaps it's best to train each model one at a time in sequence. This could improve stability because when gradient are updates are made w/r/t one model, behavior of other models is consistent
 5. Increase the amount of information available to models (although this would also require significant increases in computing resources).
 
-Overall, this was a fantastic excuse to level up my software engineering, machine learning practitioner, and Judgment-playing skills. One day, I'd love to apply these ideas to achieve superhuman AI at not only Judgment, but all trick-taking card games.
+Overall, this was a fantastic excuse to level up my software engineering, machine learning practitioner, and Judgment-playing skills. One day, I'd love to apply these ideas to develop an AI which is superhuman not only at Judgment, but at all trick-taking card games.
