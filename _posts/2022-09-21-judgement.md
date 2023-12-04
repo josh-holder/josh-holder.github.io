@@ -66,7 +66,7 @@ With a clear path forward, it remained to figure out the many, many details of s
 
 ### 3. Data, Data, Data
 
-As with almost all projects in AI, the first bottleneck was training data. While my spreadsheet captured enough information to develop detailed performance statistics, it didn't involve the critical data needed about what cards players had in their hands when they were making their decisions - I needed to obtain this data some other way.
+As with almost all projects in ML, the first bottleneck was training data. While my spreadsheet captured enough information to develop detailed performance statistics, it didn't record the critical data needed about what cards players had in their hands when they were making their decisions - I needed to obtain this data some other way.
 
 As a AlphaGo fan, I was of course tempted to use pure RL and self-play to brute-force a sensible policy. Given my extremely limited compute, though, I was not quite naïve enough to believe that would work. I would need to get more creative.
 
@@ -82,15 +82,15 @@ While the structure of the machine learning problem for the trick-taking phase i
 
 Judgment is a game that is relatively amenable to a heuristic policy for actually playing cards. The heuristic algorithm implements a very bare-bones Judgement playing strategy, similar to a beginner player. If the agent has not yet reached its goal, it will try to win the round by playing the *highest* card possible, unless it cannot win, in which case it plays the *lowest* card possible. On the other hand, if its goal has already been reached, it attempts to lose the round with the largest card possible.
 
-By running this heuristic policy for thousands of games in my simulated environment, I could generate an arbitrary amount of input-output data with which to use in imitation learning later.
+By running this heuristic policy for thousands of games in my simulated environment, I could generate an arbitrary amount of input-output data to use in imitation learning later.
 
 On top of this foundation, I wrote entirely random betting and card-playing algorithms, as well as a simplistic betting algorithm and a simplistic card-playing algorithm to which aim to be slightly better than random.
 
 #### Generating betting data
 
-Although the betting machine learning problem is simpler, policies are significantly harder to create (in fact, this is where much of the strategy of the game comes in). It's almost impossible to come up with a reasonable heuristic policy for this problem. I needed to find a way to get real human data on bets. Luckily, I had a captive audience of Judgement-obssessed friends to serve as data-collection drones.
+Although the betting machine learning problem is simpler, it's far harder to develop a heuristic policy (in fact, this is where much of the strategy of the game comes in). I needed to find a way to get *human* data on bets. 
 
-All I had to do was write some code which could generate sensible-seeming Judgement situations and hands (not as easy as it sounds - see `bet_data_generator.py`), wrap it in a clean UI, and recruit some friends to use the UI and bet as they would in a real game. 
+Luckily, I had a captive audience of Judgement-obssessed friends to serve as data-collection drones - all I had to do was write provide them the tools. I wrote some code which could generate sensible-seeming Judgement situations and hands (not as easy as it sounds - see `bet_data_generator.py`), wrapped it in a clean UI, and recruited some friends to use the UI and bet as they would in a real game. 
 
 ![bet_record_ui](/assets/judgement/betrecord_ui.png)
 
@@ -102,11 +102,11 @@ With a large amount of data collected, and a plan to acquire much more, I began 
 
 #### Pre-round phase model
 
-Betting comprises a large part of the complexity of the game. At the start of every round of Judgement, the player is dealt a hand of cards, and based on this hand of cards, needs to respond with a number of hands they think they can win. For example, if the player has all Aces, a high card, they might expect to win a higher number of rounds than if they have all 2s, a low card. 
+Betting comprises a large part of the complexity of the game. At the start of every round of Judgement, the player is dealt a hand of cards, and based on this hand of cards, needs to respond with a number of hands they think they can win. For example, if the player has all Aces (a high card), they might expect to win a higher number of rounds than if they have all 2s, a low card. 
 
 In simple terms, as input, you have a set of cards, and as output, you have a single integer. This is a textbook classification problem, and thus a standard neural network is a perfect choice for this algorithm - the architecture writes itself! In plain english, the architecture input/output relationship should look something like this:
 
-![simple_bet_arch](/assets/judgement/simple_bet.png)
+<!-- ![simple_bet_arch](/assets/judgement/simple_bet.png)
 
 However, in reality, when trying to make this palatable for a neural network to take as input, things need to get a bit more complicated for several reasons:
 
@@ -114,21 +114,21 @@ However, in reality, when trying to make this palatable for a neural network to 
 2. When at least one player bets zero, the round is fundamentally different than a round in which noone bets zero, thus the neural network has to have access to this information. Any solution to issue 1 needed to also ensure that the algorithm still had access to this information. 
 3. Data normalization - in round 1, bet sizes will be far different than in round 13. This requires careful consideration about scaling of the input data.
 
-These considerations result in an architecture of the following form:
+These considerations result in an architecture of the following form: -->
 
 ![complex_bet_arch](/assets/judgement/complex_bet.png)
 
-Rather than using something like a RNN to handle variable amounts of betting data, we simply add all previous bets together and take it as a percentage of the maximum, being sure to also feed the network the number of zero bets directly. This bakes in a certain amount of human knowledge into the network (i.e. zero bets are uniquely important) and makes it harder for the agent to learn behaviors like "hate-betting," but greatly speeds training. Layer sizes were chosen with trial and error, aiming to strike a balance between overfitting, computational speed, and expressiveness.
+Rather than using something like a RNN to handle variable amounts of previous bets, we simply add all previous bets together and take it as a percentage of the maximum, being sure to also feed the network the number of zero bets directly. This bakes in a certain amount of human knowledge into the network (i.e. zero bets are uniquely important) and makes it harder for the agent to learn behaviors like "hate-betting," but greatly speeds training. Layer sizes were chosen with trial and error, aiming to strike a balance between overfitting, computational speed, and expressiveness.
 
 #### Trick-taking phase model
 
-In my opinion, the design of the trick-taking model is where the critical insight of project lies, and the secret of its success despite extremely limited computational resources. A naïve model might do simply play all it's cards one after another, receive it's rewards at the end of the round, and perform RL updates on this information.
+In my opinion, the critical insight of the project lies in the design of the trick-taking model, and is the secret of its success in the face of extremely limited computational resources. A naïve model might simply play all its cards one after another, receive its rewards at the end of the round, and perform RL updates on this information.
 
-This would be a mistake though: trick-taking card games provide a rich source of feedback which comes each and every time you play a card, not just at the end of the round - namely, did you win or lose the hand! Often, in Judgement, you have a clear idea of whether you want to win or lose a specific hand, but the strategy emerges when you try to select what card to play to let this happen.
+This would, however, be a mistake: trick-taking card games provide a rich source of feedback which comes each and every time you play a card, not just at the end of the round - namely, did you win or lose the hand! Often in Judgement, you have a clear idea of whether you want to win or lose a specific hand - the skill emerges when you have to predict what card will achieve this for you.
 
-Therefore, in addition to a "what card to play" model, we can create an intermediate "evaluation" which determines, given playing a card, the likelihood of winning the round with that card. Given the high frequency of feedback (~676 data points per game simulated, compared to 100 scoring and betting events per game), this model can quickly become very effective, and using it as an input to the larger "what card to play"/action model allows for a significant performance boost. 
+Therefore, in addition to a "what card to play" model (action model), we can create an intermediate "evaluation" model which determines, given a certain card is played, the likelihood of winning the round with that card. Given the high frequency of feedback (~676 data points per game simulated, compared to 100 scoring and betting events per game), this model can quickly become very highly predictive. This information is invaluable to the larger model, and in effect allows the action model to skip having to learn this critical predictive model on its own.
 
-The other significant nuance is how to deal with information on other agents. This information (points scored, their target bet, how many hands they've won thus far, what cards they've already played) is clearly critical to the decision of what card to play, but determining the best represenation for this information can be somewhat difficult because the number of agents going before and after the current agent is variable. For example, if the agent is going first, the list of agents who have already played is 0, but the list of agents yet to play is 3 - this changes as the position of the current agent changes. To handle this variablity, we use an LSTM structure for the agents yet to come.
+The other significant nuance is how to deal with information on other agents. This information (points scored, their target bet, how many hands they've won thus far, what cards they've already played) is clearly critical to the decision of what card to play, but determining the best represenation for this information is difficult because the number of agents going before and after the current agent is variable. For example, if the agent is going first, the length of list of agents who have already played is 0, but the length of the list of agents yet to play is 3 - this changes as the position of the current agent changes. To handle this variablity, we use an LSTM structure for the agents yet to come.
 
 Thus, the architecture of the action model is structured as follows:
 
