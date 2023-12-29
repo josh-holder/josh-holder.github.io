@@ -1,8 +1,8 @@
 main:
   - title: "thoughts"
-    url: /writings/
+    url: /thoughts/
   - title: "creations"
-    url: /projects/
+    url: /creations/
   - title: "categories"
     url: /tags/
   - title: "about me"

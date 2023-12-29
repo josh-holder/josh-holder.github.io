@@ -59,7 +59,7 @@ plugins:
   - jekyll-include-cache
 
 author:
-  name   : "Josh Holder"
+  name   : "josh holder"
   avatar : "/assets/images/prof_pic_nasa_small.jpeg"
   bio    : "i write code for spaceships (and other things) 🚀🤖🃏🌱"
   links:
