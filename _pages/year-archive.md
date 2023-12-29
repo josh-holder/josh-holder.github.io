@@ -1,5 +1,5 @@
 ---
-title: "Projects"
-permalink: /projects/
+title: "All Posts"
+permalink: /posts/
 layout: posts
 ---
