@@ -120,3 +120,6 @@ category_archive:
 tag_archive:
   type: liquid
   path: /tags/
+writings_archive:
+  type: liquid
+  path: /categories/writings/
