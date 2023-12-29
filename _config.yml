@@ -122,4 +122,7 @@ tag_archive:
   path: /tags/
 writings_archive:
   type: liquid
-  path: /categories/writings/
+  path: /writings/
+projects_archive:
+  type: liquid
+  path: /projects/

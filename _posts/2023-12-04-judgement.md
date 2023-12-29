@@ -2,7 +2,7 @@
 title: "Human-level Trick-Taking Card Game AI "
 excerpt_separator: "<!--more-->"
 categories:
-  - Independent Project
+  - projects
 tags:
   - Algorithms
   - Game Theory
