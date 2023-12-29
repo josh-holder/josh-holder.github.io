@@ -1,8 +1,8 @@
 ---
 title: creations
 layout: collection
-permalink: /projects/
-collection: projects
+permalink: /creations/
+collection: creations
 entries_layout: grid
 classes: wide
 ---
