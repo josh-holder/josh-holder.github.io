@@ -1,8 +1,6 @@
 ---
 title: "Writings"
-layout: categories
 permalink: /writings/
-author_profile: true
 ---
 
 {% for post in site.categories.projects %}
