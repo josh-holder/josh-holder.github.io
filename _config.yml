@@ -13,7 +13,7 @@
 # you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
-title: jholder | portfolio + thoughts
+title: jholder | thoughts + creations
 email: josh.holder72@gmail.com
 description: >- # this means to ignore newlines until "baseurl:"
   Every once in a while when I do something interesting, I'll try to post it here. Included but not limited to, game-playing AI, large wooden structures, general musings.
@@ -61,15 +61,15 @@ plugins:
 author:
   name   : "Josh Holder"
   avatar : "/assets/images/prof_pic_nasa_small.jpeg"
-  bio    : "I write code for spaceships (and other things) 🚀🤖🃏🌱"
+  bio    : "i write code for spaceships (and other things) 🚀🤖🃏🌱"
   links:
-    - label: "LinkedIn"
+    - label: "linkedin"
       icon: "fab fa-fw fa-linkedin"
       url: "https://www.linkedin.com/in/joshua-holder-798386155/"
-    - label: "Twitter"
+    - label: "twitter"
       icon: "fab fa-fw fa-twitter-square"
       url: "https://twitter.com/joshgholder"
-    - label: "GitHub"
+    - label: "github"
       icon: "fab fa-fw fa-github"
       url: "https://github.com/josh-holder"
     - label: "josh.holder72@gmail.com"

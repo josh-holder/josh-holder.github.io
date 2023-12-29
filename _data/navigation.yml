@@ -1,11 +1,11 @@
 main:
-  - title: "Writings"
+  - title: "thoughts"
     url: /writings/
-  - title: "Projects"
+  - title: "creations"
     url: /projects/
-  - title: "Tags"
+  - title: "categories"
     url: /tags/
-  - title: "About"
+  - title: "about me"
     url: /about/
   # - title: "Awards"
   #   url: /awards/
