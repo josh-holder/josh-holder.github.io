@@ -113,23 +113,20 @@ defaults:
     values:
       layout: single
       author_profile: true
-  # _projects
+  # _creations
   - scope:
-      path: "_projects"
-      type: projects
+      path: "_creations"
+      type: creations
     values:
       layout: single
       author_profile: false
       share: true
 
-category_archive:
-  type: liquid
-  path: /categories/
 tag_archive:
   type: liquid
   path: /tags/
 
 collections:
-  projects:
+  creations:
     output: true
     permalink: /:collection/:path/
