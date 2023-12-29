@@ -113,10 +113,10 @@ defaults:
     values:
       layout: single
       author_profile: true
-  # _writings
+  # _projects
   - scope:
-      path: ""
-      type: writings
+      path: "_projects"
+      type: projects
     values:
       layout: single
       author_profile: false
@@ -130,6 +130,6 @@ tag_archive:
   path: /tags/
 
 collections:
-  writings:
+  projects:
     output: true
     permalink: /:collection/:path/

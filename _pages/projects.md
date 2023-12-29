@@ -1,8 +1,8 @@
 ---
-title: Writings
+title: Projects
 layout: collection
-permalink: /writings/
-collection: writings
+permalink: /projects/
+collection: projects
 entries_layout: grid
 classes: wide
 ---
