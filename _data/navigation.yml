@@ -1,9 +1,9 @@
 main:
-  - title: "thoughts"
-    url: /thoughts/
-  - title: "creations"
-    url: /creations/
-  - title: "categories"
+  - title: "writings"
+    url: /writings/
+  - title: "projects"
+    url: /projects/
+  - title: "posts by topic"
     url: /tags/
   - title: "about me"
     url: /about/
