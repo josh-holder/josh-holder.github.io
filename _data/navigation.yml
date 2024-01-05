@@ -1,8 +1,8 @@
 main:
   - title: "writings"
-    url: /writings/
+    url: /categories/writings/
   - title: "projects"
-    url: /projects/
+    url: /categories/projects/
   - title: "posts by topic"
     url: /tags/
   - title: "about me"

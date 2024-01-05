@@ -1,6 +1,6 @@
 ---
 title: "writings"
-permalink: /writings/
+permalink: /categories/writings/
 layout: categories
     taxonomy: writings
 ---

@@ -113,14 +113,6 @@ defaults:
     values:
       layout: single
       author_profile: true
-  # _creations
-  - scope:
-      path: "_creations"
-      type: creations
-    values:
-      layout: single
-      author_profile: false
-      share: true
 
 tag_archive:
   type: liquid
