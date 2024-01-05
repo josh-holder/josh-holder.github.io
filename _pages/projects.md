@@ -1,6 +1,6 @@
 ---
 title: "projects"
-permalink: /categories/projects/
+permalink: /projects/
 layout: category
 taxonomy: projects
 ---
