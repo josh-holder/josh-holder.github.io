@@ -1,3 +1,13 @@
+---
+title: "A perspective on the decoupling of spacecraft launch cost with spacecraft mass and volume"
+excerpt_separator: "<!--more-->"
+categories:
+  - writings
+  - featured
+tags:
+  - Spaceflight
+---
+
 ### Summary
 
 With new reusable heavy-lift launch vehicles on the horizon, spacecraft mass and volume will no longer be a major cost driver for space missions. This will massively expand the design space for future missions and drive an explosion in growth for the space economy.
