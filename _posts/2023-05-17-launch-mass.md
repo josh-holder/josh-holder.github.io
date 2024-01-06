@@ -8,6 +8,9 @@ tags:
   - Spaceflight
 ---
 
+This piece clearly and concisely lays out the bull case for a post-Starship space industry. While I wasn't breaking new ground with this analysis (a lot of the core ideas are inspired by [Casey Handmer's excellent blog post](https://caseyhandmer.wordpress.com/2021/10/28/starship-is-still-not-understood/)), it was a fantastic exercise to distill this core thesis into a two page brief aimed at those with little previous exposure to the space industry. I also dipped my toes into the world of company annual reports to perform some rudimentary financial analysis. How this thesis pans out is an open question, but I feel that it faithfully communicates the pro case. (This piece was written as a writing sample answering the prompt "What is a trend you see as being transformational to an industry, and how do you think that should inmpact a VC investment thesis?")
+{: .notice}
+
 ### Summary
 
 With new reusable heavy-lift launch vehicles on the horizon, spacecraft mass and volume will no longer be a major cost driver for space missions. This will massively expand the design space for future missions and drive an explosion in growth for the space economy.
