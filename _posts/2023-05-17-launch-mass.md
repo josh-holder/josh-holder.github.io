@@ -1,5 +1,5 @@
 ---
-title: "A perspective on the decoupling of spacecraft launch cost with spacecraft mass and volume"
+title: "A perspective on the decoupling of spacecraft launch cost with mass and volume"
 excerpt_separator: "<!--more-->"
 categories:
   - writings
@@ -8,7 +8,7 @@ tags:
   - Spaceflight
 ---
 
-This piece clearly and concisely lays out the bull case for a post-Starship space industry. While I wasn't breaking new ground with this analysis (a lot of the core ideas are inspired by [Casey Handmer's excellent blog post](https://caseyhandmer.wordpress.com/2021/10/28/starship-is-still-not-understood/)), it was a fantastic exercise to distill this core thesis into a two page brief aimed at those with little previous exposure to the space industry. I also dipped my toes into the world of company annual reports to perform some rudimentary financial analysis. How this thesis pans out is an open question, but I feel that it faithfully communicates the pro case. (This piece was written as a writing sample answering the prompt "What is a trend you see as being transformational to an industry, and how do you think that should inmpact a VC investment thesis?")
+This piece aims to clearly and concisely lay out the bull case for a post-Starship space industry. While I wasn't breaking new ground with this analysis (a lot of the core ideas are inspired by [Casey Handmer's excellent blog post](https://caseyhandmer.wordpress.com/2021/10/28/starship-is-still-not-understood/)), it was a fantastic exercise to distill this core thesis into a two page brief aimed at those with little previous exposure to the space industry. I also dipped my toes into the world of company annual reports to perform some rudimentary financial analysis. How this thesis pans out is an open question, but I feel that it faithfully communicates the optimistic case. (This piece was written as a writing sample answering the prompt "What is a trend you see as being transformational to an industry, and how do you think that should inmpact a VC investment thesis?")
 {: .notice}
 
 ### Summary
@@ -50,21 +50,34 @@ Several space companies are already betting on this idea – just this past mont
 
 And like any gold rush, there’s just as much business in outfitting the miners as there is being one yourself – this leaves startups like Turion Space<sup>13</sup>, LeoLabs<sup>14</sup>, Starfish Space<sup>15</sup>, and countless others well-positioned to provide the inspection, maintenance, and monitoring tasks that will be necessary to grow a robust in-space economy. Any venture firm would be well-served by deeply understanding and recognizing this trend.
 
-**Citations**
 <font size="1">
-1. Annual number of objects launched into space: https://ourworldindata.org/grapher/yearly-number-of-objects-launched-into-outer-space 
+1. Annual number of objects launched into space: https://ourworldindata.org/grapher/yearly-number-of-objects-launched-into-outer-space
+
 2. Topological mass optimization https://www.sciencedirect.com/topics/computer-science/topology-optimization
+
 3. The Apollo Lunar Roving Vehicle https://nssdc.gsfc.nasa.gov/planetary/lunar/apollo_lrv.html 
+
 4. Statement on Starship flight costs: https://www.space.com/spacex-starship-flight-passenger-cost-elon-musk.html 
+
 5. Starship User Guide: https://www.spacex.com/media/starship_users_guide_v1.pdf (numbers are subject to change) 
+
 6. SLS Launch Capabilities: https://www.nasa.gov/sites/default/files/atoms/files/sls_lift_capabilities_and_configurations_508_08202018_0.pdf 
+
 7. Falcon 9 User Guide: https://www.spacex.com/media/falcon-users-guide-2021-09.pdf 
+
 8. Electron Payload User Guide: https://www.rocketlabusa.com/assets/Uploads/Electron-Payload-User-Guide-7.0.pdf
+
 9. Annual number of objects launched into space: https://ourworldindata.org/grapher/yearly-number-of-objects-launched-into-outer-space 
+
 10. Viasat Annual Reports, 2019 and 2022: https://investors.viasat.com/financial-information/annual-reports 
+
 11. Vast Space: https://www.vastspace.com/ 
+
 12. K2 Space: https://www.k2space.com/ 
+
 13. https://turionspace.com/ 
+
 14. https://leolabs.space/
+
 15. https://www.starfishspace.com/
 </font>
