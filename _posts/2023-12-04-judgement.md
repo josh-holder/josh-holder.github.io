@@ -1,5 +1,5 @@
 ---
-title: "Human-level Trick-Taking Card Game AI "
+title: "Human-level Trick-Taking Card Game AI"
 excerpt_separator: "<!--more-->"
 categories:
   - projects
