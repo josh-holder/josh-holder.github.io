@@ -16,7 +16,7 @@ body, p {
 }
 </style> -->
 
-Leveraging a 2016 Macbook Pro along with reinforcement, imitation, and supervised learning to beat humans at [Judgement](https://en.wikipedia.org/wiki/Kachufool), a playing card game which I've played far, *far* too much of [(repository here - try your hand at beating the bot!)](https://github.com/josh-holder/JudgmentBot), with applications to general trick-taking games.
+Leveraging reinforcement, imitation, and supervised learning to beat humans at [Judgement](https://en.wikipedia.org/wiki/Kachufool), a playing card game which I've played far, *far* too much of [(repository here - try your hand at beating the bot!)](https://github.com/josh-holder/JudgmentBot), with applications to general trick-taking games.
 {: .notice}
 
 ### Quick Links
