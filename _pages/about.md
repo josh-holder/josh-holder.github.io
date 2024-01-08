@@ -7,6 +7,8 @@ Professionally, interested in GN&C, spacecraft flight software, machine learning
 
 Unprofessionally, interested in violin, soccer, music, books, hiking, reading, strategy games, travel, meeting as many new people as I can, and making large wooden structures for the bit (see below)
 
+Always interested in meeting new, interesting people to talk about life and collaborate with. Hit me up if you're ever passing through Seattle!
+
 {:refdef: style="text-align: center;"}
 ![mrworldwide](/assets/images/mrworldwide.jpg){: width="500px"}
 {: refdef}
