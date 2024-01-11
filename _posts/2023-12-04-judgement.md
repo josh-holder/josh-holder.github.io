@@ -8,6 +8,7 @@ tags:
   - Algorithms
   - Game Theory
   - Machine Learning
+toc: true
 ---
 <!-- 
 <style>
