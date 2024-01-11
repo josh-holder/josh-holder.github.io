@@ -20,7 +20,7 @@ body, p {
 Leveraging reinforcement, imitation, and supervised learning to beat humans at [Judgement](https://en.wikipedia.org/wiki/Kachufool), a playing card game which I've played far, *far* too much of [(repository here - try your hand at beating the bot!)](https://github.com/josh-holder/JudgmentBot), with applications to general trick-taking games.
 {: .notice}
 
-### Quick Links
+<!-- ### Quick Links
 
 [Background: The League of Judgement](#1-background-the-league-of-judgement)
 
@@ -34,7 +34,7 @@ Leveraging reinforcement, imitation, and supervised learning to beat humans at [
 
 [Testing the AI](#6-testing-the-ai)
 
-[Towards Superhuman Performance](#7-towards-superhuman-performance)
+[Towards Superhuman Performance](#7-towards-superhuman-performance) -->
 
 ### 1. Background: The League of Judgement
 
