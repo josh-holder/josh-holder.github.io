@@ -5,9 +5,9 @@ title: "about me"
 
 always chasing my personal [ikigai](https://modelthinkers.com/mental-model/ikigai). i have a deep passion for learning, and love diving into new fields and asking many consecutive stupid questions to people who know more than me. if you're in Seattle, let's meet up for coffee or a walk!
 
-i've worked mostly in the space domain thus far in my career, starting at NASA JSC where I wrote a good chunk of the [orion](https://en.wikipedia.org/wiki/Orion_(spacecraft)) backup flight control software stack. now, as I shift my focus more on providing terrestrial benefit and growing the space economy, I'm working on Starlink at SpaceX.
+i've worked mostly in the space domain thus far in my career, starting at NASA JSC where I wrote a good chunk of the [orion](https://en.wikipedia.org/wiki/Orion_(spacecraft)) backup flight control software stack. now, as I shift my focus more towards providing terrestrial benefit and growing the in-space economy, I'm working on Starlink at SpaceX.
 
-an incomplete list of my interests and favorite photos:
+an (incomplete) list of my interests and favorite photos:
 
 professionally: GN&C, spacecraft flight software, robotics, machine learning, test engineering
 
