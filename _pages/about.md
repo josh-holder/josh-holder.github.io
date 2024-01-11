@@ -1,13 +1,17 @@
 ---
 permalink: /about/
-title: "About"
+title: "about me"
 ---
 
-Professionally, interested in GN&C, spacecraft flight software, machine learning. (see [LinkedIn](https://www.linkedin.com/in/joshua-holder-798386155/) for updated resume stuff)
+always chasing my personal [ikigai](https://modelthinkers.com/mental-model/ikigai). i have a deep passion for learning, and love diving into new fields and asking many consecutive stupid questions to people who know more than me. if you're in Seattle, let's meet up for coffee or a walk!
 
-Unprofessionally, interested in violin, soccer, music, books, hiking, reading, strategy games, travel, meeting as many new people as I can, and making large wooden structures for the bit (see below)
+i've worked mostly in the space domain thus far in my career, starting at NASA JSC where I wrote a good chunk of the [orion](https://en.wikipedia.org/wiki/Orion_(spacecraft)) backup flight control software stack. now, as I shift my focus more on providing terrestrial benefit and growing the space economy, I'm working on Starlink at SpaceX.
 
-Always interested in meeting new, interesting people to talk about life and collaborate with. Hit me up if you're ever passing through Seattle!
+an incomplete list of my interests and favorite photos:
+
+professionally: GN&C, spacecraft flight software, robotics, machine learning, test engineering
+
+unprofessionally: reinforcement learning, game theory, travel, [reading](https://www.goodreads.com/user/show/127201982-josh-holder), strategy games, soccer, classical music/jazz, backpacking (wilderness and urban), making large wooden structure for the bit (see below)
 
 {:refdef: style="text-align: center;"}
 ![mrworldwide](/assets/images/mrworldwide.jpg){: width="500px"}
