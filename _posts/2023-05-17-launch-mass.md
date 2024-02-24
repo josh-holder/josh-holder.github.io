@@ -8,7 +8,7 @@ tags:
   - Spaceflight
 ---
 
-This piece aims to clearly and concisely lay out the bull case for a post-Starship space industry. While I wasn't breaking new ground with this analysis (a lot of the core ideas are inspired by [Casey Handmer's excellent blog post](https://caseyhandmer.wordpress.com/2021/10/28/starship-is-still-not-understood/)), it was a fantastic exercise to distill this core thesis into a two page brief aimed at those with little previous exposure to the space industry. I also dipped my toes into the world of company annual reports to perform some rudimentary financial analysis. How this thesis pans out is an open question, but I feel that it faithfully communicates the optimistic case. (This piece was written as a writing sample answering the prompt "What is a trend you see as being transformational to an industry, and how do you think that should impact a VC investment thesis?")
+This piece aims to clearly and concisely lay out the bull case for a post-Starship space industry. While I wasn't breaking new ground with this analysis (a lot of the core ideas are inspired by [Casey Handmer's excellent blog post](https://caseyhandmer.wordpress.com/2021/10/28/starship-is-still-not-understood/)), it was a fantastic exercise to distill this core thesis into a two page brief aimed at those with little previous exposure to the space industry. I also dipped my toes into the world of company annual reports to perform some rudimentary financial analysis. How this thesis pans out is an open question, but I feel that it faithfully communicates the optimistic case[^0].
 {: .notice}
 
 ### Summary
@@ -49,6 +49,8 @@ Not only will this benefit classic space businesses like communications, this fu
 Several space companies are already betting on this idea – just this past month, new entrant to the space station market Vast Space[^11] announced they would launch their entire space station to orbit in a single Starship, allowing them to leapfrog the cost and timeline estimates of existing and more traditional players like Axiom Space and Blue Origin. Similarly, K2 Space[^12] is developing large, generic, and Starship-compatible satellite buses to allow companies to deploy satellites that would currently cost hundreds of millions of dollars for <$15 million.
 
 And like any gold rush, there’s just as much business in outfitting the miners as there is being one yourself – this leaves startups like Turion Space[^13], LeoLabs[^14], Starfish Space[^15], and countless others well-positioned to provide the inspection, maintenance, and monitoring tasks that will be necessary to grow a robust in-space economy. Any venture firm would be well-served by deeply understanding and recognizing this trend.
+
+[^0]: This piece was written as a writing sample answering the prompt "What is a trend you see as being transformational to an industry, and how do you think that should impact a VC investment thesis?"
 
 [^1]: Annual number of objects launched into space: https://ourworldindata.org/grapher/yearly-number-of-objects-launched-into-outer-space
 
