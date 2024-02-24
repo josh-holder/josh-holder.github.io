@@ -27,10 +27,10 @@ These difficulties directly translate to cost– compare the ~$40 million spent 
 
 | **Launch Vehicle** (* = reusable)         | **Mass**         | **Volume**            | **Cost**        |
 |-------------------------------------------|------------------|-----------------------|-----------------|
-| Starship*[^5]                     | 100T+ to LEO     | 894 m[^3]     | ~$100 million   |
-| Space Launch System (SLS) <sup> 6  </sup> | 105T to LEO      | 612 m[^3]     | **>$1 billion** |
-| Falcon 9*[^7]                     | **17.5T to LEO** | **212 m[^3]** | $67 million     |
-| Electron*[^8]                     | **300 kg**       | **1 m[^3]**   | $7.5 million    |
+| Starship*[^5]                     | 100T+ to LEO     | 894 m<sup>3</sup>     | ~$100 million   |
+| Space Launch System (SLS) <sup> 6  </sup> | 105T to LEO      | 612 m<sup>3</sup>     | **>$1 billion** |
+| Falcon 9*[^7]                     | **17.5T to LEO** | **212 m<sup>3</sup>** | $67 million     |
+| Electron*[^8]                     | **300 kg**       | **1 m<sup>3</sup>**   | $7.5 million    |
 
 **Table 1:** Selected Launch Vehicles and Capabilities
 
