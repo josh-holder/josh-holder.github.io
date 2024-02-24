@@ -20,22 +20,6 @@ body, p {
 Leveraging reinforcement, imitation, and supervised learning to beat humans at [Judgement](https://en.wikipedia.org/wiki/Kachufool), a playing card game which I've played far, *far* too much of [(repository here - try your hand at beating the bot!)](https://github.com/josh-holder/JudgmentBot), with applications to general trick-taking games.
 {: .notice}
 
-<!-- ### Quick Links
-
-[Background: The League of Judgement](#1-background-the-league-of-judgement)
-
-[Structure of a Trick-Taking Game](#2-structure-of-a-trick-taking-game)
-
-[Data, Data, Data](#3-data-data-data)
-
-[KEY INSIGHT: Unique NN Architecture](#4-key-insight-unique-nn-architecture)
-
-[Training: RL, SL, and the Kitchen Sink](#5-training-rl-sl-and-the-kitchen-sink)
-
-[Testing the AI](#6-testing-the-ai)
-
-[Towards Superhuman Performance](#7-towards-superhuman-performance) -->
-
 ### 1. Background: The League of Judgement
 
 Over my college career, I played a LOT of the trick-taking card game called Judgement/Kachufool (rules [here](https://card-games.wonderhowto.com/how-to/play-card-game-judgment-0122237/)). An embarassing amount, almost. So much so that I developed an entire software based infastructure around the game, including automated scoring:
