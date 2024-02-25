@@ -17,7 +17,7 @@ To me, there's nothing more awe-inspiring than watching [rockets land autonomous
 
 But trajectory optimization and GN&C in general is notoriously math heavy and intimidating to learn - any primer on the subject I've encountered online either brushes over the math entirely ("the rocket uses grid fins for control") or mentions semidefinite matrices within the first two paragraphs. For a beginner genuinely interested in the subject, neither is ideal.
 
-In this post, I aim to provide a *gentle* (~calculus-level) introduction to the math behind these problems - what is the intuition for the methods which underpin the solution methods, how do they work in practice, and what makes this problem so hard anyway?
+In this post, I aim to provide a *gentle* (~calculus-level) introduction to the math behind these problems - what is the intuition for the math which underpins the solution methods, how do they work in practice, and what makes this problem so hard anyway?
 
 ### 1. Historical Approaches
 The problem of controlling a spacecraft in space is relatively easy[^2] up until the landing attempt - in space, things mostly do what you tell them to do. Other than gravity, there are no pesky "atmospheres" or "solid items" to run into and knock you off course. This is an engineers dream - in space, [every cow is spherical](https://en.wikipedia.org/wiki/Spherical_cow).
@@ -45,19 +45,42 @@ Broadly, we care about getting a rocket from a starting location to the location
 
 ![landing_diagram](/assets/rocket_landing/landing_diagram.png){: width="500px"}
 
-Mathematically, we can formulate a simple version of this problem as follows:
+Typically, the position, velocity, and orientation of the rocket is represented by $x$, called the "state" of the rocket. Similarly, we have some way of influencing the state of the rocket (i.e. a rocket engine), which we denote the "input" $u$. Hopefully we also have an idea about how the position of the rocket will evolve over time according to the laws of physics and our input - in other words, we know some function $f$ such that:
 
 <div align="center">
 
-$\underset{u}{\min} \ f(x,u)$
-
-$\text{s.t. } ||u||_2 \leq u_{\text{max}}$
-
-$x_{T}=x_f$
-
-$\dot{x}_T=0$
+ $x_{k+1} = f(x_k, u_k)$
 
 </div align="center">
+
+This function could be as simple as a force pushing on a box in one direction:
+
+![box_f_example](/assets/rocket_landing/simple_f.png){: width="500px"}
+
+or as complicated as spacecraft rotational dynamics:
+
+![rot_dynamics](/assets/rocket_landing/rot_dynamics.png){: width="500px"}
+
+but the only thing that matters is that we can write this function down[^5]! Bringing this all together, mathematically, we can formulate a simple version of this problem as follows[^4]:
+
+<div align="center">
+
+$\underset{u}{\min} \ \sum_{k=1}^T ||u_k||_2$
+
+$\text{s.t. } x_{k+1} = f(x_{k}, u_k) \ \forall k=1
+\ldots T-1 \quad \textit{(rocket must move according to the laws of physics)}$
+
+$||u_k||_2 \leq u_{\text{max}} \ \forall k=1\ldots T \quad \textit{(force can never be too high)}$
+
+$x_{T}=x_f \quad \textit{(the rocket must make it to the landing site at the final time)}$
+
+$\dot{x}_T=0 \quad \textit{(the rocket must have zero velocity at the final time)}$
+
+$(x_y)_k \geq 0 \ \forall k=1\ldots T \quad \textit{(the rocket must stay above the ground)}$
+
+</div align="center">
+
+Although everything we've written down has a relatively simple motivation, looking at this as a human, this is a mess - how can you possibly come up with a sequence of $u$'s that get you to your goal, let alone an *optimal* sequence, especially if $f$ is a complicated function? Luckily, we can do this systematically with little more math is taught in high school calculus.
 
 ### 3. Sequential Convex Programming
 
@@ -74,3 +97,5 @@ One of the primary enabling technologies of rocket landing has been Sequential C
 [^1]: Note that while I've worked on GN&C control software on the Orion spacecraft at NASA and for satellites at SpaceX, I've never worked directly on the landing problem at SpaceX or any other company. As such, take this information with a grain of salt.
 [^2]: OK, [I said "relatively"](https://en.wikipedia.org/wiki/Quaternion)...
 [^3]: Note that this means vertical AND horizontal velocity, and zero means ZERO. [Intuitive Machines had ~2 mph crossrange velocity](https://www.youtube.com/watch?v=ZWEwR8fscFY), and it resulted in the lander tipping over.
+[^5]: And that we can take the derivative of it. Importantly, this means that things get way harder if $f(x,u)$ is just a simulation, rather than a mathematical equation.
+[^4]: Of course, a real and useful rocket landing problem might have more constraints, including minimum thrust requirements, glidescope position constraints, gimbaling limits, etc. - see the seminal [G-FOLD](https://www.researchgate.net/publication/258676350_G-FOLD_A_Real-Time_Implementable_Fuel_Optimal_Large_Divert_Guidance_Algorithm_for_Planetary_Pinpoint_Landing) paper. Things get more complicated in these cases, but the procedure doesn't fundamentally change (as long as your constraints aren't too nasty).
