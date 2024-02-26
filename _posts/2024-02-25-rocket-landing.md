@@ -62,7 +62,7 @@ or as complicated as spacecraft rotational dynamics:
 
 but the only thing that matters is that we can write this function down[^5]! Bringing this all together, mathematically, we can formulate a simple version of this problem as follows[^4]:
 
-$$\underset{u}{\min} \ \sum_{k=1}^T ||u_k||_2 \quad \textit{(minimize fuel use)}$$
+$$\underset{u}{\min} \ \sum_{k=1}^T ||u_k||_2 + ||x_T-x_f||_2 \quad \textit{(minimize fuel use and reach the target)}$$
 {: .text-center}
 
 $$\text{s.t. } x_{k+1} = f(x_{k}, u_k) \ \forall k=1 \ldots T-1 \ (*)\quad \textit{(move according to the laws of physics)}$$
@@ -71,13 +71,10 @@ $$\text{s.t. } x_{k+1} = f(x_{k}, u_k) \ \forall k=1 \ldots T-1 \ (*)\quad \text
 $$||u_k||_2 \leq u_{\text{max}} \ \forall k=1\ldots T \quad \textit{(force can never be too high)}$$
 {: .text-center}
 
-$$x_{T}=x_f \quad \textit{(make it to the landing site at the final time)}$$
-{: .text-center}
-
-$$\dot{x}_T=0 \quad \textit{(have zero velocity at the final time)}$$
-{: .text-center}
-
 $$(x_y)_k \geq 0 \ \forall k=1\ldots T \quad \textit{(stay above the ground)}$$
+{: .text-center}
+
+$$(u_y)_k \geq 0 \ \forall k=1\ldots T \quad \textit{(keep the engine pointed at the ground)}$$
 {: .text-center}
 
 Although everything we've written down has a relatively simple motivation, looking at this as a human, this is a mess - how can you possibly come up with a sequence of $$u$$'s that gets you to your goal, let alone an *optimal* sequence, especially if $$f$$ is a complicated function? Luckily, we can do this systematically with little more math than is taught in high school calculus.
@@ -111,11 +108,16 @@ In the above example, we managed to replace our extremely complicated f(x), whic
 With an intuitive understanding of convex optimization, we can put it all together. The pseudocode of sequential convex programming is as follows:
 
 **SCP Pseudocode**
-1. Starting from your initial condition $$x_0$$, take a completely random guess at a sequence of inputs (for example - use $$u_k=0 \text{ for all } k=1...\ldots$$!). Use the dynamics function $$f(x,u)$$ to calculate the state of the rocket at all times $$x_k$$ based on these inputs.
+1. Starting from your initial condition $$x_0$$, take a completely random guess at a sequence of inputs (for example - use $$u_k=0 \text{ for all } k=1...\ldots T$$). Use the dynamics function $$f(x,u)$$ to calculate the state of the rocket at all times $$x_k$$ based on these inputs.
+![step1](/assets/rocket_landing/step1.png){: width="500px" .align-center}
 2. Approximate the dynamics by linearizing at every time step, $$x_{k+1} = A_k x_k + B_k u_k = \frac{df}{dx} \bigg \vert_{x_k} x_k + \frac{df}{du} \bigg \vert_{u_k} u_k$$. Note that now, Equation $$(*)$$ is a convex constraint, so it doesn't make the optimization harder.
-3. Solve the convex optimization problem using the linearized dynamics to ensure things remain simple - this yields a new sequence of inputs $$u$$
+![step2](/assets/rocket_landing/step2.png){: width="500px" .align-center}
+3. Solve the convex optimization problem using the linearized dynamics to ensure things remain simple - this yields a new sequence of inputs $$u$$.
+![step3](/assets/rocket_landing/step3.png){: width="500px" .align-center}
 4. Repeat from step 1: apply your new $$u$$ to the dynamics, linearize around this new trajectory, and optimize!
+![step4](/assets/rocket_landing/step4.png){: width="500px" .align-center}
 5. Repeat this process until your final state is reached within some tolerance. You now have a set of states $$x$$ and inputs $$u$$ that you know your rocket can follow (in theory), that will get you to the landing site!
+![step5](/assets/rocket_landing/step5.png){: width="500px" .align-center}
 {: .notice--info}
 
 #### 3.3 Rocket Landing Example
