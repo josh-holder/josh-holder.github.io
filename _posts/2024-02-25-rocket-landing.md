@@ -81,9 +81,7 @@ Although everything we've written down has a relatively simple motivation, looki
 
 ### 3. Sequential Convex Programming (SCP)
 
-The first thing to note is that there is a large difference between following a path and coming up with a path yourself - think about the difference between solving a maze for the first time, and tracing a correct path someone has shown you with your pencil. If we can invest some effort into coming up with a path through the maze, all we have to do later is follow the path we've laid out. This saves us critical computation time onboard our spacecraft.
-
-One of the primary enabling technologies of propulsive landing has been Sequential Convex Programming (SCP), which is a method of generating these feasible trajectories ahead of time.
+One of the primary enabling technologies of propulsive landing has been Sequential Convex Programming (SCP), which is a method of generating optimal solutions to problems of this type.
 
 #### 3.1 Convex Optimization Problems
 
@@ -123,24 +121,44 @@ These 5 steps are all it takes to generate trajectories for arbitrarily complex 
 
 #### 3.3 Rocket Landing Example
 
-Let's return to our rocket example, and simulate this process. To add some interesting nonlinearity, we add a variable mass to the equations, yielding the following $$f(x,u)$$:
+Let's return to our rocket example, and simulate this process. To add some interesting nonlinearity, we simulate maxx expenditure due to fuel use, yielding the following $$f(x,u)$$:
 
-$$\begin{bmatrix} x_{k+1} \\ y_{k+1} \\ \dot{x}_{k+1} \\ \dot{y}_{k+1} \\ m_{k+1}\end{bmatrix} = \begin{bmatrix} \dot{x}_k \Delta t \\ \dot{y}_k\Delta t \\ \frac{u_{x,k}}{m_k} \Delta t \\ (\frac{u_{y,k}}{m_k} - g) \Delta t \\ -\alpha ||u||_2\end{bmatrix}$$
+$$\begin{bmatrix} x_{k+1} \\ y_{k+1} \\ \dot{x}_{k+1} \\ \dot{y}_{k+1} \\ m_{k+1}\end{bmatrix} = \begin{bmatrix} \dot{x}_k \Delta t \\ \dot{y}_k\Delta t \\ \frac{u_{x,k}}{m_k} \Delta t \\ (\frac{u_{y,k}}{m_k} - g) \Delta t \\ -\alpha ||u||_2 \Delta t\end{bmatrix}$$
 
-Putting this into [code](https://github.com/josh-holder/nanoSCP), we get the following plot:
+Putting this into [code](https://github.com/josh-holder/nanoSCP) with nonzero initial velocity, we get the following plot:
 
-![step5](/assets/rocket_landing/rocket_landing.png){: width="500px" .align-center}
-{: .notice--info}
+![rocket_landing](/assets/rocket_landing/rocket_landing.png){: width="600px" .align-center}
 
-### 4. Putting it all together: a typical EDL pipeline
+### 5. Practical Challenges with SCP
 
-### 5. Challenges and the Future of Propulsive Landing
+What constraints arise when this simple strategy actually used in practice?
 
-### 6. More rigorous resources
+1. **Computation Constraints**
+As you might imagine, despite huge advances in hardware and algorithms over the past several decades, this process is still too computationally intensive to run in real-time at 50 Hz. Instead, SCP is used to generate a trajectory (either before the launch or once at the start of a mission phase), and the spacecraft uses a simpler method (i.e. PID, LQR, MPC) to track the optimal, feasible trajectory it has been given.[^8]
+
+This is the difference between following a path and coming up with a path yourself - think about the difference between solving a maze for the first time, and tracing a correct path someone has shown you with your pencil. If we can invest some effort into coming up with a path through the maze, all we have to do later is follow the path we've laid out, saving us critical computation time onboard our spacecraft.
+
+2. **Limited Information**
+When tracking a trajectory from SCP, our performance often depends directly on how well we know the position of our spacecraft. Especially [when landing on the moon](https://x.com/DrPhiltill/status/1761219057783558608?s=20), this information may be not be accurate.
+
+3. **Failures**
+In the case of SLIM, one of the two main engines failed at 150 feet above the ground. This is obviously an extreme case, but highlights an important limitation of SCP - these trajectories are often generated assuming a given vehicle configuration. How robust can we make these trajectories to failures? 
+
+This could be handled by simply regenerating a trajectory when a actuator fails, but also potentially by adding robustness into the optimization process itself.
+
+4. **Non-convex Constraints**
+While SCP can handle non-linear dynamics, one important constraint is that it can only address convex constraints (or constraints that can be "convexified" with clever modifications.) For example, a constraint where an engine can either be completely off or firing at some minimum thrust level is nonconvex, and must be handled with an approximation of some kind.
+
+### 6. Summary
+
+Landing on planetary bodies is hard, and often GN&C is the limiting factor. SCP is one method which allows us to generate trajectories for systems with nonlinear dynamics with ease. In this post, I tried to provide the shockingly simple intuition behind SCP and the ways it can seemingly magically solve difficult problems with blinding speed.
+
+However, there is still a lot of work to be done - to me, the top programs in the world for this type of research are Stanford, UW, and possibly UT.
 
 [^1]: Note that while I've worked on GN&C control software on the Orion spacecraft at NASA and for satellites at SpaceX, I've never worked directly on the landing problem at SpaceX or any other company. As such, take this information with a grain of salt.
 [^2]: OK, [I said "relatively"](https://en.wikipedia.org/wiki/Quaternion)...
 [^3]: Note that this means vertical AND horizontal velocity, and zero means ZERO. [Intuitive Machines had ~2 mph crossrange velocity](https://www.youtube.com/watch?v=ZWEwR8fscFY), and it resulted in the lander tipping over.
-[^5]: And that we can take the derivative of it. Importantly, this means that things get way harder if $f(x,u)$ is just a simulation, rather than a mathematical equation.
+[^5]: And that we can take the derivative of it. Importantly, this means that things get way harder if $$f(x,u)$$ is just a simulation, rather than a mathematical equation.
 [^4]: Of course, a real and useful rocket landing problem might have more constraints, including minimum thrust requirements, glidescope position constraints, gimbaling limits, etc. - see the seminal [G-FOLD](https://www.researchgate.net/publication/258676350_G-FOLD_A_Real-Time_Implementable_Fuel_Optimal_Large_Divert_Guidance_Algorithm_for_Planetary_Pinpoint_Landing) paper. Things get more complicated in these cases, but the procedure doesn't fundamentally change (as long as your constraints aren't too nasty).
 [^7]: [Convex Optimization by Boyd and Vandenberghe](https://web.stanford.edu/~boyd/cvxbook/bv_cvxbook.pdf) is the classic reference on the subject, but it can be quite dense.
+[^8]: Depending on your computational resources and the speed of your dynamics, you may be able to get away with running SCP on-board in real time. You can also consider re-running SCP any time your spacecraft gets too far off course - there are infinite varieties to the ways you can design your EDL system.
