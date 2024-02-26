@@ -65,7 +65,7 @@ but the only thing that matters is that we can write this function down[^5]! Bri
 $$\underset{u}{\min} \ \sum_{k=1}^T ||u_k||_2 \quad \textit{(minimize fuel use)}$$
 {: .text-center}
 
-$$\text{s.t. } x_{k+1} = f(x_{k}, u_k) \ \forall k=1 \ldots T-1 \quad \textit{(move according to the laws of physics)}$$
+$$\text{s.t. } x_{k+1} = f(x_{k}, u_k) \ \forall k=1 \ldots T-1 \quad (*) \textit{(move according to the laws of physics)}$$
 {: .text-center}
 
 $$||u_k||_2 \leq u_{\text{max}} \ \forall k=1\ldots T \quad \textit{(force can never be too high)}$$
@@ -80,13 +80,21 @@ $$\dot{x}_T=0 \quad \textit{(have zero velocity at the final time)}$$
 $$(x_y)_k \geq 0 \ \forall k=1\ldots T \quad \textit{(stay above the ground)}$$
 {: .text-center}
 
-Although everything we've written down has a relatively simple motivation, looking at this as a human, this is a mess - how can you possibly come up with a sequence of $$u$$'s that get you to your goal, let alone an *optimal* sequence, especially if $$f$$ is a complicated function? Luckily, we can do this systematically with little more math than is taught in high school calculus.
+Although everything we've written down has a relatively simple motivation, looking at this as a human, this is a mess - how can you possibly come up with a sequence of $$u$$'s that gets you to your goal, let alone an *optimal* sequence, especially if $$f$$ is a complicated function? Luckily, we can do this systematically with little more math than is taught in high school calculus.
 
-### 3. Sequential Convex Programming
+### 3. Sequential Convex Programming (SCP)
 
 The first thing to note is that there is a large difference between following a path and coming up with a path yourself - think about the difference between solving a maze for the first time, and tracing a correct path someone has shown you with your pencil. If we can invest some effort into coming up with a path through the maze, all we have to do later is follow the path we've laid out. This saves us critical computation time onboard our spacecraft.
 
 One of the primary enabling technologies of propulsive landing has been Sequential Convex Programming (SCP), which is a method of generating these feasible trajectories ahead of time.
+
+#### 3.1 Convex Optimization Problems
+
+One extremely important property of optimization problems is "convexity". While we won't get into the math here[^7], the intuition is remarkably simple. Convex problems are shaped like bowls, where there is only one "local minimum". This means that if you stop making progress, you know you've reached the optimal solution. By contrast, nonconvex problems can be arbitrarily shaped, and you can get stuck in a several places without knowing that if you try a bit harder, you can find an even better solution.
+
+![convex](/assets/rocket_landing/convex.png){: width="500px" .align-center}
+
+To make this concrete, the function on the left is convex, so if you roll a ball down the hill starting from anywhere, you'll reach the minimum. For the nonconvex function on the right, the final location of the ball is dependent on where you start the ball. It's not hard to see how this could translate to a tougher optimization problem.
 
 <div>
 <b>Aside: Linearization</b>
@@ -95,23 +103,30 @@ One key concept we need to develop in our discussion of successive convexificati
 <br>
 <img src="/assets/rocket_landing/linearization.png" alt="linearization example">
 <br>
-In the above example, we managed to replace our extremely complicated f(x), which has multiple local minima and maxima, with a MUCH simpler straight line, that performs basically the same way as long as we stay close to our linearization point x_0. As it turns out, it's much easier to optimize these functions as well (specifically, linear constraints are convex).
+In the above example, we managed to replace our extremely complicated f(x), which has multiple local minima and maxima, with a MUCH simpler straight line, that performs basically the same way as long as we stay close to our linearization point x_0. This is a very simple way of "convexifying" our nonconvex dynamics so that we can optimize more efficiently.
 </div>
 {: .notice--info}
 
-#### 3.1 Convex Optimization Problems
+#### 3.2 The SCP Process
+With an intuitive understanding of convex optimization, we can put it all together. The pseudocode of sequential convex programming is as follows:
 
-One extremely important property of optimization problems is "convexity". While we won't get into the math here[^7], the intuition is remarkably simple. Convex problems are shaped like bowls, where there is only one "local minimum". This means that if you stop making progress, you know you've reached the optimal solution. By contrast, nonconvex problems can be arbitrarily shaped, and you can get stuck in a several places without knowing that if you try a bit harder, you can find an even better solution.
+1. Starting from your initial condition $$x_0$$, take a completely random guess at a sequence of inputs (for example - use $$u_k=0 \text{ for all } k=1...\ldots$$!). Use the dynamics function $$f(x,u)$$ to calculate the state of the rocket at all times $$x_k$$ based on these inputs.
 
-![convex](/assets/rocket_landing/convex.png){: width="500px" .align-center}
+2. Approximate the dynamics by linearizing at every time step, $x_{k+1} = A_k x_k + B_k u_k = \frac{df}{dx}\bigg |_{x_k} x_k + \frac{df}{du}\bigg |_{u_k} u_k$$. Note that now, Equation $$(*)$$ is a convex constraint, so it doesn't make the optimization harder.
 
-To make this concrete, the function on the left is convex, so if you roll a ball down the hill starting from anywhere, you'll reach the minimum. For the nonconvex function on the right, the final location of the ball is dependent on where you start your roll. It's not hard to see how this could translate to a tougher optimization problem.
+3. Solve the convex optimization problem using the linearized dynamics to ensure things remain simple - this yields a new sequence of inputs $$u$$
 
-#### 3.2 Simple Example
+4. Repeat from step 1: apply your new $$u$$ to the dynamics, linearize around this new trajectory, and optimize!
+
+5. Repeat this process until your final state is reached within some tolerance! You now have a set of states $x$ and inputs $u$ that you know your rocket can follow (in theory), that will get you to the landing site!
 
 #### 3.3 Rocket Landing Example
 
+### 4. Putting it all together: a typical EDL pipeline
+
 ### 5. Challenges and the Future of Propulsive Landing
+
+### 6. More rigorous resources
 
 [^1]: Note that while I've worked on GN&C control software on the Orion spacecraft at NASA and for satellites at SpaceX, I've never worked directly on the landing problem at SpaceX or any other company. As such, take this information with a grain of salt.
 [^2]: OK, [I said "relatively"](https://en.wikipedia.org/wiki/Quaternion)...
