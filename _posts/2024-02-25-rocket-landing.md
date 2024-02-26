@@ -41,15 +41,17 @@ While most recently Perserverance landed within 1km of it's desired target, more
 
 ### 2. Problem Setup
 
+NEW TEST
+
 Broadly, we care about getting a rocket from a starting location to the location of the landing site, with zero velocity[^3]. Along the way, we likely have some secondary objectives, like minimizing fuel or the time spent along the way. 
 
 ![landing_diagram](/assets/rocket_landing/landing_diagram.png){: width="500px"}
 
-Typically, the position, velocity, and orientation of the rocket is represented by $x$, called the "state" of the rocket. Similarly, we have some way of influencing the state of the rocket (i.e. a rocket engine), which we denote the "input" $u$. Hopefully we also have an idea about how the position of the rocket will evolve over time according to the laws of physics and our input - in other words, we know some function $f$ such that:
+Typically, the position, velocity, and orientation of the rocket is represented by $x$, called the "state" of the rocket. Similarly, we have some way of influencing the state of the rocket (i.e. a rocket engine), which we denote the "input" $u$. Hopefully we also have an idea about how the position of the rocket will evolve over time according to the laws of physics and our input - in other words, we know some function $$f$$ such that:
 
 <div align="center">
 
- $x_{k+1} = f(x_k, u_k)$
+ $$x_{k+1} = f(x_k, u_k)$$
 
 </div align="center">
 
