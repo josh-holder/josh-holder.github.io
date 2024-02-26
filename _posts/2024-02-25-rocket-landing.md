@@ -46,7 +46,7 @@ While most recently Perserverance landed within 1km of it's desired target, more
 ### 2. Problem Setup
 Broadly, we care about getting a rocket from a starting location to the location of the landing site, with zero velocity[^3]. Along the way, we likely have some secondary objectives, like minimizing fuel or the time spent along the way. 
 
-![landing_diagram](/assets/rocket_landing/landing_diagram.png){: width="500px"}
+![landing_diagram](/assets/rocket_landing/landing_diagram.png){: width="500px" style="text-align: center;"}
 
 Typically, the position, velocity, and orientation of the rocket is represented by $$x$$, called the "state" of the rocket. Similarly, we have some way of influencing the state of the rocket (i.e. a rocket engine), which we denote the "input" $u$. Hopefully we also have an idea about how the position of the rocket will evolve over time according to the laws of physics and our input - in other words, we know some function $$f$$ such that:
 
@@ -54,28 +54,23 @@ Typically, the position, velocity, and orientation of the rocket is represented 
 
 This function could be as simple as a force pushing on a box in one direction:
 
-![box_f_example](/assets/rocket_landing/simple_f.png){: width="500px"}
+![box_f_example](/assets/rocket_landing/simple_f.png){: width="500px" style="text-align: center;"}
 
 or as complicated as spacecraft rotational dynamics:
 
-![rot_dynamics](/assets/rocket_landing/rot_dynamics.png){: width="500px"}
+![rot_dynamics](/assets/rocket_landing/rot_dynamics.png){: width="500px" style="text-align: center;"}
 
 but the only thing that matters is that we can write this function down[^5]! Bringing this all together, mathematically, we can formulate a simple version of this problem as follows[^4]:
 
 $$\underset{u}{\min} \ \sum_{k=1}^T ||u_k||_2$$
-
-$$\text{s.t. } x_{k+1} = f(x_{k}, u_k) \ \forall k=1
-\ldots T-1 \quad \textit{(rocket must move according to the laws of physics)}$$
-
+$$\text{s.t. } x_{k+1} = f(x_{k}, u_k) \ \forall k=1 \ldots T-1 \quad \textit{(rocket must move according to the laws of physics)}$$
 $$||u_k||_2 \leq u_{\text{max}} \ \forall k=1\ldots T \quad \textit{(force can never be too high)}$$
-
 $$x_{T}=x_f \quad \textit{(the rocket must make it to the landing site at the final time)}$$
-
 $$\dot{x}_T=0 \quad \textit{(the rocket must have zero velocity at the final time)}$$
-
 $$(x_y)_k \geq 0 \ \forall k=1\ldots T \quad \textit{(the rocket must stay above the ground)}$$
+{: text-align: center;"}
 
-Although everything we've written down has a relatively simple motivation, looking at this as a human, this is a mess - how can you possibly come up with a sequence of $u$'s that get you to your goal, let alone an *optimal* sequence, especially if $f$ is a complicated function? Luckily, we can do this systematically with little more math is taught in high school calculus.
+Although everything we've written down has a relatively simple motivation, looking at this as a human, this is a mess - how can you possibly come up with a sequence of $$u$$'s that get you to your goal, let alone an *optimal* sequence, especially if $$f$$ is a complicated function? Luckily, we can do this systematically with little more math than is taught in high school calculus.
 
 ### 3. Sequential Convex Programming
 
