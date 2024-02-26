@@ -17,7 +17,7 @@ toc: true
 With terminal-phase Guidance Navigation and Control in the news lately with the (qualified) success of [Intuitive Machines](https://spacenews.com/im-1-lunar-lander-tipped-over-on-its-side/) and [JAXA's](https://www.pbs.org/newshour/science/japans-1st-moon-lander-has-hit-its-target-but-it-appears-to-be-upside-down) lunar landers, I wanted to provide an approachable look at the mathematics of rocket landing, and the ways it's both easier and harder than you might expect.
 {: .notice}
 
-To me, there's nothing more awe-inspiring than watching [rockets land autonomously](https://www.youtube.com/watch?v=lw3KEg6b6bE) (fun fact: I teared up watching this while finding the video for this post), and in fact watching this as a college freshman with the rocketry team was what inspired me to become a Guidance Navigation and Control (GN&C) Engineer at SpaceX[^1] in the first place.
+To me, there's nothing more awe-inspiring than watching [rockets land autonomously](https://www.youtube.com/watch?v=lw3KEg6b6bE), and in fact watching this as a college freshman with the rocketry team was what inspired me to become a Guidance Navigation and Control (GN&C) Engineer at SpaceX[^1] in the first place.
 
 But trajectory optimization and GN&C in general is notoriously math heavy and intimidating to learn - any primer on the subject I've encountered online either brushes over the math entirely ("the rocket uses grid fins for control") or mentions semidefinite matrices within the first two paragraphs. For a beginner genuinely interested in the subject, neither is ideal.
 
@@ -44,7 +44,7 @@ Propulsive landing has been done in some form for decades, but there is still a 
 While most recently Perserverance landed within 1km of it's desired target, more accuracy is still desired and the performance of the recent SLIM and IM-1 missions make it clear that we have a long way to go for truly robust and efficient methods. This makes it, in my opinion, one of the clear open problems in aerospace engineering research today.
 
 ### 2. Problem Setup
-Broadly, we care about getting a rocket from a starting location to the location of the landing site, with zero velocity[^3]. Along the way, we likely have some secondary objectives, like minimizing fuel or the time spent along the way. 
+Broadly, we care about getting a rocket from a starting location to the location of the landing site, with zero velocity[^3]. Along the way, we likely have some secondary objectives, like minimizing fuel or time spent. 
 
 ![landing_diagram](/assets/rocket_landing/landing_diagram.png){: width="700px" .align-center}
 
@@ -77,7 +77,7 @@ $$(x_y)_k \geq 0 \ \forall k=1\ldots T \quad \textit{(stay above the ground)}$$
 $$(u_y)_k \geq 0 \ \forall k=1\ldots T \quad \textit{(keep the engine pointed at the ground)}$$
 {: .text-center}
 
-Although everything we've written down has a relatively simple motivation, looking at this as a human, this is a mess - how can you possibly come up with a sequence of $$u$$'s that gets you to your goal, let alone an *optimal* sequence, especially if $$f$$ is a complicated function? Luckily, we can do this systematically with little more math than is taught in high school calculus.
+Although everything we've written down has a relatively simple motivation, looking at this as a human, this is a mess - how can you possibly come up with a sequence of $$u$$'s that gets you to your goal, let alone an *optimal* sequence, especially if $$f$$ is a complicated function? Luckily, we have a way of doing this systematically which can be understood with little more math than is taught in high school calculus.
 
 ### 3. Sequential Convex Programming (SCP)
 
