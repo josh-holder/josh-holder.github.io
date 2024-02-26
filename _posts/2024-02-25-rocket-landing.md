@@ -107,22 +107,23 @@ In the above example, we managed to replace our extremely complicated f(x), whic
 #### 3.2 The SCP Process
 With an intuitive understanding of convex optimization, we can put it all together. The pseudocode of sequential convex programming is as follows:
 
-**SCP Pseudocode**
 1. Starting from your initial condition $$x_0$$, take a completely random guess at a sequence of inputs (for example - use $$u_k=0 \text{ for all } k=1...\ldots T$$). Use the dynamics function $$f(x,u)$$ to calculate the state of the rocket at all times $$x_k$$ based on these inputs.
-![step1](/assets/rocket_landing/step1.png){: width="500px" .align-center}
+![step1](/assets/rocket_landing/step1.png){: width="600px" .align-center}
 2. Approximate the dynamics by linearizing at every time step, $$x_{k+1} = A_k x_k + B_k u_k = \frac{df}{dx} \bigg \vert_{x_k} x_k + \frac{df}{du} \bigg \vert_{u_k} u_k$$. Note that now, Equation $$(*)$$ is a convex constraint, so it doesn't make the optimization harder.
-![step2](/assets/rocket_landing/step2.png){: width="500px" .align-center}
+![step2](/assets/rocket_landing/step2.png){: width="600px" .align-center}
 3. Solve the convex optimization problem using the linearized dynamics to ensure things remain simple - this yields a new sequence of inputs $$u$$.
-![step3](/assets/rocket_landing/step3.png){: width="500px" .align-center}
+![step3](/assets/rocket_landing/step3.png){: width="600px" .align-center}
 4. Repeat from step 1: apply your new $$u$$ to the dynamics, linearize around this new trajectory, and optimize!
-![step4](/assets/rocket_landing/step4.png){: width="500px" .align-center}
+![step4](/assets/rocket_landing/step4.png){: width="600px" .align-center}
 5. Repeat this process until your final state is reached within some tolerance. You now have a set of states $$x$$ and inputs $$u$$ that you know your rocket can follow (in theory), that will get you to the landing site!
-![step5](/assets/rocket_landing/step5.png){: width="500px" .align-center}
+![step5](/assets/rocket_landing/step5.png){: width="600px" .align-center}
 {: .notice--info}
+
+These 5 steps are all it takes to generate trajectories for arbitrarily complex problems!
 
 #### 3.3 Rocket Landing Example
 
-Returning to the rocket landing example, we can visualize this easily
+Let's return to our rocket example, and simulate this process:
 
 ### 4. Putting it all together: a typical EDL pipeline
 
