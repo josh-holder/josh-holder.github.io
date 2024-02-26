@@ -60,7 +60,9 @@ or as complicated as spacecraft rotational dynamics:
 
 ![rot_dynamics](/assets/rocket_landing/rot_dynamics.png){: width="500px" style="text-align: center;"}
 
-but the only thing that matters is that we can write this function down[^5]! Bringing this all together, mathematically, we can formulate a simple version of this problem as follows[^4]:
+but the only thing that matters is that we can write this function down[^5]! Bringing this all together, mathematically, we can formulate a simple version of this problem as follows[^4]: test
+
+ $$x_{k+1} = f(x_k, u_k)$$
 
  $$\underset{u}{\min} \ \sum_{k=1}^T ||u_k||_2$$
 <!-- {: text-align: center;"}  -->
