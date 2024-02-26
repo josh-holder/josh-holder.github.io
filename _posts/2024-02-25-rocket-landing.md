@@ -46,47 +46,59 @@ While most recently Perserverance landed within 1km of it's desired target, more
 ### 2. Problem Setup
 Broadly, we care about getting a rocket from a starting location to the location of the landing site, with zero velocity[^3]. Along the way, we likely have some secondary objectives, like minimizing fuel or the time spent along the way. 
 
-![landing_diagram](/assets/rocket_landing/landing_diagram.png){: width="500px" style="text-align: center;"}
+![landing_diagram](/assets/rocket_landing/landing_diagram.png){: width="500px" .align-center}
 
-Typically, the position, velocity, and orientation of the rocket is represented by $$x$$, called the "state" of the rocket. Similarly, we have some way of influencing the state of the rocket (i.e. a rocket engine), which we denote the "input" $u$. Hopefully we also have an idea about how the position of the rocket will evolve over time according to the laws of physics and our input - in other words, we know some function $$f$$ such that:
+Typically, the position, velocity, and orientation of the rocket is represented by $$x$$, called the "state" of the rocket. Similarly, we have some way of influencing the state of the rocket (i.e. a rocket engine), which we denote the "input" $$u$$. Hopefully we also have an idea about how the position of the rocket will evolve over time according to the laws of physics and our input - in other words, we know some function $$f$$ such that:
 
  $$x_{k+1} = f(x_k, u_k)$$
 
 This function could be as simple as a force pushing on a box in one dimension:
 
-![box_f_example](/assets/rocket_landing/simple_f.png){: width="500px" style="text-align: center;"}
+![box_f_example](/assets/rocket_landing/simple_f.png){: width="500px" .align-center}
 
 or as complicated as spacecraft rotational dynamics:
 
-![rot_dynamics](/assets/rocket_landing/rot_dynamics.png){: width="500px" style="text-align: center;"}
+![rot_dynamics](/assets/rocket_landing/rot_dynamics.png){: width="500px" .align-center}
 
-but the only thing that matters is that we can write this function down[^5]! Bringing this all together, mathematically, we can formulate a simple version of this problem as follows[^4]: test
+but the only thing that matters is that we can write this function down[^5]! Bringing this all together, mathematically, we can formulate a simple version of this problem as follows[^4]:
 
-$$\underset{u}{\min} \ \sum_{k=1}^T ||u_k||_2$$
-{: style="text-align: center;"}
+$$\underset{u}{\min} \ \sum_{k=1}^T ||u_k||_2 \quad \textit{(minimize fuel use)}$$
+{: .text-center}
 
-$$\text{s.t. } x_{k+1} = f(x_{k}, u_k) \ \forall k=1 \ldots T-1 \quad \textit{(rocket must move according to the laws of physics)}$$
-{: style="text-align: center;"}
+$$\text{s.t. } x_{k+1} = f(x_{k}, u_k) \ \forall k=1 \ldots T-1 \quad \textit{(move according to the laws of physics)}$$
+{: .text-center}
 
 $$||u_k||_2 \leq u_{\text{max}} \ \forall k=1\ldots T \quad \textit{(force can never be too high)}$$
-{: style="text-align: center;"}
+{: .text-center}
 
-$$x_{T}=x_f \quad \textit{(the rocket must make it to the landing site at the final time)}$$
-{: style="text-align: center;"}
+$$x_{T}=x_f \quad \textit{(make it to the landing site at the final time)}$$
+{: .text-center}
 
-$$\dot{x}_T=0 \quad \textit{(the rocket must have zero velocity at the final time)}$$
-{: style="text-align: center;"}
+$$\dot{x}_T=0 \quad \textit{(have zero velocity at the final time)}$$
+{: .text-center}
 
-$$(x_y)_k \geq 0 \ \forall k=1\ldots T \quad \textit{(the rocket must stay above the ground)}$$
-{: style="text-align: center;"}
+$$(x_y)_k \geq 0 \ \forall k=1\ldots T \quad \textit{(stay above the ground)}$$
+{: .text-center}
 
 Although everything we've written down has a relatively simple motivation, looking at this as a human, this is a mess - how can you possibly come up with a sequence of $$u$$'s that get you to your goal, let alone an *optimal* sequence, especially if $$f$$ is a complicated function? Luckily, we can do this systematically with little more math than is taught in high school calculus.
 
 ### 3. Sequential Convex Programming
 
-One of the primary enabling technologies of rocket landing has been Sequential Convex Programming (SCP). The idea behind this
+The first thing to note is that there is a large difference between following a path and coming up with a path yourself - think about the difference between solving a maze for the first time, and tracing a correct path someone has shown you with your pencil. If we can invest some effort into coming up with a path through the maze, all we have to do later is follow the path we've laid out. This saves us critical computation time onboard our spacecraft.
 
-#### 3.1 Linearization
+One of the primary enabling technologies of propulsive landing has been Sequential Convex Programming (SCP), which is a method of generating these feasible trajectories ahead of time.
+
+<div>
+#### Aside: Linearization
+One key concept we need to develop in our discussion of successive convexification is linearization[^6]. Recall from calculus class that if we take the derivative of a function $$f(x)$$ w.r.t $$x$$, plug in our point of interest $$x_0$$, and use that as the slope $$A$$ of a new function, we can come up with an approximation to an arbitrarily complicated $$f(x)$$ which is pretty good, as long as we're near our point $$x_0$$.
+
+{:refdef: style="text-align: center;"}
+![linearization](/assets/rocket_landing/linearization.png){: width="500px" .align-center}
+{: refdef}
+
+In the above example, we managed to replace our extremely complicated $$f(x)$$, which has multiple local minima and maxima, with a MUCH simpler straight line, that performs basically the same way as long as we stay close to our linearization point $$x_0$$. As it turns out, it's much easier to optimize these functions as well.
+</div>
+{: .notice--info}
 
 #### 3.2 Simple Example
 
@@ -99,3 +111,4 @@ One of the primary enabling technologies of rocket landing has been Sequential C
 [^3]: Note that this means vertical AND horizontal velocity, and zero means ZERO. [Intuitive Machines had ~2 mph crossrange velocity](https://www.youtube.com/watch?v=ZWEwR8fscFY), and it resulted in the lander tipping over.
 [^5]: And that we can take the derivative of it. Importantly, this means that things get way harder if $f(x,u)$ is just a simulation, rather than a mathematical equation.
 [^4]: Of course, a real and useful rocket landing problem might have more constraints, including minimum thrust requirements, glidescope position constraints, gimbaling limits, etc. - see the seminal [G-FOLD](https://www.researchgate.net/publication/258676350_G-FOLD_A_Real-Time_Implementable_Fuel_Optimal_Large_Divert_Guidance_Algorithm_for_Planetary_Pinpoint_Landing) paper. Things get more complicated in these cases, but the procedure doesn't fundamentally change (as long as your constraints aren't too nasty).
+[^6]: [This](https://www.youtube.com/watch?v=u7dhn-hBHzQ) is a great resource for understanding this process better.
