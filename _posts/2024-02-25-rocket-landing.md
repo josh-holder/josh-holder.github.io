@@ -52,7 +52,7 @@ Typically, the position, velocity, and orientation of the rocket is represented 
 
  $$x_{k+1} = f(x_k, u_k)$$
 
-This function could be as simple as a force pushing on a box in one direction:
+This function could be as simple as a force pushing on a box in one dimension:
 
 ![box_f_example](/assets/rocket_landing/simple_f.png){: width="500px" style="text-align: center;"}
 
@@ -74,7 +74,8 @@ Although everything we've written down has a relatively simple motivation, looki
 
 ### 3. Sequential Convex Programming
 
-One of the primary enabling technologies of rocket landing has been Sequential Convex Programming (SCP). The idea behind this 
+One of the primary enabling technologies of rocket landing has been Sequential Convex Programming (SCP). The idea behind this
+{: style="color:gray; font-size: 80%; text-align: center;"} 
 
 #### 3.1 Linearization
 
