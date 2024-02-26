@@ -123,7 +123,14 @@ These 5 steps are all it takes to generate trajectories for arbitrarily complex 
 
 #### 3.3 Rocket Landing Example
 
-Let's return to our rocket example, and simulate this process:
+Let's return to our rocket example, and simulate this process. To add some interesting nonlinearity, we add a variable mass to the equations, yielding the following $$f(x,u)$$:
+
+$$\begin{bmatrix} x_{k+1} \\ y_{k+1} \\ \dot{x}_{k+1} \\ \dot{y}_{k+1} \\ m_{k+1}\end{bmatrix} = \begin{bmatrix} \dot{x}_k \Delta t \\ \dot{y}_k\Delta t \\ \frac{u_{x,k}}{m_k} \Delta t \\ (\frac{u_{y,k}}{m_k} - g) \Delta t \\ -\alpha ||u||_2\end{bmatrix}$$
+
+Putting this into [code](https://github.com/josh-holder/nanoSCP), we get the following plot:
+
+![step5](/assets/rocket_landing/rocket_landing.png){: width="500px" .align-center}
+{: .notice--info}
 
 ### 4. Putting it all together: a typical EDL pipeline
 
