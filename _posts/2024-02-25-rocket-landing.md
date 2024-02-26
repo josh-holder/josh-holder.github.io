@@ -111,10 +111,10 @@ In the above example, we managed to replace our extremely complicated f(x), whic
 With an intuitive understanding of convex optimization, we can put it all together. The pseudocode of sequential convex programming is as follows:
 
 1. Starting from your initial condition $$x_0$$, take a completely random guess at a sequence of inputs (for example - use $$u_k=0 \text{ for all } k=1...\ldots$$!). Use the dynamics function $$f(x,u)$$ to calculate the state of the rocket at all times $$x_k$$ based on these inputs.
-2. Approximate the dynamics by linearizing at every time step, $$x_{k+1} = A_k x_k + B_k u_k = \frac{df}{dx}\bigg |_{x_k} x_k + \frac{df}{du}\bigg |_{u_k} u_k$$. Note that now, Equation $$(*)$$ is a convex constraint, so it doesn't make the optimization harder.
+2. Approximate the dynamics by linearizing at every time step, $$x_{k+1} = A_k x_k + B_k u_k = \frac{df}{dx} \bigg |_{x_k} x_k + \frac{df}{du} \bigg |_{u_k} u_k$$. Note that now, Equation $$(*)$$ is a convex constraint, so it doesn't make the optimization harder.
 3. Solve the convex optimization problem using the linearized dynamics to ensure things remain simple - this yields a new sequence of inputs $$u$$
 4. Repeat from step 1: apply your new $$u$$ to the dynamics, linearize around this new trajectory, and optimize!
-5. Repeat this process until your final state is reached within some tolerance! You now have a set of states $x$ and inputs $u$ that you know your rocket can follow (in theory), that will get you to the landing site!
+5. Repeat this process until your final state is reached within some tolerance! You now have a set of states $$x$$ and inputs $$u$$ that you know your rocket can follow (in theory), that will get you to the landing site!
 {: .notice--info}
 
 #### 3.3 Rocket Landing Example
