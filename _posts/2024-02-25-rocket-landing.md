@@ -91,7 +91,7 @@ One of the primary enabling technologies of propulsive landing has been Sequenti
 <div>
 <b>Aside: Linearization</b>
 <br>
-One key concept we need to develop in our discussion of successive convexification is linearization[^6]. Recall from calculus class that if we take the derivative of a function f(x) w.r.t x, plug in our point of interest x_0, and use that as the slope A of a new function, we can come up with an approximation to an arbitrarily complicated f(x) which is pretty good, as long as we're near our point x_0.
+One key concept we need to develop in our discussion of successive convexification is <a href="https://www.youtube.com/watch?v=u7dhn-hBHzQ" target="_blank">linearization</a>. Recall from calculus class that if we take the derivative of a function f(x) w.r.t x, plug in our point of interest x_0, and use that as the slope A of a new function, we can come up with an approximation to an arbitrarily complicated f(x) which is pretty good, as long as we're near our point x_0.
 <br>
 <img src="/assets/rocket_landing/linearization.png" alt="linearization example">
 <br>
@@ -99,7 +99,7 @@ In the above example, we managed to replace our extremely complicated f(x), whic
 </div>
 {: .notice--info}
 
-#### 3.1 Convex Optimization Problem
+#### 3.1 Convex Optimization Problems
 
 One extremely important property of optimization problems is "convexity". While we won't get into the math here[^7], the intuition is remarkably simple. Convex problems are shaped like bowls, where there is only one "local minimum". This means that if you stop making progress, you know you've reached the optimal solution. By contrast, nonconvex problems can be arbitrarily shaped, and you can get stuck in a several places without knowing that if you try a bit harder, you can find an even better solution.
 
@@ -118,5 +118,4 @@ To make this concrete, the function on the left is convex, so if you roll a ball
 [^3]: Note that this means vertical AND horizontal velocity, and zero means ZERO. [Intuitive Machines had ~2 mph crossrange velocity](https://www.youtube.com/watch?v=ZWEwR8fscFY), and it resulted in the lander tipping over.
 [^5]: And that we can take the derivative of it. Importantly, this means that things get way harder if $f(x,u)$ is just a simulation, rather than a mathematical equation.
 [^4]: Of course, a real and useful rocket landing problem might have more constraints, including minimum thrust requirements, glidescope position constraints, gimbaling limits, etc. - see the seminal [G-FOLD](https://www.researchgate.net/publication/258676350_G-FOLD_A_Real-Time_Implementable_Fuel_Optimal_Large_Divert_Guidance_Algorithm_for_Planetary_Pinpoint_Landing) paper. Things get more complicated in these cases, but the procedure doesn't fundamentally change (as long as your constraints aren't too nasty).
-[^6]: [This](https://www.youtube.com/watch?v=u7dhn-hBHzQ) is a great resource for understanding this process better.
 [^7]: [Convex Optimization by Boyd and Vandenberghe](https://web.stanford.edu/~boyd/cvxbook/bv_cvxbook.pdf) is the classic reference on the subject, but it can be quite dense.
