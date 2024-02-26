@@ -44,20 +44,13 @@ Propulsive landing has been done in some form for decades, but there is still a 
 While most recently Perserverance landed within 1km of it's desired target, more accuracy is still desired and the performance of the recent SLIM and IM-1 missions make it clear that we have a long way to go for truly robust and efficient methods. This makes it, in my opinion, one of the clear open problems in aerospace engineering research today.
 
 ### 2. Problem Setup
-
-NEW TEST
-
 Broadly, we care about getting a rocket from a starting location to the location of the landing site, with zero velocity[^3]. Along the way, we likely have some secondary objectives, like minimizing fuel or the time spent along the way. 
 
 ![landing_diagram](/assets/rocket_landing/landing_diagram.png){: width="500px"}
 
-Typically, the position, velocity, and orientation of the rocket is represented by $x$, called the "state" of the rocket. Similarly, we have some way of influencing the state of the rocket (i.e. a rocket engine), which we denote the "input" $u$. Hopefully we also have an idea about how the position of the rocket will evolve over time according to the laws of physics and our input - in other words, we know some function $$f$$ such that:
-
-<div align="center">
+Typically, the position, velocity, and orientation of the rocket is represented by $$x$$, called the "state" of the rocket. Similarly, we have some way of influencing the state of the rocket (i.e. a rocket engine), which we denote the "input" $u$. Hopefully we also have an idea about how the position of the rocket will evolve over time according to the laws of physics and our input - in other words, we know some function $$f$$ such that:
 
  $$x_{k+1} = f(x_k, u_k)$$
-
-</div align="center">
 
 This function could be as simple as a force pushing on a box in one direction:
 
@@ -69,18 +62,18 @@ or as complicated as spacecraft rotational dynamics:
 
 but the only thing that matters is that we can write this function down[^5]! Bringing this all together, mathematically, we can formulate a simple version of this problem as follows[^4]:
 
-$\underset{u}{\min} \ \sum_{k=1}^T ||u_k||_2$
+$$\underset{u}{\min} \ \sum_{k=1}^T ||u_k||_2$$
 
-$\text{s.t. } x_{k+1} = f(x_{k}, u_k) \ \forall k=1
-\ldots T-1 \quad \textit{(rocket must move according to the laws of physics)}$
+$$\text{s.t. } x_{k+1} = f(x_{k}, u_k) \ \forall k=1
+\ldots T-1 \quad \textit{(rocket must move according to the laws of physics)}$$
 
-$||u_k||_2 \leq u_{\text{max}} \ \forall k=1\ldots T \quad \textit{(force can never be too high)}$
+$$||u_k||_2 \leq u_{\text{max}} \ \forall k=1\ldots T \quad \textit{(force can never be too high)}$$
 
-$x_{T}=x_f \quad \textit{(the rocket must make it to the landing site at the final time)}$
+$$x_{T}=x_f \quad \textit{(the rocket must make it to the landing site at the final time)}$$
 
-$\dot{x}_T=0 \quad \textit{(the rocket must have zero velocity at the final time)}$
+$$\dot{x}_T=0 \quad \textit{(the rocket must have zero velocity at the final time)}$$
 
-$(x_y)_k \geq 0 \ \forall k=1\ldots T \quad \textit{(the rocket must stay above the ground)}$
+$$(x_y)_k \geq 0 \ \forall k=1\ldots T \quad \textit{(the rocket must stay above the ground)}$$
 
 Although everything we've written down has a relatively simple motivation, looking at this as a human, this is a mess - how can you possibly come up with a sequence of $u$'s that get you to your goal, let alone an *optimal* sequence, especially if $f$ is a complicated function? Luckily, we can do this systematically with little more math is taught in high school calculus.
 
