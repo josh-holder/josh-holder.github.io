@@ -65,7 +65,7 @@ but the only thing that matters is that we can write this function down[^5]! Bri
 $$\underset{u}{\min} \ \sum_{k=1}^T ||u_k||_2 \quad \textit{(minimize fuel use)}$$
 {: .text-center}
 
-$$\text{s.t. } x_{k+1} = f(x_{k}, u_k) \ \forall k=1 \ldots T-1 \quad (*) \textit{(move according to the laws of physics)}$$
+$$\text{s.t. } x_{k+1} = f(x_{k}, u_k) \ \forall k=1 \ldots T-1 \ (*)\quad \textit{(move according to the laws of physics)}$$
 {: .text-center}
 
 $$||u_k||_2 \leq u_{\text{max}} \ \forall k=1\ldots T \quad \textit{(force can never be too high)}$$
@@ -101,7 +101,7 @@ To make this concrete, the function on the left is convex, so if you roll a ball
 <br>
 One key concept we need to develop in our discussion of successive convexification is <a href="https://www.youtube.com/watch?v=u7dhn-hBHzQ" target="_blank">linearization</a>. Recall from calculus class that if we take the derivative of a function f(x) w.r.t x, plug in our point of interest x_0, and use that as the slope A of a new function, we can come up with an approximation to an arbitrarily complicated f(x) which is pretty good, as long as we're near our point x_0.
 <br>
-<img src="/assets/rocket_landing/linearization.png" alt="linearization example">
+<img src="/assets/rocket_landing/linearization_pic.png" alt="linearization example">
 <br>
 In the above example, we managed to replace our extremely complicated f(x), which has multiple local minima and maxima, with a MUCH simpler straight line, that performs basically the same way as long as we stay close to our linearization point x_0. This is a very simple way of "convexifying" our nonconvex dynamics so that we can optimize more efficiently.
 </div>
@@ -112,7 +112,7 @@ With an intuitive understanding of convex optimization, we can put it all togeth
 
 1. Starting from your initial condition $$x_0$$, take a completely random guess at a sequence of inputs (for example - use $$u_k=0 \text{ for all } k=1...\ldots$$!). Use the dynamics function $$f(x,u)$$ to calculate the state of the rocket at all times $$x_k$$ based on these inputs.
 
-2. Approximate the dynamics by linearizing at every time step, $x_{k+1} = A_k x_k + B_k u_k = \frac{df}{dx}\bigg |_{x_k} x_k + \frac{df}{du}\bigg |_{u_k} u_k$$. Note that now, Equation $$(*)$$ is a convex constraint, so it doesn't make the optimization harder.
+2. Approximate the dynamics by linearizing at every time step, $$x_{k+1} = A_k x_k + B_k u_k = \frac{df}{dx}\bigg |_{x_k} x_k + \frac{df}{du}\bigg |_{u_k} u_k$$. Note that now, Equation $$(*)$$ is a convex constraint, so it doesn't make the optimization harder.
 
 3. Solve the convex optimization problem using the linearized dynamics to ensure things remain simple - this yields a new sequence of inputs $$u$$
 
