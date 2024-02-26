@@ -62,30 +62,28 @@ or as complicated as spacecraft rotational dynamics:
 
 but the only thing that matters is that we can write this function down[^5]! Bringing this all together, mathematically, we can formulate a simple version of this problem as follows[^4]:
 
-$$\underset{u}{\min} \ \sum_{k=1}^T ||u_k||_2$$
-{: text-align: center;"} 
+ $$\underset{u}{\min} \ \sum_{k=1}^T ||u_k||_2$$
+<!-- {: text-align: center;"}  -->
 
 $$\text{s.t. } x_{k+1} = f(x_{k}, u_k) \ \forall k=1 \ldots T-1 \quad \textit{(rocket must move according to the laws of physics)}$$
-{: text-align: center;"} 
+{: style="text-align: center;"}
 
 $$||u_k||_2 \leq u_{\text{max}} \ \forall k=1\ldots T \quad \textit{(force can never be too high)}$$
-{: text-align: center;"} 
+{: style="text-align: center;"}
 
 $$x_{T}=x_f \quad \textit{(the rocket must make it to the landing site at the final time)}$$
-{: text-align: center;"} 
+{: style="text-align: center;"}
 
 $$\dot{x}_T=0 \quad \textit{(the rocket must have zero velocity at the final time)}$$
-{: text-align: center;"} 
+{: style="text-align: center;"}
 
-$$(x_y)_k \geq 0 \ \forall k=1\ldots T \quad \textit{(the rocket must stay above the ground)}$$
-{: text-align: center;"}
+ $$(x_y)_k \geq 0 \ \forall k=1\ldots T \quad \textit{(the rocket must stay above the ground)}$$
 
 Although everything we've written down has a relatively simple motivation, looking at this as a human, this is a mess - how can you possibly come up with a sequence of $$u$$'s that get you to your goal, let alone an *optimal* sequence, especially if $$f$$ is a complicated function? Luckily, we can do this systematically with little more math than is taught in high school calculus.
 
 ### 3. Sequential Convex Programming
 
 One of the primary enabling technologies of rocket landing has been Sequential Convex Programming (SCP). The idea behind this
-{: text-align: center;"} 
 
 #### 3.1 Linearization
 
