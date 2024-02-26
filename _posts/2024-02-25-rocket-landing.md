@@ -46,7 +46,7 @@ While most recently Perserverance landed within 1km of it's desired target, more
 ### 2. Problem Setup
 Broadly, we care about getting a rocket from a starting location to the location of the landing site, with zero velocity[^3]. Along the way, we likely have some secondary objectives, like minimizing fuel or the time spent along the way. 
 
-![landing_diagram](/assets/rocket_landing/landing_diagram.png){: width="500px" .align-center}
+![landing_diagram](/assets/rocket_landing/landing_diagram.png){: width="700px" .align-center}
 
 Typically, the position, velocity, and orientation of the rocket is represented by $$x$$, called the "state" of the rocket. Similarly, we have some way of influencing the state of the rocket (i.e. a rocket engine), which we denote the "input" $$u$$. Hopefully we also have an idea about how the position of the rocket will evolve over time according to the laws of physics and our input - in other words, we know some function $$f$$ such that:
 
@@ -89,12 +89,11 @@ The first thing to note is that there is a large difference between following a 
 One of the primary enabling technologies of propulsive landing has been Sequential Convex Programming (SCP), which is a method of generating these feasible trajectories ahead of time.
 
 <div>
-#### Aside: Linearization
-One key concept we need to develop in our discussion of successive convexification is linearization[^6]. Recall from calculus class that if we take the derivative of a function $$f(x)$$ w.r.t $$x$$, plug in our point of interest $$x_0$$, and use that as the slope $$A$$ of a new function, we can come up with an approximation to an arbitrarily complicated $$f(x)$$ which is pretty good, as long as we're near our point $$x_0$$.
+<b>Aside: Linearization</b>
 
-{:refdef: style="text-align: center;"}
-![linearization](/assets/rocket_landing/linearization.png){: width="500px" .align-center}
-{: refdef}
+One key concept we need to develop in our discussion of successive convexification is linearization[^6]. Recall from calculus class that if we take the derivative of a function $f(x)$ w.r.t $$x$$, plug in our point of interest $$x_0$$, and use that as the slope $$A$$ of a new function, we can come up with an approximation to an arbitrarily complicated $$f(x)$$ which is pretty good, as long as we're near our point $$x_0$$.
+
+<img src="/assets/rocket_landing/linearization.png" alt="linearization example">
 
 In the above example, we managed to replace our extremely complicated $$f(x)$$, which has multiple local minima and maxima, with a MUCH simpler straight line, that performs basically the same way as long as we stay close to our linearization point $$x_0$$. As it turns out, it's much easier to optimize these functions as well.
 </div>
