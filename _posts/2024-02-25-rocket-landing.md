@@ -63,8 +63,6 @@ or as complicated as spacecraft rotational dynamics:
 
 but the only thing that matters is that we can write this function down[^5]! Bringing this all together, mathematically, we can formulate a simple version of this problem as follows[^4]:
 
-<div align="center">
-
 $\underset{u}{\min} \ \sum_{k=1}^T ||u_k||_2$
 
 $\text{s.t. } x_{k+1} = f(x_{k}, u_k) \ \forall k=1
@@ -77,8 +75,6 @@ $x_{T}=x_f \quad \textit{(the rocket must make it to the landing site at the fin
 $\dot{x}_T=0 \quad \textit{(the rocket must have zero velocity at the final time)}$
 
 $(x_y)_k \geq 0 \ \forall k=1\ldots T \quad \textit{(the rocket must stay above the ground)}$
-
-</div align="center">
 
 Although everything we've written down has a relatively simple motivation, looking at this as a human, this is a mess - how can you possibly come up with a sequence of $u$'s that get you to your goal, let alone an *optimal* sequence, especially if $f$ is a complicated function? Luckily, we can do this systematically with little more math is taught in high school calculus.
 
