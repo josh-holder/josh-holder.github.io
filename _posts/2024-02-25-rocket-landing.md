@@ -125,27 +125,27 @@ Putting this into [code](https://github.com/josh-holder/nanoSCP) with nonzero in
 ![rocket_landing](/assets/rocket_landing/rocket_landing.png){: width="600px" .align-center}
 
 
-## 5. Practical Challenges with SCP
+## 4. Practical Challenges with SCP
 
 What challenges arise when this simple strategy actually used in practice?
 
-#### 5.1. Limited Computation Resources
+#### 4.1. Limited Computation Resources
 As you might imagine, despite huge advances in hardware and algorithms over the past several decades, this process is often still too computationally intensive to run in real-time. Instead, SCP is used to generate a trajectory (either before the launch or once at the start of a mission phase), and the spacecraft uses a simpler method (i.e. PID, LQR, MPC) to track the optimal, feasible trajectory it has been given.[^8]
 
 Think about the difference between solving a maze for the first time, and tracing a correct path someone has shown you with your pencil. If we can invest some effort into coming up with a path through the maze, all we have to do later is follow the path we've laid out, saving us critical computation time onboard our spacecraft.
 
-#### 5.2. Limited Information
+#### 4.2. Limited Information
 When tracking a trajectory from SCP, our performance often depends directly on how well we know the position of our spacecraft. Especially [when landing on the moon](https://x.com/DrPhiltill/status/1761219057783558608?s=20), this information may be not be accurate. This problem has enough complexity to be a full-fledged subfield of GN&C, and the ways in which controls and estimation interact are often subtle and unintuitive. Having a good understanding of this interplay is critical to the performance of these algorithms in flight.
 
-#### 5.3. Non-convex Constraints
+#### 4.3. Non-convex Constraints
 While SCP can handle non-linear dynamics, one important limitation is that it can only address convex constraints (or constraints that can be "convexified" with clever modifications[^4].) For example, a constraint where an engine can either be completely off or firing at some minimum thrust level is nonconvex, and must be handled with an approximation of some kind.
 
-#### 5.4. Hardware Failures
+#### 4.4. Hardware Failures
 During the SLIM mission, one of the two main engines failed at 150 feet above the ground. This is obviously an extreme case, but highlights an important limitation of SCP - these trajectories are often generated assuming a given vehicle configuration. How robust can we make these trajectories to hardware failures? This could be handled by simply regenerating a trajectory when a actuator fails, but also potentially by adding robustness into the optimization process itself.
 
 The issue of robustness is perhaps the most challenging (How do we define robustness? Which failures do we consider?), but also has the most potential for impact. As mission cadence increases and we begin to put human lives on the line, having robustness deeply baked into the algorithms will be critical.
 
-## 6. Summary
+## 5. Summary
 
 Landing on planetary bodies is hard, and as we've [observed](https://spacenews.com/im-1-lunar-lander-tipped-over-on-its-side/) [recently](https://www.pbs.org/newshour/science/japans-1st-moon-lander-has-hit-its-target-but-it-appears-to-be-upside-down), GN&C is often the limiting factor. In this post, I tried to provide the surprisingly simple intuition behind SCP and the ways it can seemingly magically solve difficult problems with blinding speed. If you're interested in landing rockets, I'd urge you to play around with [the code](https://github.com/josh-holder/nanoSCP) and get a feel for the power and limitations of these methods - to become an interplanetary species, there is still much work to be done in this area.
 
