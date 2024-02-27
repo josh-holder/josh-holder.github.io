@@ -142,7 +142,7 @@ While SCP can handle non-linear dynamics, one important limitation is that it ca
 #### 5.4. Hardware Failures
 During the SLIM mission, one of the two main engines failed at 150 feet above the ground. This is obviously an extreme case, but highlights an important limitation of SCP - these trajectories are often generated assuming a given vehicle configuration. How robust can we make these trajectories to hardware failures? This could be handled by simply regenerating a trajectory when a actuator fails, but also potentially by adding robustness into the optimization process itself.
 
-The issue of robustness is perhaps the most challenging (How do we define robustness? Which failures do we consider, and how conservative should we be?), but also has the most potential for impact. As mission cadence increases and we begin to put human lives on the line, having robustness deeply baked into the algorithms will be critical.
+The issue of robustness is perhaps the most challenging (How do we define robustness? Which failures do we consider?), but also has the most potential for impact. As mission cadence increases and we begin to put human lives on the line, having robustness deeply baked into the algorithms will be critical.
 
 ## 6. Summary
 
