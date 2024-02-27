@@ -124,6 +124,7 @@ Putting this into [code](https://github.com/josh-holder/nanoSCP) with nonzero in
 
 ![rocket_landing](/assets/rocket_landing/rocket_landing.png){: width="600px" .align-center}
 
+
 ## 5. Practical Challenges with SCP
 
 What challenges arise when this simple strategy actually used in practice?
