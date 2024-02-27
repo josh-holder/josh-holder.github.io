@@ -109,15 +109,15 @@ With an intuitive understanding of convex optimization, we can put it all togeth
 ![step1](/assets/rocket_landing/step1.png){: width="600px" .align-center}
 2. Approximate the dynamics by linearizing at every time step, $$x_{k+1} = A_k x_k + B_k u_k = \frac{df}{dx} \bigg \vert_{x_k} x_k + \frac{df}{du} \bigg \vert_{u_k} u_k$$. Note that now, Equation $$(*)$$ is a convex constraint, so it doesn't make the optimization harder.
 ![step2](/assets/rocket_landing/step2.png){: width="600px" .align-center}
-3. Solve the convex optimization problem<sup><a href="#footnote8">8</a></sup> using the linearized dynamics to ensure things remain simple - this yields a new sequence of inputs $$u$$.
+3. Solve the convex optimization problem using the linearized dynamics to ensure things remain simple - this yields a new sequence of inputs $$u$$.
 ![step3](/assets/rocket_landing/step3.png){: width="600px" .align-center}
 4. Repeat from step 1: apply your new $$u$$ to the dynamics, linearize around this new trajectory, and optimize!
 ![step4](/assets/rocket_landing/step4.png){: width="600px" .align-center}
-5. Repeat this process until your final state is reached within some tolerance. You now have a set of states $$x$$ and inputs $$u$$ that you know your rocket can follow (in theory), that will get you to the landing site!
+5. Repeat this process until your final state is reached within some tolerance. You now have a set of states $$x$$ and inputs $$u$$ that you know your rocket can follow that will get you to the landing site!
 ![step5](/assets/rocket_landing/step5.png){: width="600px" .align-center}
 {: .notice--info}
 
-These 5 steps are all it takes to generate trajectories for complex nonlinear problems - the engineer plugs in the initial position of the rocket, a model of the dynamics, and a metric to optimize against, and SCP spits out a list of feasible control inputs to execute to achieve your goal.
+These 5 steps are all it takes to generate trajectories for complex nonlinear problems - the engineer plugs in the initial position of the rocket, a model of the dynamics, and a metric to optimize against, and SCP spits out a list of feasible control inputs to execute to achieve your goal[^9].
 
 #### 3.3 Rocket Landing Example
 
@@ -131,23 +131,23 @@ Putting this into [code](https://github.com/josh-holder/nanoSCP) with nonzero in
 
 ### 5. Practical Challenges with SCP
 
-What constraints arise when this simple strategy actually used in practice?
+What challenges arise when this simple strategy actually used in practice?
 
-#### 5.1. Computation Constraints
-As you might imagine, despite huge advances in hardware and algorithms over the past several decades, this process is still too computationally intensive to run in real-time at 50 Hz. Instead, SCP is used to generate a trajectory (either before the launch or once at the start of a mission phase), and the spacecraft uses a simpler method (i.e. PID, LQR, MPC) to track the optimal, feasible trajectory it has been given.[^8]
+#### 5.1. Limited Computation Resources
+As you might imagine, despite huge advances in hardware and algorithms over the past several decades, this process is often still too computationally intensive to run in real-time. Instead, SCP is used to generate a trajectory (either before the launch or once at the start of a mission phase), and the spacecraft uses a simpler method (i.e. PID, LQR, MPC) to track the optimal, feasible trajectory it has been given.[^8]
 
 This is the difference between following a path and coming up with a path yourself - think about the difference between solving a maze for the first time, and tracing a correct path someone has shown you with your pencil. If we can invest some effort into coming up with a path through the maze, all we have to do later is follow the path we've laid out, saving us critical computation time onboard our spacecraft.
 
 #### 5.2. Limited Information
-When tracking a trajectory from SCP, our performance often depends directly on how well we know the position of our spacecraft. Especially [when landing on the moon](https://x.com/DrPhiltill/status/1761219057783558608?s=20), this information may be not be accurate.
+When tracking a trajectory from SCP, our performance often depends directly on how well we know the position of our spacecraft. Especially [when landing on the moon](https://x.com/DrPhiltill/status/1761219057783558608?s=20), this information may be not be accurate. This problem has enough complexity to be a full-fledged subfield of GN&C, and the ways in which controls and estimation interact are often subtle and unintuitive. Good algorithms
 
-#### 5.3. Failures
-In the case of SLIM, one of the two main engines failed at 150 feet above the ground. This is obviously an extreme case, but highlights an important limitation of SCP - these trajectories are often generated assuming a given vehicle configuration. How robust can we make these trajectories to failures? 
-
-This could be handled by simply regenerating a trajectory when a actuator fails, but also potentially by adding robustness into the optimization process itself.
-
-#### 5.4. Non-convex Constraints
+#### 5.3. Non-convex Constraints
 While SCP can handle non-linear dynamics, one important limitation is that it can only address convex constraints (or constraints that can be "convexified" with clever modifications[^4].) For example, a constraint where an engine can either be completely off or firing at some minimum thrust level is nonconvex, and must be handled with an approximation of some kind.
+
+#### 5.4. Hardware Failures
+During the SLIM mission, one of the two main engines failed at 150 feet above the ground. This is obviously an extreme case, but highlights an important limitation of SCP - these trajectories are often generated assuming a given vehicle configuration. How robust can we make these trajectories to hardware failures? This could be handled by simply regenerating a trajectory when a actuator fails, but also potentially by adding robustness into the optimization process itself.
+
+The issue of robustness is perhaps the most challenging (How do we define robustness? Which failures do we consider, and how conservative should we be?), but also has the most potential for impact. As mission cadence increases and human lives begin to be on the line, having robustness deeply baked into the algorithms will be critical to ensuring safety and reliablity.
 
 ### 6. Summary
 
@@ -160,4 +160,4 @@ Landing on planetary bodies is hard, and as we've [observed](https://spacenews.c
 [^4]: Of course, a real and useful rocket landing problem might have more constraints, including minimum thrust requirements, glidescope position constraints, gimbaling limits, etc. - see the seminal [G-FOLD](https://www.researchgate.net/publication/258676350_G-FOLD_A_Real-Time_Implementable_Fuel_Optimal_Large_Divert_Guidance_Algorithm_for_Planetary_Pinpoint_Landing) paper. Things get more complicated in these cases, but the procedure doesn't fundamentally change (as long as your constraints aren't too nasty).
 [^7]: [Convex Optimization by Boyd and Vandenberghe](https://web.stanford.edu/~boyd/cvxbook/bv_cvxbook.pdf) is the classic reference on the subject, but it can be quite dense.
 [^8]: Depending on your computational resources and the speed of your dynamics, you may be able to get away with running SCP on-board in real time. You can also consider re-running SCP any time your spacecraft gets too far off course - there are infinite varieties to the ways you can design your EDL system.
-<p id="footnote8">8. I'm of course brushing over HOW to solve these problems here. Luckily, in 2024 we have access to CVX and other libraries which largely abstract these lower level problems away, so we can focus on the bigger picture. See the linked code for an example of how to write these CVX programs.</p>
+[^9]: I'm of course brushing over HOW to solve these problems here. Luckily, in 2024 we have access to CVX and other libraries which largely abstract these lower level problems away, so we can focus on the bigger picture. See the [linked code](https://github.com/josh-holder/nanoSCP) or the CVX documentation for an example of how to write these optimization problems in Python or Matlab.
