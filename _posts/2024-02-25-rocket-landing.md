@@ -9,7 +9,7 @@ tags:
   - Spaceflight
 toc: true
 header:
-  image: /assets/images/spacexrocketreturn.png
+  image: /assets/images/Falcon-Heavy-Demo-Feb-2018-SpaceX-1-crop.jpg
   image_description: "double landing of spacex rockets"
 ---
 
