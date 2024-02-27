@@ -64,7 +64,7 @@ but the only thing that matters is that we can write this function down[^5]! Bri
 
 $$\underset{u}{\min} \ \sum_{k=1}^T ||u_k||_2 + ||x_T-x_f||_2 \quad \textit{(minimize fuel use and reach the target)}$$
 
-$$\text{s.t. } x_{k+1} = f(x_{k}, u_k) (*)\quad \textit{(move according to the laws of physics)}$$
+$$\text{s.t. } x_{k+1} = f(x_{k}, u_k) \quad \textit{(move according to the laws of physics)} \quad (*)$$
 
 $$||u_k||_2 \leq u_{\text{max}} \quad \textit{(force can never be too high)}$$
 
@@ -122,7 +122,7 @@ Let's return to our rocket example, and simulate this process. To add some inter
 
 $$\begin{bmatrix} x_{k+1} \\ y_{k+1} \\ \dot{x}_{k+1} \\ \dot{y}_{k+1} \\ m_{k+1}\end{bmatrix} = \begin{bmatrix} \dot{x}_k \Delta t \\ \dot{y}_k\Delta t \\ \frac{u_{x,k}}{m_k} \Delta t \\ (\frac{u_{y,k}}{m_k} - g) \Delta t \\ -\alpha ||u||_2 \Delta t\end{bmatrix}$$
 
-Putting this into [code](https://github.com/josh-holder/nanoSCP) with nonzero initial velocity, we get the following plot:
+We've chosen only convex constraints, except for equation $$(*)$$. Luckily, though, the linearization trick solves this for us and approximates it as a convex function so we can optimize it easily. Putting this into [code](https://github.com/josh-holder/nanoSCP) with nonzero initial velocity, we get the following plot:
 
 ![rocket_landing](/assets/rocket_landing/rocket_landing.png){: width="600px" .align-center}
 
