@@ -118,7 +118,7 @@ These 5 steps are all it takes to generate trajectories for complex nonlinear pr
 
 ### 3.3. Rocket Landing Example
 
-Let's return to our rocket example, and simulate this process. To add some interesting nonlinearity, we simulate maxx expenditure due to fuel use, yielding the following $$f(x,u)$$:
+Let's return to our rocket example, and simulate this process. To add some interesting nonlinearity, we simulate mass expenditure due to fuel use, yielding the following $$f(x,u)$$:
 
 $$\begin{bmatrix} x_{k+1} \\ y_{k+1} \\ \dot{x}_{k+1} \\ \dot{y}_{k+1} \\ m_{k+1}\end{bmatrix} = \begin{bmatrix} \dot{x}_k \Delta t \\ \dot{y}_k\Delta t \\ \frac{u_{x,k}}{m_k} \Delta t \\ (\frac{u_{y,k}}{m_k} - g) \Delta t \\ -\alpha ||u||_2 \Delta t\end{bmatrix}$$
 
@@ -129,7 +129,7 @@ We've chosen only convex constraints, except for equation $$(*)$$. Luckily, thou
 
 ## 4. Practical Challenges with SCP
 
-What challenges arise when this simple strategy actually used in practice?
+What challenges arise when this simple strategy is actually used in practice?
 
 ### 4.1. Limited Computation Resources
 As you might imagine, despite huge advances in hardware and algorithms over the past several decades, this process is often still too computationally intensive to run in real-time. Instead, SCP is used to generate a trajectory (either before the launch or once at the start of a mission phase), and the spacecraft uses a simpler method (i.e. PID, LQR, MPC) to track the optimal, feasible trajectory it has been given.[^8]
