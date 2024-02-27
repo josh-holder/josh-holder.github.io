@@ -14,7 +14,7 @@ toc: true
   src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.0/es5/tex-mml-chtml.js">
 </script>
 
-With terminal-phase Guidance Navigation and Control in the news lately with the (qualified) success of [Intuitive Machines](https://spacenews.com/im-1-lunar-lander-tipped-over-on-its-side/) and [JAXA's](https://www.pbs.org/newshour/science/japans-1st-moon-lander-has-hit-its-target-but-it-appears-to-be-upside-down) lunar landers, I wanted to provide an approachable look at the mathematics of rocket landing, and the ways it's both easier and harder than you might expect.
+TESTWith terminal-phase Guidance Navigation and Control in the news lately with the (qualified) success of [Intuitive Machines](https://spacenews.com/im-1-lunar-lander-tipped-over-on-its-side/) and [JAXA's](https://www.pbs.org/newshour/science/japans-1st-moon-lander-has-hit-its-target-but-it-appears-to-be-upside-down) lunar landers, I wanted to provide an approachable look at the mathematics of rocket landing, and the ways it's both easier and harder than you might expect.
 {: .notice}
 
 To me, there's nothing more awe-inspiring than watching [rockets land autonomously](https://www.youtube.com/watch?v=lw3KEg6b6bE), and in fact watching this as a college freshman with the rocketry team was what inspired me to become a Guidance Navigation and Control (GN&C) Engineer in the first place[^1].
