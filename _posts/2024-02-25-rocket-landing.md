@@ -114,7 +114,7 @@ With an intuitive understanding of convex optimization, we can put it all togeth
 
 These 5 steps are all it takes to generate trajectories for complex nonlinear problems - the engineer plugs in the initial position of the rocket, a model of the dynamics, and a metric to optimize against, and SCP spits out a list of feasible control inputs to execute to achieve your goal[^9].
 
-#### 3.3 Rocket Landing Example
+#### 3.3. Rocket Landing Example
 
 Let's return to our rocket example, and simulate this process. To add some interesting nonlinearity, we simulate maxx expenditure due to fuel use, yielding the following $$f(x,u)$$:
 
@@ -125,7 +125,7 @@ Putting this into [code](https://github.com/josh-holder/nanoSCP) with nonzero in
 ![rocket_landing](/assets/rocket_landing/rocket_landing.png){: width="600px" .align-center}
 
 
-## 4. Practical Challenges with SCP
+### 4. Practical Challenges with SCP
 
 What challenges arise when this simple strategy actually used in practice?
 
