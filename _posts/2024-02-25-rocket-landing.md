@@ -3,6 +3,7 @@ title: "How TO Land an Orbital Rocket Booster: a gentle mathematical introductio
 excerpt_separator: "<!--more-->"
 categories:
   - writings
+  - featured
 tags:
   - GN&C
   - Optimization
