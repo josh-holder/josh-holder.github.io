@@ -84,11 +84,11 @@ One of the primary enabling technologies of propulsive landing has been Sequenti
 
 One extremely important property of optimization problems is "convexity". While we won't get into the math here[^7], the intuition is remarkably simple. Convex problems are shaped like bowls, where there is only one "local minimum". This means that if you stop making progress, you know you've reached the optimal solution. By contrast, nonconvex problems can be arbitrarily shaped, and you can get stuck in a several places without knowing that if you try a bit harder, you can find an even better solution.
 
+As a visual example, the function on the left below is convex, so if you roll a ball down the hill starting from anywhere, you'll reach the minimum. For the nonconvex function on the right, the final location of the ball is dependent on where you start the ball. It's not hard to see how this could translate to a tougher optimization problem.
+
 ![convex](/assets/rocket_landing/convex.png){: width="500px" .align-center}
 
-To make this concrete, the function on the left is convex, so if you roll a ball down the hill starting from anywhere, you'll reach the minimum. For the nonconvex function on the right, the final location of the ball is dependent on where you start the ball. It's not hard to see how this could translate to a tougher optimization problem.
-
-In the rocket landing context, fuel cost might be the y-axis. If we're trying to find a trajectory with minimum fuel cost, the full problem might initially look like the plot on the right, which would make finding a minimum fuel cost very difficult. SCP allows us to only solve problems that look like the plot on the left, making things much easier.
+In the context of our rocket landing problem, fuel cost would be the y-axis. If we're trying to find a trajectory with minimum fuel cost, the full problem might initially look like the plot on the right, which would make finding a minimum fuel cost very difficult. SCP allows us to only solve problems that look like the plot on the left, making things much easier.
 
 <div>
 <b>Aside: Linearization</b>
