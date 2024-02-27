@@ -88,7 +88,7 @@ As a visual example, the function on the left below is convex, so if you roll a 
 
 ![convex](/assets/rocket_landing/convex.png){: width="500px" .align-center}
 
-In the context of our rocket landing problem, fuel cost would be the y-axis. If we're trying to find a trajectory with minimum fuel cost, the full problem might initially look like the plot on the right, which would make finding a minimum fuel cost very difficult. SCP allows us to only solve problems that look like the plot on the left, making things much easier.
+In the context of our rocket landing problem, fuel cost would be the y-axis. If we're trying to find a trajectory with minimum fuel cost, the full problem might initially look like the plot on the right, which would make finding a minimum fuel cost very difficult. SCP allows us to approximate the problem on the right by solving problems that look like the plot on the left, making things much easier[^10].
 
 <div>
 <b>Aside: Linearization</b>
@@ -106,9 +106,9 @@ With an intuitive understanding of convex optimization, we can put it all togeth
 
 1. Starting from your initial condition $$x_0$$, take a completely random guess at a sequence of inputs (for example - use $$u_k=0 \text{ for all } k=1...\ldots T$$). Use the dynamics function $$f(x,u)$$ to calculate the state of the rocket at all times $$x_k$$ based on these inputs.
 ![step1](/assets/rocket_landing/step1.png){: width="600px" .align-center}
-2. Approximate the dynamics by linearizing at every time step, $$x_{k+1} = A_k x_k + B_k u_k = \frac{df}{dx} \bigg \vert_{x_k} x_k + \frac{df}{du} \bigg \vert_{u_k} u_k$$. Note that now, Equation $$(*)$$ is a convex constraint, so it doesn't make the optimization harder.
+2. Approximate the dynamics by linearizing at every time step, $$x_{k+1} = A_k x_k + B_k u_k = \frac{df}{dx} \bigg \vert_{x_k} x_k + \frac{df}{du} \bigg \vert_{u_k} u_k$$. Note that now, Equation $$(*)$$ is a convex constraint, so our optimization problem now looks like a bowl!
 ![step2](/assets/rocket_landing/step2.png){: width="600px" .align-center}
-3. Solve the convex optimization problem using the linearized dynamics to ensure things remain simple - this yields a new sequence of inputs $$u$$.
+3. Solve the optimization problem using the linearized dynamics to ensure the problem is convex - this yields a new sequence of inputs $$u$$.
 ![step3](/assets/rocket_landing/step3.png){: width="600px" .align-center}
 4. Repeat from step 1: apply your new $$u$$ to the dynamics, linearize around this new trajectory, and optimize!
 ![step4](/assets/rocket_landing/step4.png){: width="600px" .align-center}
@@ -164,3 +164,4 @@ Many thanks to Sam Buckner for consulting on this post - The ACL at the Universi
 [^7]: [Convex Optimization by Boyd and Vandenberghe](https://web.stanford.edu/~boyd/cvxbook/bv_cvxbook.pdf) is the classic reference on the subject, but it can be quite dense.
 [^8]: Depending on your computational resources and the speed of your dynamics, you may be able to get away with running SCP on-board in real time. You can also consider re-running SCP any time your spacecraft gets too far off course - there are infinite varieties to the ways you can design your EDL system.
 [^9]: I'm of course brushing over HOW to solve these optimization problems here. Luckily, in 2024 we have access to CVX and other libraries which largely abstract these lower level problems away, so we can focus on the bigger picture. See the [linked code](https://github.com/josh-holder/nanoSCP) or the CVX documentation for an example of how to write these optimization problems in Python or Matlab.
+[^10]: The quality of this approximation depends on the extent of your nonlinearities and your starting trajectory. One approach to find a more globally optimal solution is to run SCP multiple times, each with a new guess for the initial control sequence.
