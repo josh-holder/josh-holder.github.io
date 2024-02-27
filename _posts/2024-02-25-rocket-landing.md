@@ -64,13 +64,15 @@ but the only thing that matters is that we can write this function down[^5]! Bri
 
 $$\underset{u}{\min} \ \sum_{k=1}^T ||u_k||_2 + ||x_T-x_f||_2 \quad \textit{(minimize fuel use and reach the target)}$$
 
-$$\text{s.t. } x_{k+1} = f(x_{k}, u_k) \ \forall k=1 \ldots T-1 \ (*)\quad \textit{(move according to the laws of physics)}$$
+$$\text{s.t. } x_{k+1} = f(x_{k}, u_k) (*)\quad \textit{(move according to the laws of physics)}$$
 
-$$||u_k||_2 \leq u_{\text{max}} \ \forall k=1\ldots T \quad \textit{(force can never be too high)}$$
+$$||u_k||_2 \leq u_{\text{max}} \quad \textit{(force can never be too high)}$$
 
-$$(x_y)_k \geq 0 \ \forall k=1\ldots T \quad \textit{(stay above the ground)}$$
+$$(x_y)_k \geq 0 \quad \textit{(stay above the ground)}$$
 
-$$(u_y)_k \geq 0 \ \forall k=1\ldots T \quad \textit{(keep the engine pointed at the ground)}$$
+$$(u_y)_k \geq 0 \quad \textit{(keep the engine pointed at the ground)}$$
+
+$$\text{for all } k=1\ldots T$$
 
 Although everything we've written down has a relatively simple motivation, looking at this as a human, this is a mess - how can you possibly come up with a sequence of $$u$$'s that gets you to your goal, let alone an *optimal* sequence, especially if $$f$$ is a complicated function? Luckily, we have a way of doing this systematically which can be understood with little more math than is taught in high school calculus.
 
