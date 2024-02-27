@@ -8,6 +8,9 @@ tags:
   - Optimization
   - Spaceflight
 toc: true
+header:
+  image: /assets/images/spacexrocketreturn.png
+  image_description: "double landing of spacex rockets"
 ---
 
 <script type="text/javascript" async
