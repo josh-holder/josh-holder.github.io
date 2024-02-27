@@ -88,6 +88,8 @@ One extremely important property of optimization problems is "convexity". While 
 
 To make this concrete, the function on the left is convex, so if you roll a ball down the hill starting from anywhere, you'll reach the minimum. For the nonconvex function on the right, the final location of the ball is dependent on where you start the ball. It's not hard to see how this could translate to a tougher optimization problem.
 
+In the rocket landing context, fuel cost might be the y-axis. If we're trying to find a trajectory with minimum fuel cost, the full problem might initially look like the plot on the right, which would make finding a minimum fuel cost very difficult. SCP allows us to only solve problems that look like the plot on the left, making things much easier.
+
 <div>
 <b>Aside: Linearization</b>
 <br>
