@@ -17,7 +17,7 @@ toc: true
 With terminal-phase Guidance Navigation and Control in the news lately with the (qualified) success of [Intuitive Machines](https://spacenews.com/im-1-lunar-lander-tipped-over-on-its-side/) and [JAXA's](https://www.pbs.org/newshour/science/japans-1st-moon-lander-has-hit-its-target-but-it-appears-to-be-upside-down) lunar landers, I wanted to provide an approachable look at the mathematics of rocket landing, and the ways it's both easier and harder than you might expect.
 {: .notice}
 
-To me, there's nothing more awe-inspiring than watching [rockets land autonomously](https://www.youtube.com/watch?v=lw3KEg6b6bE), and in fact watching this as a college freshman with the rocketry team was what inspired me to become a Guidance Navigation and Control (GN&C) Engineer at SpaceX[^1] in the first place.
+To me, there's nothing more awe-inspiring than watching [rockets land autonomously](https://www.youtube.com/watch?v=lw3KEg6b6bE), and in fact watching this as a college freshman with the rocketry team was what inspired me to become a Guidance Navigation and Control (GN&C) Engineer in the first place[^1].
 
 But trajectory optimization and GN&C in general is notoriously math heavy and intimidating to learn - any primer on the subject I've encountered online either brushes over the math entirely ("the rocket uses grid fins for control") or mentions semidefinite matrices within the first two paragraphs. For a beginner genuinely interested in the subject, neither is ideal.
 
@@ -28,7 +28,7 @@ The problem of controlling a spacecraft in space is relatively easy[^2] up until
 
 This changes once you attempt to land on the surface - not only are there a variety of disturbances to contend with (poorly modeled atmospheres, wind, etc.), but things are much more high stakes - with every second, the spacecraft gets closer and closer to a rather prominent solid item named "the ground."
 
-We've been doing soft planetary landings for a few decades, and a few clear strategies have emerged:
+We've been doing planetary landings for a few decades, and a few clear strategies have emerged:
 
 | **Landing Strategy**          | **Description**                                                                     | **Pros**                                            | **Cons**                                            | **Notable Missions**                                                                                                                                                                                                                                                                 |
 |-------------------------------|-------------------------------------------------------------------------------------|-----------------------------------------------------|-----------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -117,7 +117,7 @@ With an intuitive understanding of convex optimization, we can put it all togeth
 ![step5](/assets/rocket_landing/step5.png){: width="600px" .align-center}
 {: .notice--info}
 
-These 5 steps are all it takes to generate trajectories for arbitrarily complex problems!
+These 5 steps are all it takes to generate trajectories for complex nonlinear problems - the engineer plugs in the initial position of the rocket, a model of the dynamics, and a metric to optimize against, and SCP spits out a list of feasible control inputs to execute to achieve your goal.
 
 #### 3.3 Rocket Landing Example
 
@@ -133,27 +133,25 @@ Putting this into [code](https://github.com/josh-holder/nanoSCP) with nonzero in
 
 What constraints arise when this simple strategy actually used in practice?
 
-1. **Computation Constraints**
+#### 5.1. Computation Constraints
 As you might imagine, despite huge advances in hardware and algorithms over the past several decades, this process is still too computationally intensive to run in real-time at 50 Hz. Instead, SCP is used to generate a trajectory (either before the launch or once at the start of a mission phase), and the spacecraft uses a simpler method (i.e. PID, LQR, MPC) to track the optimal, feasible trajectory it has been given.[^8]
 
 This is the difference between following a path and coming up with a path yourself - think about the difference between solving a maze for the first time, and tracing a correct path someone has shown you with your pencil. If we can invest some effort into coming up with a path through the maze, all we have to do later is follow the path we've laid out, saving us critical computation time onboard our spacecraft.
 
-2. **Limited Information**
+#### 5.2. Limited Information
 When tracking a trajectory from SCP, our performance often depends directly on how well we know the position of our spacecraft. Especially [when landing on the moon](https://x.com/DrPhiltill/status/1761219057783558608?s=20), this information may be not be accurate.
 
-3. **Failures**
+#### 5.3. Failures
 In the case of SLIM, one of the two main engines failed at 150 feet above the ground. This is obviously an extreme case, but highlights an important limitation of SCP - these trajectories are often generated assuming a given vehicle configuration. How robust can we make these trajectories to failures? 
 
 This could be handled by simply regenerating a trajectory when a actuator fails, but also potentially by adding robustness into the optimization process itself.
 
-4. **Non-convex Constraints**
-While SCP can handle non-linear dynamics, one important constraint is that it can only address convex constraints (or constraints that can be "convexified" with clever modifications.) For example, a constraint where an engine can either be completely off or firing at some minimum thrust level is nonconvex, and must be handled with an approximation of some kind.
+#### 5.4. Non-convex Constraints
+While SCP can handle non-linear dynamics, one important limitation is that it can only address convex constraints (or constraints that can be "convexified" with clever modifications[^4].) For example, a constraint where an engine can either be completely off or firing at some minimum thrust level is nonconvex, and must be handled with an approximation of some kind.
 
 ### 6. Summary
 
-Landing on planetary bodies is hard, and often GN&C is the limiting factor. SCP is one method which allows us to generate trajectories for systems with nonlinear dynamics with ease. In this post, I tried to provide the shockingly simple intuition behind SCP and the ways it can seemingly magically solve difficult problems with blinding speed.
-
-However, there is still a lot of work to be done - to me, the top programs in the world for this type of research are Stanford, UW, and possibly UT.
+Landing on planetary bodies is hard, and as we've [observed](https://spacenews.com/im-1-lunar-lander-tipped-over-on-its-side/) [recently](https://www.pbs.org/newshour/science/japans-1st-moon-lander-has-hit-its-target-but-it-appears-to-be-upside-down), often GN&C is the limiting factor. In this post, I tried to provide the surprisingly simple intuition behind SCP and the ways it can seemingly magically solve difficult problems with blinding speed. If you're interested in landing rockets, I'd urge you to play around with [the code](https://github.com/josh-holder/nanoSCP) and get a feel for the power and limitations of these methods - to become an interplanetary species, there is still much work to be done in this area.
 
 [^1]: Note that while I've worked on GN&C control software on the Orion spacecraft at NASA and for satellites at SpaceX, I've never worked directly on the landing problem at SpaceX or any other company. As such, take this information with a grain of salt.
 [^2]: OK, [I said "relatively"](https://en.wikipedia.org/wiki/Quaternion)...
