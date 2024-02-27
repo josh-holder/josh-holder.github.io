@@ -78,7 +78,7 @@ Although everything we've written down has a relatively simple motivation, looki
 
 One of the primary enabling technologies of propulsive landing has been Sequential Convex Programming (SCP), which is a method of generating optimal solutions to problems of this type.
 
-#### 3.1 Convex Optimization Problems
+### 3.1. Convex Optimization Problems
 
 One extremely important property of optimization problems is "convexity". While we won't get into the math here[^7], the intuition is remarkably simple. Convex problems are shaped like bowls, where there is only one "local minimum". This means that if you stop making progress, you know you've reached the optimal solution. By contrast, nonconvex problems can be arbitrarily shaped, and you can get stuck in a several places without knowing that if you try a bit harder, you can find an even better solution.
 
@@ -97,7 +97,7 @@ In the above example, we managed to replace our extremely complicated f(x), whic
 </div>
 {: .notice--info}
 
-#### 3.2 The SCP Process
+### 3.2. The SCP Process
 With an intuitive understanding of convex optimization, we can put it all together. The pseudocode of sequential convex programming is as follows:
 
 1. Starting from your initial condition $$x_0$$, take a completely random guess at a sequence of inputs (for example - use $$u_k=0 \text{ for all } k=1...\ldots T$$). Use the dynamics function $$f(x,u)$$ to calculate the state of the rocket at all times $$x_k$$ based on these inputs.
@@ -114,7 +114,7 @@ With an intuitive understanding of convex optimization, we can put it all togeth
 
 These 5 steps are all it takes to generate trajectories for complex nonlinear problems - the engineer plugs in the initial position of the rocket, a model of the dynamics, and a metric to optimize against, and SCP spits out a list of feasible control inputs to execute to achieve your goal[^9].
 
-#### 3.3. Rocket Landing Example
+### 3.3. Rocket Landing Example
 
 Let's return to our rocket example, and simulate this process. To add some interesting nonlinearity, we simulate maxx expenditure due to fuel use, yielding the following $$f(x,u)$$:
 
@@ -125,22 +125,22 @@ Putting this into [code](https://github.com/josh-holder/nanoSCP) with nonzero in
 ![rocket_landing](/assets/rocket_landing/rocket_landing.png){: width="600px" .align-center}
 
 
-### 4. Practical Challenges with SCP
+## 4. Practical Challenges with SCP
 
 What challenges arise when this simple strategy actually used in practice?
 
-#### 4.1. Limited Computation Resources
+### 4.1. Limited Computation Resources
 As you might imagine, despite huge advances in hardware and algorithms over the past several decades, this process is often still too computationally intensive to run in real-time. Instead, SCP is used to generate a trajectory (either before the launch or once at the start of a mission phase), and the spacecraft uses a simpler method (i.e. PID, LQR, MPC) to track the optimal, feasible trajectory it has been given.[^8]
 
 Think about the difference between solving a maze for the first time, and tracing a correct path someone has shown you with your pencil. If we can invest some effort into coming up with a path through the maze, all we have to do later is follow the path we've laid out, saving us critical computation time onboard our spacecraft.
 
-#### 4.2. Limited Information
+### 4.2. Limited Information
 When tracking a trajectory from SCP, our performance often depends directly on how well we know the position of our spacecraft. Especially [when landing on the moon](https://x.com/DrPhiltill/status/1761219057783558608?s=20), this information may be not be accurate. This problem has enough complexity to be a full-fledged subfield of GN&C, and the ways in which controls and estimation interact are often subtle and unintuitive. Having a good understanding of this interplay is critical to the performance of these algorithms in flight.
 
-#### 4.3. Non-convex Constraints
+### 4.3. Non-convex Constraints
 While SCP can handle non-linear dynamics, one important limitation is that it can only address convex constraints (or constraints that can be "convexified" with clever modifications[^4].) For example, a constraint where an engine can either be completely off or firing at some minimum thrust level is nonconvex, and must be handled with an approximation of some kind.
 
-#### 4.4. Hardware Failures
+### 4.4. Hardware Failures
 During the SLIM mission, one of the two main engines failed at 150 feet above the ground. This is obviously an extreme case, but highlights an important limitation of SCP - these trajectories are often generated assuming a given vehicle configuration. How robust can we make these trajectories to hardware failures? This could be handled by simply regenerating a trajectory when a actuator fails, but also potentially by adding robustness into the optimization process itself.
 
 The issue of robustness is perhaps the most challenging (How do we define robustness? Which failures do we consider?), but also has the most potential for impact. As mission cadence increases and we begin to put human lives on the line, having robustness deeply baked into the algorithms will be critical.
