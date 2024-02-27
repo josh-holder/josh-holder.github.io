@@ -21,7 +21,7 @@ To me, there's nothing more awe-inspiring than watching [rockets land autonomous
 
 But trajectory optimization and GN&C in general is notoriously math heavy and intimidating to learn - any primer on the subject I've encountered online either brushes over the math entirely ("the rocket uses grid fins for control") or mentions semidefinite matrices within the first two paragraphs. For a beginner genuinely interested in the subject, neither is ideal.
 
-In this post, I aim to provide a *gentle* (~calculus-level) introduction to the math behind these problems - what is the intuition for the math which underpins the solution methods, how do they work in practice, and what makes this problem so hard anyway?
+In this post, I aim to provide a *gentle* (~calculus-level) introduction to the math behind these problems - what is the intuition for the solution methods, how do they work in practice, and what makes this problem so hard anyway?
 
 ## 1. Historical Approaches
 The problem of controlling a spacecraft in space is relatively easy[^2] up until the landing attempt - in space, things mostly do what you tell them to do. Other than gravity, there are no pesky "atmospheres" or "solid items" to run into and knock you off course. This is an engineers dream - in space, [every cow is spherical](https://en.wikipedia.org/wiki/Spherical_cow).
