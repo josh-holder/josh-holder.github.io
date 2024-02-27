@@ -109,7 +109,7 @@ With an intuitive understanding of convex optimization, we can put it all togeth
 ![step1](/assets/rocket_landing/step1.png){: width="600px" .align-center}
 2. Approximate the dynamics by linearizing at every time step, $$x_{k+1} = A_k x_k + B_k u_k = \frac{df}{dx} \bigg \vert_{x_k} x_k + \frac{df}{du} \bigg \vert_{u_k} u_k$$. Note that now, Equation $$(*)$$ is a convex constraint, so it doesn't make the optimization harder.
 ![step2](/assets/rocket_landing/step2.png){: width="600px" .align-center}
-3. Solve the convex optimization problem using the linearized dynamics to ensure things remain simple - this yields a new sequence of inputs $$u$$.
+3. Solve the convex optimization problem<sup><a href="#footnote8">8</a></sup> using the linearized dynamics to ensure things remain simple - this yields a new sequence of inputs $$u$$.
 ![step3](/assets/rocket_landing/step3.png){: width="600px" .align-center}
 4. Repeat from step 1: apply your new $$u$$ to the dynamics, linearize around this new trajectory, and optimize!
 ![step4](/assets/rocket_landing/step4.png){: width="600px" .align-center}
@@ -160,3 +160,4 @@ Landing on planetary bodies is hard, and as we've [observed](https://spacenews.c
 [^4]: Of course, a real and useful rocket landing problem might have more constraints, including minimum thrust requirements, glidescope position constraints, gimbaling limits, etc. - see the seminal [G-FOLD](https://www.researchgate.net/publication/258676350_G-FOLD_A_Real-Time_Implementable_Fuel_Optimal_Large_Divert_Guidance_Algorithm_for_Planetary_Pinpoint_Landing) paper. Things get more complicated in these cases, but the procedure doesn't fundamentally change (as long as your constraints aren't too nasty).
 [^7]: [Convex Optimization by Boyd and Vandenberghe](https://web.stanford.edu/~boyd/cvxbook/bv_cvxbook.pdf) is the classic reference on the subject, but it can be quite dense.
 [^8]: Depending on your computational resources and the speed of your dynamics, you may be able to get away with running SCP on-board in real time. You can also consider re-running SCP any time your spacecraft gets too far off course - there are infinite varieties to the ways you can design your EDL system.
+<p id="footnote8">8. I'm of course brushing over HOW to solve these problems here. Luckily, in 2024 we have access to CVX and other libraries which largely abstract these lower level problems away, so we can focus on the bigger picture. See the linked code for an example of how to write these CVX programs.</p>
