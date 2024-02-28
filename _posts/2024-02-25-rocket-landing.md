@@ -120,7 +120,7 @@ $$\begin{bmatrix} x_{k+1} \\ y_{k+1} \\ \dot{x}_{k+1} \\ \dot{y}_{k+1} \\ m_{k+1
 
 We've chosen only convex constraints, except for equation $$(*)$$. Luckily, though, the linearization trick solves this for us and approximates it as a convex function so we can optimize it easily. Putting this into [code](https://github.com/josh-holder/nanoSCP) with nonzero initial velocity, we get the following plot:
 
-![rocket_landing](/assets/rocket_landing/rocket_landing.png){: width="600px" .align-center}
+![rocket_landing](/assets/rocket_landing/rocket_landing.png){: width="700px" .align-center}
 
 
 ## 4. Practical Challenges with SCP
@@ -136,7 +136,7 @@ Think about the difference between solving a maze for the first time, and tracin
 When tracking a trajectory from SCP, our performance often depends directly on how well we know the position of our spacecraft. Especially [when landing on the moon](https://x.com/DrPhiltill/status/1761219057783558608?s=20), this information may be not be accurate. This problem has enough complexity to be a full-fledged subfield of GN&C, and the ways in which controls and estimation interact are often subtle and unintuitive. Having a good understanding of this interplay is critical to the performance of these algorithms in flight.
 
 ### 4.3. Non-convex Constraints
-While SCP can handle non-linear dynamics, one important limitation is that it can only address convex constraints (or constraints that can be "convexified" with clever modifications[^4].) For example, a constraint where an engine can either be completely off or firing at some minimum thrust level is nonconvex, and must be handled with an approximation of some kind.
+In the same way that SCP handles non-linear dynamics by approximation, it can only handle non-convex constraints via linearization (unless you can "convexify" the constraints with some clever modifications[^4].) This means that such constraints are less likely to be satisfied. Other useful cases may be even more challenging - for example, a constraint where an engine can either be completely off or firing at some minimum thrust level is nonconvex and discontinuous, and must be handled with special care.
 
 ### 4.4. Hardware Failures
 During the SLIM mission, one of the two main engines failed at 150 feet above the ground. This is obviously an extreme case, but highlights an important limitation of SCP - these trajectories are often generated assuming a given vehicle configuration. How robust can we make these trajectories to hardware failures? This could be handled by simply regenerating a trajectory when a actuator fails, but also potentially by adding robustness into the optimization process itself.
@@ -147,8 +147,7 @@ The issue of robustness is perhaps the most challenging (How do we define robust
 
 Landing on planetary bodies is hard, and as we've [observed](https://spacenews.com/im-1-lunar-lander-tipped-over-on-its-side/) [recently](https://www.pbs.org/newshour/science/japans-1st-moon-lander-has-hit-its-target-but-it-appears-to-be-upside-down), GN&C is often the limiting factor. In this post, I tried to provide the surprisingly simple intuition behind SCP and the ways it can seemingly magically solve difficult problems with blinding speed. If you're interested in landing rockets, I'd urge you to play around with [the code](https://github.com/josh-holder/nanoSCP) and get a feel for the power and limitations of these methods - to become an interplanetary species, there is still much work to be done in this area.
 
-
-Many thanks to Sam Buckner for consulting on this post - The ACL at the University of Washington has some of the world's foremost researchers on this topic.
+Many thanks to Sam Buckner for consulting on this post - The ACL at the University of Washington has some of the world's foremost researchers on this topic. For a more rigorous introduction to SCP (and lossless convexification, which I didn't cover in this paper), I would recommend [this fantastic tutorial article](https://arxiv.org/pdf/2106.09125.pdf).
 
 [^1]: Note that while I've worked on GN&C control software on the Orion spacecraft at NASA and for satellites at SpaceX, I've never worked directly on the landing problem at SpaceX or any other company. As such, take this information with a grain of salt.
 [^2]: OK, [I said "relatively"](https://en.wikipedia.org/wiki/Quaternion)...
