@@ -21,7 +21,7 @@ header:
 With terminal-phase Guidance Navigation and Control in the news lately with the (qualified) success of [Intuitive Machines](https://spacenews.com/im-1-lunar-lander-tipped-over-on-its-side/) and [JAXA's](https://www.pbs.org/newshour/science/japans-1st-moon-lander-has-hit-its-target-but-it-appears-to-be-upside-down) lunar landers, I wanted to provide an approachable look at the mathematics of rocket landing, and the ways it's both easier and harder than you might expect.
 {: .notice}
 
-To me, there's nothing more awe-inspiring than watching [rockets land autonomously](https://www.youtube.com/watch?v=lw3KEg6b6bE), and in fact watching this as a college freshman with the rocketry team was what inspired me to become a Guidance Navigation and Control (GN&C) Engineer in the first place[^1].
+To me, there's nothing more awe-inspiring than watching [rockets land autonomously](https://www.youtube.com/watch?v=lw3KEg6b6bE), and in fact watching this as a college freshman with the rocketry team was what inspired me to become a Guidance Navigation and Control (GN&C) Engineer in the first place.[^1]
 
 But trajectory optimization and GN&C in general is notoriously math heavy and intimidating to learn - any primer on the subject I've encountered online either brushes over the math entirely ("the rocket uses grid fins for control") or mentions semidefinite matrices within the first two paragraphs. For a beginner genuinely interested in the subject, neither is ideal.
 
@@ -64,7 +64,7 @@ or as complicated as spacecraft rotational dynamics:
 
 ![rot_dynamics](/assets/rocket_landing/rot_dynamics.png){: width="500px" .align-center}
 
-but the only thing that matters is that we can write this function down[^5]! Bringing this all together, mathematically, we can formulate a simple version of this problem as follows[^4]:
+but the only thing that matters is that we can write this function down![^5] Bringing this all together, mathematically, we can formulate a simple version of this problem as follows:[^4]
 
 ![prob_setup](/assets/rocket_landing/prob_setup.png){: width="600px" .align-center}
 
@@ -76,13 +76,13 @@ One of the primary enabling technologies of propulsive landing has been Sequenti
 
 ### 3.1. Convex Optimization Problems
 
-One extremely important property of optimization problems is "convexity". While we won't get into the math here[^7], the intuition is remarkably simple. Convex problems are shaped like bowls, where there is only one "local minimum". This means that if you stop making progress, you know you've reached the optimal solution. By contrast, nonconvex problems can be arbitrarily shaped, and you can get stuck in a several places without knowing that if you try a bit harder, you can find an even better solution.
+One extremely important property of optimization problems is "convexity". While we won't get into the math here,[^7] the intuition is remarkably simple. Convex problems are shaped like bowls, where there is only one "local minimum". This means that if you stop making progress, you know you've reached the optimal solution. By contrast, nonconvex problems can be arbitrarily shaped, and you can get stuck in a several places without knowing that if you try a bit harder, you can find an even better solution.
 
 As a visual example, the function on the left below is convex, so if you roll a ball down the hill starting from anywhere, you'll reach the minimum. For the nonconvex function on the right, the final location of the ball is dependent on where you start the ball. It's not hard to see how this could translate to a tougher optimization problem.
 
 ![convex](/assets/rocket_landing/convex.png){: width="500px" .align-center}
 
-In the context of our rocket landing problem, fuel cost would be the y-axis. If we're trying to find a trajectory with minimum fuel cost, the full problem might initially look like the plot on the right, which would make finding a minimum fuel cost very difficult. SCP allows us to approximate the problem on the right by solving problems that look like the plot on the left, making things much easier[^10].
+In the context of our rocket landing problem, fuel cost would be the y-axis. If we're trying to find a trajectory with minimum fuel cost, the full problem might initially look like the plot on the right, which would make finding a minimum fuel cost very difficult. SCP allows us to approximate the problem on the right by solving problems that look like the plot on the left, making things much easier.[^10]
 
 <div>
 <b>Aside: Linearization</b>
@@ -110,7 +110,7 @@ With an intuitive understanding of convex optimization, we can put it all togeth
 ![step5](/assets/rocket_landing/step5.png){: width="600px" .align-center}
 {: .notice--info}
 
-These 5 steps are all it takes to generate trajectories for complex nonlinear problems - the engineer plugs in the initial position of the rocket, a model of the dynamics, and a metric to optimize against, and SCP spits out a list of feasible control inputs to execute to achieve your goal[^9].
+These 5 steps are all it takes to generate trajectories for complex nonlinear problems - the engineer plugs in the initial position of the rocket, a model of the dynamics, and a metric to optimize against, and SCP spits out a list of feasible control inputs to execute to achieve your goal.[^9]
 
 ### 3.3. Rocket Landing Example
 
@@ -136,7 +136,7 @@ Think about the difference between solving a maze for the first time, and tracin
 When tracking a trajectory from SCP, our performance often depends directly on how well we know the position of our spacecraft. Especially [when landing on the moon](https://x.com/DrPhiltill/status/1761219057783558608?s=20), this information may be not be accurate. This problem has enough complexity to be a full-fledged subfield of GN&C, and the ways in which controls and estimation interact are often subtle and unintuitive. Having a good understanding of this interplay is critical to the performance of these algorithms in flight.
 
 ### 4.3. Non-convex Constraints
-In the same way that SCP handles non-linear dynamics, it can only handle non-convex constraints via linearization (unless you can "convexify" the constraints with some clever modifications[^4].) This means that such constraints are less likely to be satisfied. Other useful cases may be even more challenging - for example, a constraint where an engine can either be completely off or firing at some minimum thrust level is nonconvex and discontinuous, and must be handled with special care.
+In the same way that SCP handles non-linear dynamics, it can only handle non-convex constraints via linearization (unless you can "convexify" the constraints with some clever modifications).[^4] This means that such constraints are less likely to be satisfied. Other useful cases may be even more challenging - for example, a constraint where an engine can either be completely off or firing at some minimum thrust level is nonconvex and discontinuous, and must be handled with special care.
 
 ### 4.4. Hardware Failures
 During the SLIM mission, one of the two main engines failed at 150 feet above the ground. This is obviously an extreme case, but highlights an important limitation of SCP - these trajectories are often generated assuming a given vehicle configuration. How robust can we make these trajectories to hardware failures? This could be handled by simply regenerating a trajectory when a actuator fails, but also potentially by adding robustness into the optimization process itself.
