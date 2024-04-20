@@ -7,8 +7,12 @@ categories:
 tags:
   - Spaceflight
 ---
+<!---
+Note that if you take this piece out of the featured tag, also update other links.
+i.e. in the Constellation blog post.
+-->
 
-This piece aims to clearly and concisely lay out the bull case for a post-Starship space industry. While I wasn't breaking new ground with this analysis (a lot of the core ideas are inspired by [Casey Handmer's excellent blog post](https://caseyhandmer.wordpress.com/2021/10/28/starship-is-still-not-understood/)), it was a fantastic exercise to distill this core thesis into a two page brief aimed at those with little previous exposure to the space industry. I also dipped my toes into the world of company annual reports to perform some rudimentary financial analysis. How this thesis pans out is an open question, but I feel that it faithfully communicates the optimistic case[^0].
+This piece aims to clearly and concisely lay out the bull case for a post-Starship space industry. While I wasn't breaking new ground with this analysis (a lot of the core ideas are inspired by [Casey Handmer's excellent blog post](https://caseyhandmer.wordpress.com/2021/10/28/starship-is-still-not-understood/)), it was a fantastic exercise to distill this core thesis into a two page brief aimed at those with little previous exposure to the space industry. I also dipped my toes into the world of company annual reports to perform some rudimentary financial analysis. How this thesis pans out is an open question, but I feel that it faithfully communicates the optimistic case.[^0]
 {: .notice}
 
 ### Summary
@@ -22,7 +26,7 @@ It’s well known that in recent years, reusable launch vehicles such as Falcon 
 It’s hard to overstate the effect that these hard mass and volume constraints have on the spacecraft design process – hundreds of scientific papers and entire subfields[^2] have been borne out of the problem of spacecraft mass optimization. These constraints often ripple throughout the design process in unintuitive ways. For example, if you try to lower mass by using thinner materials, you might run into vibration issues which complicate software and flight operations.
 
 
-These difficulties directly translate to cost– compare the ~$40 million spent on each Lunar Rover[^3] to ~$20,000 for a far less optimized, but fundamentally similar John Deere tractor. Starship, SpaceX’s new offering, promises to change this equation. By bringing full reusability to the heavy launch market, the marginal cost for a large launch vehicle reduces to just fuel and refurbishment (estimated to be ~$2 million total[^4]) – effectively the exact same launch cost as a smaller launch vehicle. Even assuming SpaceX massively marks up the price of launch to $100 million to be in line with other providers, **this makes Starship no more expensive than other options on the market despite being far more capable, decoupling payload mass and volume with launch cost.**
+These difficulties directly translate to cost– compare the ~\$40 million spent on each Lunar Rover[^3] to ~\$20,000 for a far less optimized, but fundamentally similar John Deere tractor. Starship, SpaceX’s new offering, promises to change this equation. By bringing full reusability to the heavy launch market, the marginal cost for a large launch vehicle reduces to just fuel and refurbishment (estimated to be ~\$2 million total[^4]) – effectively the exact same launch cost as a smaller launch vehicle. Even assuming SpaceX massively marks up the price of launch to \$100 million to be in line with other providers, **this makes Starship no more expensive than other options on the market despite being far more capable, decoupling payload mass and volume with launch cost.**
 
 
 | **Launch Vehicle** (* = reusable)         | **Mass**         | **Volume**            | **Cost**        |
@@ -34,18 +38,18 @@ These difficulties directly translate to cost– compare the ~$40 million spent 
 
 **Table 1:** Selected Launch Vehicles and Capabilities
 
-**Projected Economic Impact**
-As launch prices reduced by 5x from 2010 to 2020, the number of objects being sent to orbitincreased by 2000%[^9]. This suggests that the price elasticity of launch demand is high, and that we can expect a large increase in demand for heavy-lift vehicles with the expected >10x reduction in launch cost.
+### Projected Economic Impact
+As launch prices reduced by 5x from 2010 to 2020, the number of objects being sent to orbitincreased by 2000%.[^9] This suggests that the price elasticity of launch demand is high, and that we can expect a large increase in demand for heavy-lift vehicles with the expected >10x reduction in launch cost.
 
 
-Part of the reason launch cost is such a meaningful driver of the space industry is that it reduces the huge upfront cost of deploying new space assets, which makes the payback period for space startups long. According to my analysis, even Viasat’s $2B constellation of geostationary internet satellites, one of the least speculative and most profitable possible space investments, has had a payback period of 8.4 years[^10]. Any reduction in launch cost shrinks this payback
+Part of the reason launch cost is such a meaningful driver of the space industry is that it reduces the huge upfront cost of deploying new space assets, which makes the payback period for space startups long. According to my analysis, even Viasat’s $2B constellation of geostationary internet satellites, one of the least speculative and most profitable possible space investments, has had a payback period of 8.4 years.[^10] Any reduction in launch cost shrinks this payback
 period and makes space a more attractive investment.
 
 However, Starship will do far more than simply increase existing demand for heavy-lift launch, which is currently mostly limited to government agencies like NASA. Without mass and volume constraints, space technologies look (and cost) a lot more like earth technologies – if you can partner with and modify vehicles from companies with expertise in building for Earth, it’s hard to imagine spending $2 billion dollars on a single asset. In the post-Starship world of the next few years, space companies can begin to design their vehicles more like Ford and less like Ferrari.
 
 Not only will this benefit classic space businesses like communications, this fundamental shift will increase the diversity of the entire market by potentially enabling previously infeasible verticals like in-space manufacturing, large-scale tourism, or asteroid mining to reach viability.
 
-**Startup Opportunities**
+### Startup Opportunities
 Several space companies are already betting on this idea – just this past month, new entrant to the space station market Vast Space[^11] announced they would launch their entire space station to orbit in a single Starship, allowing them to leapfrog the cost and timeline estimates of existing and more traditional players like Axiom Space and Blue Origin. Similarly, K2 Space[^12] is developing large, generic, and Starship-compatible satellite buses to allow companies to deploy satellites that would currently cost hundreds of millions of dollars for <$15 million.
 
 And like any gold rush, there’s just as much business in outfitting the miners as there is being one yourself – this leaves startups like Turion Space[^13], LeoLabs[^14], Starfish Space[^15], and countless others well-positioned to provide the inspection, maintenance, and monitoring tasks that will be necessary to grow a robust in-space economy. Any venture firm would be well-served by deeply understanding and recognizing this trend.
