@@ -61,7 +61,7 @@ plugins:
 author:
   name   : "josh holder"
   avatar : "/assets/images/prof_pic_nasa_small.jpeg"
-  bio    : "when i do or write something interesting, i try to post it here - "to create is to live twice". space tech, game-playing AI, large wooden structures, general musings. 🚀🤖🃏🌱."
+  bio    : "when i do or write something interesting, i try to post it here - 'to create is to live twice'. space tech, game-playing AI, large wooden structures, general musings. 🚀🤖🃏🌱"
   links:
     - label: "linkedin"
       icon: "fab fa-fw fa-linkedin"
