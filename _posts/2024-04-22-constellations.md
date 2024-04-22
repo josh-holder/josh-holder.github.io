@@ -15,8 +15,10 @@ header:
 </script>
 
 It's April 2024: [Falcon 9 is roughly on-target](https://en.wikipedia.org/w/index.php?title=List_of_Falcon_9_and_Falcon_Heavy_launches) for a mind-boggling 144 launches this year, [Starship continues its march to full capability,](https://en.wikipedia.org/wiki/SpaceX_Starship_integrated_flight_test_3) and thanks to [various](https://josh-holder.github.io/writings/featured/launch-mass/) [articles](https://ntrs.nasa.gov/citations/20200001093) (most prominently [Starship is Still Not Understood](https://caseyhandmer.wordpress.com/2021/10/28/starship-is-still-not-understood/) by Casey Handmer), many in the tech community have built an intuition for what this might mean for the space industry as a whole - cheaper mass to orbit leads to cheaper satellites leads to an explosion in the usage of space by a wide array of players.
+{: .notice}
 
 While over the long term this thesis may play out, I'd argue that this obscures the deeper, much more near-term trend enabled by this new paradigm: the rise of satellite constellations. And in fact this rise might be the key factor which allows the flywheel to get started in the first place - **it's about so much more than just consumer internet.**[^0]
+{: .notice}
 
 ## Downlink is King
 
@@ -37,7 +39,7 @@ Every satellite producer has to carefully weigh these tradeoffs during the desig
 Indeed, the ground station market has been valued at \$25 billion dollars, and is [projected by some](https://www.gminsights.com/industry-analysis/satellite-ground-station-sgs-market) to grow to \$55 billion by 2032. This problem has been receiving some attention as of late, with companies coming at it from two main angles:
 
 1. **Building better ground stations:** companies like [Northwood Space](https://www.northwoodspace.io/) and [Skygate Technologies](https://www.satellitetoday.com/finance/2020/09/04/japan-ground-station-startup-skygate-technologies-receives-seed-investment/) are aiming to build ground stations that are designed for manufacturability, hopefully reducing cost.
-2. **Edge compute for space:** on the flip side, if the amount of data satellites need to downlink is reduced, that would also free up important design space. To do this, significant aspects of data analysis need to be moved into orbit - this is the difference between having to downlink entire videos and only having to downlink positions of objects, and is already in use on the ISS. To more effectively run the (often AI-enabled) processing loads on space hardware, companies like [Aethero](https://www.aethero.com/) are working to develop space-grade, radiation hardened chips.
+2. **Edge compute for space:** on the flip side, if the amount of data satellites need to downlink is reduced, that would also free up important design space. To do this, significant aspects of data analysis need to be moved into orbit - this is the difference between having to downlink entire videos and only having to downlink positions of objects, and is already in use on the ISS. To more effectively run the (often AI-enabled) processing loads on space hardware, companies like [Aethero](https://www.aethero.com/) are working to develop space-grade, radiation-hardened chips.
 
 Constellations promise a third path forward: allowing individual satellites to bypass ground stations and downlinking considerations altogether.
 
@@ -45,11 +47,11 @@ Constellations promise a third path forward: allowing individual satellites to b
 
 At SATELLITE 2024, to relatively little fanfare, [Gwynne Shotwell announced](https://www.cnbc.com/2024/03/21/investing-in-space-what-to-make-of-spacex-selling-satellite-lasers.html) that SpaceX would begin selling laser terminals to outside customers. This simple statement represents a seismic shift in satellite design. Presumably, these laser links will allow satellites to connect directly to the Starlink network and thus provide a continuous 100 Gbps link to the ground.[^3] Questions remain about what requirements this will levy on user satellites (i.e. power, pointing constraints), but it seems likely that this will be a simpler and easier solution than developing a downlink strategy from scratch.
 
-This is, of course, a massive deal. Imagine if to connect your home to the internet, you had to lay your own cables manually. And those cables only had signal in 90 second time periods dispersed randomly throughout the day. And that you only had a 500 Mb hard drive on your computer, and you had to store everything else on Google Drive using the aforementioned internet connection. This is the current situation in the world of in-space connectivity. Starlink promises to bring internet in space into the fiber era[^4]; continuous, high data rate connection all available by purchasing a plug-and-play laser terminal. It's not hard to imagine many businesses and technical platforms that are completely infeasible under the first paradigm which are feasible under the second, especially with massively reduced launch cost.
+This is, of course, a huge deal. Imagine if to connect your home to the internet, you had to lay your own cables manually. And those cables only had signal in 90 second time periods dispersed randomly throughout the day. And that you only had a 500 Mb hard drive on your computer, and you had to store everything else on Google Drive using the aforementioned internet connection. This is the current situation in the world of in-space connectivity. Starlink promises to bring internet in space into the fiber era[^4]; continuous, high data rate connection all available by purchasing a plug-and-play laser terminal. It's not hard to imagine many businesses and technical platforms that are completely infeasible under the first paradigm which are feasible under the second, especially with massively reduced launch cost.
 
 It also has large business implications - if Starlink can capture even 10% of the total ground station market, this represents a near doubling of their current revenue. The national security segment of the ground station market might be a bit tougher to gain traction in, as confidentiality requirements might necessitate a separate constellation or other changes, but purpose-built constellations (i.e. [SpaceX's Starshield constellation](https://www.twz.com/space/if-spacexs-secret-constellation-is-what-we-think-it-is-its-game-changing)) will deliver similar transformations in this space.
 
-Other players in the space no doubt have similar plans - [Kuiper satellites](https://www.aboutamazon.com/news/innovation-at-amazon/amazon-project-kuiper-oisl-space-laser-december-2023-update) are equipped with intersatellite laser links as well, and in fact [much of Kuiper's unique edge in the space](https://www.cnbc.com/2022/04/05/amazon-signs-rocket-deal-with-blue-origin-arianespace-ula-for-project-kuiper-internet-satellites.html) compared to SpaceX relies on their access to the massive global data center infrastructure of Amazon Web Services, which already offers [Ground-Station-as-a-Service capabilities](https://aws.amazon.com/ground-station/). This would position them well to prepare for the incoming flood of data through space.
+Other players in the space no doubt have similar plans - [Kuiper satellites](https://www.aboutamazon.com/news/innovation-at-amazon/amazon-project-kuiper-oisl-space-laser-december-2023-update) are equipped with intersatellite laser links as well, and in fact [much of Kuiper's unique edge in the space](https://www.cnbc.com/2022/04/05/amazon-signs-rocket-deal-with-blue-origin-arianespace-ula-for-project-kuiper-internet-satellites.html) compared to SpaceX relies on their access to the extensive global data center infrastructure of Amazon Web Services, which already offers [Ground-Station-as-a-Service capabilities](https://aws.amazon.com/ground-station/). This would position them well to prepare for the incoming flood of data through space.
 
 ## New Applications
 
@@ -64,7 +66,7 @@ Constellations solve both of these issues. Clearly, as earth observation constel
 Theoretically, this would allow a company could provide *live, high-definition footage and data of the entire surface of Earth.* The applications of this are endless:
  - **Make Google Maps vastly more powerful** - imagine if Google Maps could rely [not just on historical data](https://blog.google/products/maps/google-maps-101-how-ai-helps-predict-traffic-and-determine-routes/) but also real-time imaging information, or direct you to the nearest open parking spot in real time.
  - **Effectively remove fog of war in military engagements** - this would redefine the way military engagements are conducted, and hopefully make them more humane. Speculation on SpaceX's Starshield constellation already [provides a window into this future.](https://www.twz.com/space/if-spacexs-secret-constellation-is-what-we-think-it-is-its-game-changing)
- - **Better weather prediction** - [bleeding-edge weather models]((https://deepmind.google/discover/blog/graphcast-ai-model-for-faster-and-more-accurate-global-weather-forecasting/)) increasingly use data-hungry AI algorithms to make predictions. Currently, though, the data used to train these models is relatively sparse (i.e. [31km, hourly resolution across a handful of modalities](https://www.science.org/stoken/author-tokens/ST-1550/full)). Given how directly increased model scale and dataset size [has correlated with performance in other domains](https://arxiv.org/pdf/2001.08361.pdf), it seems likely that weather models would be similarly improved by a massive increase in the temporal resolution, accuracy, and multi-modality of the data used to train them. These same atmospheric models could be used to gain insight into our changing climate and evaluate the potential effectiveness of tools like [solar radiation modification](https://en.wikipedia.org/wiki/Solar_radiation_modification) in mitigating it.
+ - **Better weather prediction** - [bleeding-edge weather models]((https://deepmind.google/discover/blog/graphcast-ai-model-for-faster-and-more-accurate-global-weather-forecasting/)) increasingly use data-hungry AI algorithms to make predictions. Currently, though, the data used to train these models is relatively sparse (i.e. [31km, hourly resolution across a handful of modalities](https://www.science.org/stoken/author-tokens/ST-1550/full)). Given how increased model scale and dataset size [has correlated directly with performance in other domains](https://arxiv.org/pdf/2001.08361.pdf), it seems likely that weather models would be similarly improved by an increase in the temporal resolution, accuracy, and multi-modality of the data used to train them. These same atmospheric models could be used to gain insight into our changing climate and evaluate the potential effectiveness of tools like [solar radiation modification](https://en.wikipedia.org/wiki/Solar_radiation_modification) in mitigating it.
 
 #### Reactive Satellite Tasking
 
@@ -78,7 +80,7 @@ Recently, there is a huge amount of demand for these kinds of distributed archit
 
  - The [DARPA Oversight Program](https://www.darpa.mil/program/oversight), in which DARPA aims to develop constellations which can track up to 1000 targets autonomously as they arise, with clear applications to missile tracking and other domains in which highly reactive systems are important. By enabling high-speed communication between nearby satellites, latency is greatly decreased and the system no longer has a single point of failure.
  - [XPRIZE Wildfire](https://www.xprize.org/prizes/wildfire), in which an \$11 million dollar prize will be awarded to a team who "rapidly and accurately detect[s] all fires across a vast and remote area and transmit[s] data to ground stations." One can imagine an architecture where satellites instantly notify nearby satellites of a suspected fire and request more images of the fire to better characterize it.
- - Other science applications like [earthquake monitoring](https://www.preventionweb.net/news/space-based-system-can-provide-seismic-monitoring-large-earthquakes-tsunamis), where satellite-based systems have potential to collect data before the earthquake is even over and shave off crucial minutes on tsunami warnings.
+ - Other science applications like [earthquake monitoring](https://www.preventionweb.net/news/space-based-system-can-provide-seismic-monitoring-large-earthquakes-tsunamis), where satellite-based systems have potential to collect data before the earthquake is even over and thereby speed up tsunami warnings by crucial minutes.
 
 #### Tourism and Industry in Space
 
@@ -89,11 +91,11 @@ Industrial research labs and manufacturing facilities such as those planned by [
 Similarly, space tourism of longer duration will have a need for strong internet connections for FaceTimes, social media use, and entertainment. We already see examples of these partnerships, with [Vast Space committing to using Starlink](https://spacenews.com/vast-to-use-starlink-for-space-station-broadband-communications/) for broadband connection to their upcoming space station.
 
 ## Summary
-In recent years, SpaceX has driven massive decreases in the price of mass to orbit, creating charts like the below. Looking at this now familiar graph, but removing the contributions of major constellations, it becomes clear that the real phenomenom is not yet an explosion in use-cases, but an explosion in the *number of satellites used per use case*.[^1]
+In all these applications, the common thread is the ability of easy access to bandwidth to enable fundamentally new capabilities and business categories on-orbit. In some sense, one could see a large part of the value proposition of Starlink for SpaceX being the new activity it drives to launch business by lowering the barrier to entry to productively using space.
 
-![objects_launched](/assets/constellation/objects_launched.png){: width="700px" .align-center}
+Starship seems to be optimized specifically 
 
-Indeed, it is only with launch costs of on the order of Falcon 9 that it is even remotely economically feasible to launch such large groups of satellites, like the 5,000 currently operating in the Starlink constellation. [Iridium](https://www.amazon.com/Eccentric-Orbits-Iridium-John-Bloom/dp/0802126782), the failed internet constellation of the 90's, could only muster 66 satellites, and as such had to drastically scale back their ambitions.
+Indeed, it is only with launch costs on the order of Falcon 9 that it is even remotely economically feasible to launch such large groups of satellites, like the 5,000 currently operating in the Starlink constellation. [Iridium](https://www.amazon.com/Eccentric-Orbits-Iridium-John-Bloom/dp/0802126782), the failed internet constellation of the 90's, could only muster 66 satellites, and as such had to drastically scale back their ambitions.
 
 At the highest level of ambition, though, the economics begin to strain even in a world with Falcon 9. To reach SpaceX's goal of 30,000 satellites in orbit (the level at which bandwidth could begin to challenge terrestrial fiber networks) would require \$2 billion annually in launch costs alone. In a world with Starship, though, this number would be closer to \$300 million using reasonable assumptions.[^6] This seems much more feasible, especially when compared to the size of the potential market for a constellation of this size.
 
@@ -101,79 +103,12 @@ Thus, it seems to safe to assume that this future is coming - [in the words of f
 
 There are a lot of important businesses and products to build. Let's get to work.
 
-<!-- ### Further Reading
 
-For a history of satellite constellations and the many iterations that led to the current form of Starlink and Kuiper, see [this blog post](https://maxpolyakov.com/first-active-communications-satellites/) and [this book](https://www.amazon.com/Eccentric-Orbits-Iridium-John-Bloom/dp/0802126782) focusing on the Iridium constellation.
-
-For a more detailed analysis of the scope of Starlink and Kuipers core internet business, see [this blog post](https://caseyhandmer.wordpress.com/2019/11/02/starlink-is-a-very-big-deal/). -->
 
 [^0]: And even this is shaping up to be a large market - Starlink brought in an [estimated \$4 billion in revenue in 2023](https://payloadspace.com/estimating-spacexs-2023-revenue/), with estimates even higher for 2024. Communications is one of the few trillion dollar industries, and [this blog post](https://caseyhandmer.wordpress.com/2019/11/02/starlink-is-a-very-big-deal/) effectively outlines the technical aspects and potential of the consumer internet space.
 [^1]: Data from [Our World in Data](https://ourworldindata.org/grapher/yearly-number-of-objects-launched-into-outer-space), minus Starlink and Planet satellite launches.
 [^2]: Image from [this paper.](https://link.springer.com/chapter/10.1007/978-3-031-36625-3_29)
 [^3]: According to [this article](https://www.pcmag.com/news/starlinks-laser-system-is-beaming-42-million-gb-of-data-per-day), maximum laser link data rate can be closer to 200 Gbps.
-[^4]: Or perhaps bring internet access everywhere into the *Starlink* era - the [higher speed of light in a vacuum](https://en.wikipedia.org/wiki/Speed_of_light) vs. in air means that in the physical limit, in-space communications could provide lower latency and higher bandwidth than even fiber.
+[^4]: Or perhaps bring internet access everywhere into the *constellation* era - the [higher speed of light in a vacuum](https://en.wikipedia.org/wiki/Speed_of_light) vs. in air means that in the physical limit, in-space communications could provide lower latency and higher bandwidth than even fiber.
 [^5]: Tasks in the context of satellite constellations means the actions you want your satellites to take, i.e. capturing photos of specific locations or providing internet to a geographic region. Task assignment is then the process of optimally assigning satellites to complete tasks. There is an extensive body of work on this problem (including my thesis) - see [this survey article](https://arxiv.org/abs/2003.06169) for a flavor of the problem.
 [^6]: Assuming [60 Starlink satellites per Falcon 9, 400 per Starship launch](https://www.pcmag.com/news/spacex-both-falcon-9-and-starship-will-deploy-second-gen-starlink-satellites), 5 year lifetime, and internal launch costs of \$20 million for both Falcon 9 and Starship.
-
-<!--- ############# REAL STUFF ABOVE ################## -->
-<!--- ############# DRAFT STUFF BELOW ################# -->
-<!-- 
-#### DRAFT SCRATCH SPACE
-
-The thesis, broadly, is multipronged:
-
-#### Casey Handmer piece
-
-Motivation for Starlink: SpaceX saturating launch market with Starship, realized satellite internet providers made a lot of money (more margin than launch.)
-
-Previous constellations were much more mass limited, so much lower in scope and vision. Starlink being not mass constrained means that it can do more, and break up telecom monoplies around the world.
-
-Starship can launch around 400 sats per trip, for hopefully around \$20 million, so a 30,000 sat constellations with replacement every 5 years means around \$300m dollars in launch costs annually.
-
-Satellite projects are *typically* characterized by high initial capital costs, and then low operating budgets so that the revenue makes back up the difference.
-
-Can get an estimate of the Starlink revenue per satellite by calculating how much time it'll spend over a city, how much data it can transmit, what the price of that data is, and then multiplying that all together. Around $1000 of revenue per orbit, as estimated by Casey.
-
-The trade between low and high altitude is defined by a few things:
- - lower altitude comes with less debris, collision risk
- - allows you to have smaller beam sizes and higher data rates
- - higher altitude allows you to have larger beams and cover earth w/ fewer sats
-
-#### Internet market
-
-Internet market is pretty well understood, try to find a good analysis of the economics of starlink, and also link articles about how much money it's making.
-
-#### Data/bandwidth is a big limiting factor
-https://twitter.com/Andercot/status/1759731014950154321
-
-Data-storage on orbit is also a big limiting factor
-(cite all the satellite tasking papers which include downlink in their plans.)
-
-This is a limiting factor, and requires you to consider this - entire industries are being spun up for ground stations (Northwood Space) and on-orbit compute to reduce the bandwidth cost of sending information (Aethero space). There is a place for these companies, but also constellations
-https://www.cnbc.com/2024/02/19/disney-star-bridgit-mendler-launches-satellite-startup-northwood-space.html
-
-This is where SpaceX comes in - taking a slice out of consumer internet is just the beginning. SpaceX now has plans to sell laser links to other companies(https://www.reuters.com/technology/space/spacex-says-plans-sell-satellite-laser-links-commercially-2024-03-19/). This means that one no longer NEEDS to deal with gateway sites, or downlinking algorithms, or really anything like that. This is a huge paradigm shift - SpaceX or Kuiper could begin powering the entire in-space economy. (Perhaps there's an analogy here about greatly reducing the friction for the cost of doing business leading to massive improvements in other fields. Analogy is that space currently is like if to connect to the internet, you had to lay your own cable to a point-of-presence. oh, and your computer has 200MB of memory, and you can only back up your memory every 5 hours. this would be inconvenient.) Instead, you can simply hook up to your ISP.
-
-Infrastructure for the entire in-space ecosystem
-
-https://forum.nasaspaceflight.com/index.php?topic=60578.0
-
-Less regulatory burden
-
-#### What does this enable: real-time data across the globe
-
-No longer need to wait to downlink, could enable real-time data.
-
-The current research paradigm in satellite tasking is still very single-observation focused. We can now think so much bigger, with comprehensive sensor models of the entire Earth. How could that information be used to change things?
-
-(this is somewhat of a weak point as it stands - is this real-time data really necessary?)
-
-https://www.twz.com/space/if-spacexs-secret-constellation-is-what-we-think-it-is-its-game-changing
-
-https://www.reuters.com/business/aerospace-defense/northrop-grumman-working-with-musks-spacex-us-spy-satellite-system-2024-04-18/
-
-#### Multi-purpose constellations
-
-This is where I think Starship also has an impact - you have the opportunity for much higher-power satellite buses, perhaps oversized for simple Earth observation missions.
-
-Do you actually gain anything from cohabitating payloads on a single satellite? Makes the design of a satellite significantly more complicated, and by reducing the barrier to entry for data downlink, that makes smaller satellites easier to handle. -->
