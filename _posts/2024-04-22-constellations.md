@@ -1,4 +1,21 @@
-## Constellations are Still Not Understood.
+---
+title: "Constellations are Still Not Understood."
+excerpt_separator: "<!--more-->"
+categories:
+  - writings
+tags:
+  - Spaceflight
+toc: true
+header:
+  image: /assets/images/Falcon-Heavy-Demo-Feb-2018-SpaceX-1-crop.jpg
+  image_description: "double landing of spacex rockets"
+---
+
+<script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.0/es5/tex-mml-chtml.js">
+</script>
+
+## 
 
 It's April 2024: [Falcon 9 is roughly on-target](https://en.wikipedia.org/w/index.php?title=List_of_Falcon_9_and_Falcon_Heavy_launches) for a mind-boggling 144 launches this year, [Starship continues its march to full capability,](https://en.wikipedia.org/wiki/SpaceX_Starship_integrated_flight_test_3) and thanks to [various](https://josh-holder.github.io/writings/featured/launch-mass/) [articles](https://ntrs.nasa.gov/citations/20200001093) (most prominently [Starship is Still Not Understood](https://caseyhandmer.wordpress.com/2021/10/28/starship-is-still-not-understood/) by Casey Handmer), many in the tech community have built an intuition for what this might mean for the space industry as a whole - cheaper mass to orbit leads to cheaper satellites leads to an explosion in the usage of space by a wide array of players.
 
