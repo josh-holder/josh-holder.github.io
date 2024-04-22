@@ -5,7 +5,6 @@ categories:
   - writings
 tags:
   - spaceflight
-toc: true
 header:
   image: /assets/images/Falcon-Heavy-Demo-Feb-2018-SpaceX-1-crop.jpg
   image_description: "double landing of spacex rockets"
@@ -16,11 +15,10 @@ header:
 </script>
 
 It's April 2024: [Falcon 9 is roughly on-target](https://en.wikipedia.org/w/index.php?title=List_of_Falcon_9_and_Falcon_Heavy_launches) for a mind-boggling 144 launches this year, [Starship continues its march to full capability,](https://en.wikipedia.org/wiki/SpaceX_Starship_integrated_flight_test_3) and thanks to [various](https://josh-holder.github.io/writings/featured/launch-mass/) [articles](https://ntrs.nasa.gov/citations/20200001093) (most prominently [Starship is Still Not Understood](https://caseyhandmer.wordpress.com/2021/10/28/starship-is-still-not-understood/) by Casey Handmer), many in the tech community have built an intuition for what this might mean for the space industry as a whole - cheaper mass to orbit leads to cheaper satellites leads to an explosion in the usage of space by a wide array of players.
-
 While over the long term this thesis may play out, I'd argue that this obscures the deeper, much more near-term trend enabled by this new paradigm: the rise of satellite constellations. And in fact this rise might be the key factor which allows the flywheel to get started in the first place - **it's about so much more than just consumer internet.**[^0]
 {: .notice}
 
-### Downlink is King
+## Downlink is King
 
 A key but often underappreciated factor in the design of space systems is the process of downlinking data. When a satellite takes an image or acquires a sensor reading, this is merely the start of the journey - that data needs to reach the ground somehow so that it can be used. Typically, this is done by directly sending this information to ground systems via radio waves.
 
@@ -39,11 +37,11 @@ Every satellite producer has to carefully weigh these tradeoffs during the desig
 Indeed, the ground station market has been valued at \$25 billion dollars, and is [projected by some](https://www.gminsights.com/industry-analysis/satellite-ground-station-sgs-market) to grow to \$55 billion by 2032. This problem has been receiving some attention as of late, with companies coming at it from two main angles:
 
 1. **Building better ground stations:** companies like [Northwood Space](https://www.northwoodspace.io/) and [Skygate Technologies](https://www.satellitetoday.com/finance/2020/09/04/japan-ground-station-startup-skygate-technologies-receives-seed-investment/) are aiming to build ground stations that are designed for manufacturability, hopefully reducing cost.
-2. **Edge compute for space:** on the flip side, if the amount of data satellites need to downlink is reduced, that would also free up important design space. To do this, significant aspects of data analysis need to be moved into orbit - this is the difference between having to downlink entire videos and only having to downlink positions of objects, and is already in use on the ISS. To more effectively run the (often AI-enabled) processing loads on space hardware, companies like [Aethero](https://www.aethero.com/) (FIND ANOTHER PROMISING, MORE NICHE ON-ORBIT COMPUTE STARTUP) are working to develop space-grade, radiation hardened chips.
+2. **Edge compute for space:** on the flip side, if the amount of data satellites need to downlink is reduced, that would also free up important design space. To do this, significant aspects of data analysis need to be moved into orbit - this is the difference between having to downlink entire videos and only having to downlink positions of objects, and is already in use on the ISS. To more effectively run the (often AI-enabled) processing loads on space hardware, companies like [Aethero](https://www.aethero.com/) are working to develop space-grade, radiation hardened chips.
 
 Constellations promise a third path forward: allowing individual satellites to bypass ground stations and downlinking considerations altogether.
 
-### Downlink-as-a-Service
+## Downlink-as-a-Service
 
 At SATELLITE 2024, to relatively little fanfare, [Gwynne Shotwell announced](https://www.cnbc.com/2024/03/21/investing-in-space-what-to-make-of-spacex-selling-satellite-lasers.html) that SpaceX would begin selling laser terminals to outside customers. This simple statement represents a seismic shift in satellite design. Presumably, these laser links will allow satellites to connect directly to the Starlink network and thus provide a continuous 100 Gbps link to the ground.[^3] Questions remain about what requirements this will levy on user satellites (i.e. power, pointing constraints), but it seems likely that this will be a simpler and easier solution than developing a downlink strategy from scratch.
 
@@ -53,19 +51,19 @@ It also has large business implications - if Starlink can capture even 10% of th
 
 Other players in the space no doubt have similar plans - [Kuiper satellites](https://www.aboutamazon.com/news/innovation-at-amazon/amazon-project-kuiper-oisl-space-laser-december-2023-update) are equipped with intersatellite laser links as well, and in fact [much of Kuiper's unique edge in the space](https://www.cnbc.com/2022/04/05/amazon-signs-rocket-deal-with-blue-origin-arianespace-ula-for-project-kuiper-internet-satellites.html) compared to SpaceX relies on their access to the massive global data center infrastructure of Amazon Web Services, which already offers [Ground-Station-as-a-Service capabilities](https://aws.amazon.com/ground-station/). This would position them well to prepare for the incoming flood of data through space.
 
-### New Applications
+## New Applications
 
 What applications, concretely, will this unprecedented access to bandwidth in space make possible? Below are some ideas:
 
 #### 24/7 Earth Observation
 
-Currently, two major factors affect the latency of Earth observation data. One, satellites physically pass by locations on Earth only so often - the [frequency at which a satellite platform can observe a given location](https://en.wikipedia.org/wiki/Satellite_revisit_period) is determined by orbital mechanics, satellite maneuverability, and of course the number of satellites in the constellation TODO make sentence better. Second, as discussed above, satellites can only transmit their data when they are directly in view of a ground station. To make matters worse, if weather conditions above the ground stations are poor, satellites might have to wait for a future ground station pass to transmit their data. This fundamentally limits the speed at which data, and especially data from remote locations, can reach end users.
+Currently, two major factors affect the latency of Earth observation data. One, satellites physically pass by locations on Earth only so often - the [frequency at which a satellite platform can observe a given location](https://en.wikipedia.org/wiki/Satellite_revisit_period) is determined by orbital mechanics, satellite maneuverability, and of course the number of satellites in the constellation. Second, as discussed above, satellites can only transmit their data when they are directly in view of a ground station. To make matters worse, if weather conditions above the ground stations are poor, satellites might have to wait for a future ground station pass to transmit their data. This fundamentally limits the speed at which data, and especially data from remote locations, can reach end users.
 
 Constellations solve both of these issues. Clearly, as earth observation constellations grow in size, revisit time sharply decreases (and sensors could even be colocated on Starlink or Kuiper satellites to allow for dual-use). More significantly though, connection through the laser mesh of a LEO internet constellation means that satellites can "see" all ground stations at once, instantly routing data back to the terrestrial internet even from over the ocean or amid cloudy weather.
 
 Theoretically, this would allow a company could provide *live, high-definition footage and data of the entire surface of Earth.* The applications of this are endless:
  - **Make Google Maps vastly more powerful** - imagine if Google Maps could rely [not just on historical data](https://blog.google/products/maps/google-maps-101-how-ai-helps-predict-traffic-and-determine-routes/) but also real-time imaging information, or direct you to the nearest open parking spot in real time.
- - **Effectively remove fog of war in military engagements** -this would redefine the way military engagements are conducted - speculation on SpaceX's Starshield constellation already [provides a window into this future.](https://www.twz.com/space/if-spacexs-secret-constellation-is-what-we-think-it-is-its-game-changing)
+ - **Effectively remove fog of war in military engagements** - this would redefine the way military engagements are conducted, and hopefully make them more humane. Speculation on SpaceX's Starshield constellation already [provides a window into this future.](https://www.twz.com/space/if-spacexs-secret-constellation-is-what-we-think-it-is-its-game-changing)
  - **Better weather prediction** - [bleeding-edge weather models]((https://deepmind.google/discover/blog/graphcast-ai-model-for-faster-and-more-accurate-global-weather-forecasting/)) increasingly use incredibly data-hungry AI algorithms to make predictions. Currently, though, the data used to train these models is relatively sparse (i.e. [31km, hourly resolution across a handful of modalities](https://www.science.org/stoken/author-tokens/ST-1550/full)). Given how directly increased model scale and dataset size [has correlated with performance in other domains](https://arxiv.org/pdf/2001.08361.pdf), it seems likely that weather models would be similarly improved by a massive increase in the temporal resolution, accuracy, and multi-modality of the data used to train them. These same atmospheric models could be used to gain insight into our changing climate and evaluate the potential effectiveness of tools like [solar radiation modification](https://en.wikipedia.org/wiki/Solar_radiation_modification) in mitigating it.
 
 #### Reactive Satellite Tasking
@@ -90,7 +88,7 @@ Industrial research labs and manufacturing facilities such as those planned by [
 
 Similarly, space tourism of longer duration will have a need for strong internet connections for FaceTimes, social media use, and entertainment. We already see examples of these partnerships, with [Vast Space committing to using Starlink](https://spacenews.com/vast-to-use-starlink-for-space-station-broadband-communications/) for broadband connection to their upcoming space station.
 
-### Summary
+## Summary
 In recent years, SpaceX has driven massive decreases in the price of mass to orbit, creating charts like the below. Looking at this now familiar graph, but removing the contributions of major constellations, it becomes clear that the real phenomenom is not an explosion in use-cases, but an explosion in the *number of satellites used per use case*.[^1]
 
 ![objects_launched](/assets/constellation/objects_launched.png){: width="700px" .align-center}
