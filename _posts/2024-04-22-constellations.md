@@ -6,8 +6,8 @@ categories:
 tags:
   - spaceflight
 header:
-  image: /assets/images/Falcon-Heavy-Demo-Feb-2018-SpaceX-1-crop.jpg
-  image_description: "double landing of spacex rockets"
+  image: /assets/images/constellation_header.jpg
+  image_description: "view of a satellite constellation"
 ---
 
 <script type="text/javascript" async
