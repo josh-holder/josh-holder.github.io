@@ -1,10 +1,11 @@
 ---
-title: "Constellations are Still Not Understood."
+title: "Internet Constellations are Still Not Understood."
 excerpt_separator: "<!--more-->"
 categories:
   - writings
 tags:
   - spaceflight
+toc: true
 header:
   image: /assets/images/constellation_header.jpg
   image_description: "view of a satellite constellation"
@@ -15,10 +16,20 @@ header:
 </script>
 
 It's April 2024: [Falcon 9 is roughly on-target](https://en.wikipedia.org/w/index.php?title=List_of_Falcon_9_and_Falcon_Heavy_launches) for a mind-boggling 144 launches this year, [Starship continues its march to full capability,](https://en.wikipedia.org/wiki/SpaceX_Starship_integrated_flight_test_3) and thanks to [various](https://josh-holder.github.io/writings/featured/launch-mass/) [articles](https://ntrs.nasa.gov/citations/20200001093) (most prominently [Starship is Still Not Understood](https://caseyhandmer.wordpress.com/2021/10/28/starship-is-still-not-understood/) by Casey Handmer), many in the tech community have built an intuition for what this might mean for the space industry as a whole - cheaper mass to orbit leads to cheaper satellites leads to an explosion in the usage of space by a wide array of players.
-{: .notice}
 
-While over the long term this thesis may play out, I'd argue that this obscures the deeper, much more near-term trend enabled by this new paradigm: the rise of satellite constellations. And in fact this rise might be the key factor which allows the flywheel to get started in the first place - **it's about so much more than just consumer internet.**[^0]
-{: .notice}
+While over the long term this thesis may play out, I'd argue that this obscures the deeper, much more near-term trend enabled by this new paradigm: the rise of satellite internet constellations. And in fact this rise might be the key factor which allows the flywheel to get started in the first place - **it's about so much more than just consumer internet.**[^0]
+
+## The Birth of the Constellation Era
+
+The rapid drop in the price of launch has in some sense already caused a major phase shift in the space industry - looking at the now familiar graph of objects launched to space over time below, it's hard to miss the explosive growth of this metric. However, removing the contributions of major constellations, it becomes clear that the real phenomenom is not an explosion in use-cases, but an explosion in the *number of satellites employed for a given use case*.[^1]
+
+![objects_launched](/assets/constellation/objects_launched.png){: width="700px" .align-center}
+
+Indeed, it is only with launch costs of on the order of Falcon 9 that it is even remotely economically feasible to launch such large groups of satellites, like the 5,000 currently operating in the Starlink constellation. [Iridium](https://www.amazon.com/Eccentric-Orbits-Iridium-John-Bloom/dp/0802126782), the failed internet constellation of the 90's, could only muster 66 satellites, and as such had to drastically scale back their ambitions.
+
+At the highest level of ambition, though, the economics begin to strain even in a world with Falcon 9. To reach SpaceX's goal of 30,000 satellites in orbit (the level at which bandwidth could begin to challenge terrestrial fiber networks) would require \$2 billion annually in launch costs alone. In a world with Starship, though, this number would be closer to \$300 million using reasonable assumptions.[^6] This seems much more feasible, especially when compared to the size of the potential market for a constellation of this size.
+
+Thus, the 2020s will be the first time in history when launch prices are low enough to sustain such a large-scale constellation. As critical as the first order effects of a decrease in launch price will be on the industry, I will argue that the second-order effects of being below the internet constellation price threshold will be equally significant, because they remove one of the most significant barriers to entry into the space market.
 
 ## Downlink is King
 
@@ -45,13 +56,13 @@ Constellations promise a third path forward: allowing individual satellites to b
 
 ## Downlink-as-a-Service
 
-At SATELLITE 2024, to relatively little fanfare, [Gwynne Shotwell announced](https://www.cnbc.com/2024/03/21/investing-in-space-what-to-make-of-spacex-selling-satellite-lasers.html) that SpaceX would begin selling laser terminals to outside customers. This simple statement represents a seismic shift in satellite design. Presumably, these laser links will allow satellites to connect directly to the Starlink network and thus provide a continuous 100 Gbps link to the ground.[^3] Questions remain about what requirements this will levy on user satellites (i.e. power, pointing constraints), but it seems likely that this will be a simpler and easier solution than developing a downlink strategy from scratch.
+At SATELLITE 2024, to relatively little fanfare, [Gwynne Shotwell announced](https://www.cnbc.com/2024/03/21/investing-in-space-what-to-make-of-spacex-selling-satellite-lasers.html) that SpaceX would begin selling laser terminals to outside customers. This simple statement represents a seismic shift in satellite design. Presumably, these laser links will allow satellites to connect directly to the Starlink network and thus provide a continuous 100 Gbps link to the ground.[^3] Questions remain about what requirements this will levy on user satellites (i.e. power, pointing constraints), but it seems likely that this will be a simpler and easier solution than developing a downlink strategy from scratch.[^7]
 
 This is, of course, a huge deal. Imagine if to connect your home to the internet, you had to lay your own cables manually. And those cables only had signal in 90 second time periods dispersed randomly throughout the day. And that you only had a 500 Mb hard drive on your computer, and you had to store everything else on Google Drive using the aforementioned internet connection. This is the current situation in the world of in-space connectivity. Starlink promises to bring internet in space into the fiber era[^4]; continuous, high data rate connection all available by purchasing a plug-and-play laser terminal. It's not hard to imagine many businesses and technical platforms that are completely infeasible under the first paradigm which are feasible under the second, especially with massively reduced launch cost.
 
 It also has large business implications - if Starlink can capture even 10% of the total ground station market, this represents a near doubling of their current revenue. The national security segment of the ground station market might be a bit tougher to gain traction in, as confidentiality requirements might necessitate a separate constellation or other changes, but purpose-built constellations (i.e. [SpaceX's Starshield constellation](https://www.twz.com/space/if-spacexs-secret-constellation-is-what-we-think-it-is-its-game-changing)) will deliver similar transformations in this space.
 
-Other players in the space no doubt have similar plans - [Kuiper satellites](https://www.aboutamazon.com/news/innovation-at-amazon/amazon-project-kuiper-oisl-space-laser-december-2023-update) are equipped with intersatellite laser links as well, and in fact [much of Kuiper's unique edge in the space](https://www.cnbc.com/2022/04/05/amazon-signs-rocket-deal-with-blue-origin-arianespace-ula-for-project-kuiper-internet-satellites.html) compared to SpaceX relies on their access to the extensive global data center infrastructure of Amazon Web Services, which already offers [Ground-Station-as-a-Service capabilities](https://aws.amazon.com/ground-station/). This would position them well to prepare for the incoming flood of data through space.
+Other players in the space no doubt have similar plans - [Kuiper satellites](https://www.aboutamazon.com/news/innovation-at-amazon/amazon-project-kuiper-oisl-space-laser-december-2023-update) are equipped with intersatellite laser links as well, and in fact [much of Kuiper's unique edge in the space](https://www.cnbc.com/2022/04/05/amazon-signs-rocket-deal-with-blue-origin-arianespace-ula-for-project-kuiper-internet-satellites.html) compared to SpaceX relies on their access to the extensive global data center infrastructure of Amazon Web Services, which already offers [Ground-Station-as-a-Service capabilities](https://aws.amazon.com/ground-station/). This would position them well to prepare for the incoming flood of data from space assets.
 
 ## New Applications
 
@@ -91,19 +102,11 @@ Industrial research labs and manufacturing facilities such as those planned by [
 Similarly, space tourism of longer duration will have a need for strong internet connections for FaceTimes, social media use, and entertainment. We already see examples of these partnerships, with [Vast Space committing to using Starlink](https://spacenews.com/vast-to-use-starlink-for-space-station-broadband-communications/) for broadband connection to their upcoming space station.
 
 ## Summary
-In all these applications, the common thread is the ability of easy access to bandwidth to enable fundamentally new capabilities and business categories on-orbit. In some sense, one could see a large part of the value proposition of Starlink for SpaceX being the new activity it drives to launch business by lowering the barrier to entry to productively using space.
-
-Starship seems to be optimized specifically 
-
-Indeed, it is only with launch costs on the order of Falcon 9 that it is even remotely economically feasible to launch such large groups of satellites, like the 5,000 currently operating in the Starlink constellation. [Iridium](https://www.amazon.com/Eccentric-Orbits-Iridium-John-Bloom/dp/0802126782), the failed internet constellation of the 90's, could only muster 66 satellites, and as such had to drastically scale back their ambitions.
-
-At the highest level of ambition, though, the economics begin to strain even in a world with Falcon 9. To reach SpaceX's goal of 30,000 satellites in orbit (the level at which bandwidth could begin to challenge terrestrial fiber networks) would require \$2 billion annually in launch costs alone. In a world with Starship, though, this number would be closer to \$300 million using reasonable assumptions.[^6] This seems much more feasible, especially when compared to the size of the potential market for a constellation of this size.
+In all these applications, the common thread is the ability of easy access to bandwidth to enable fundamentally new capabilities and business categories on-orbit. Much ink has been spilled on the viability of the consumer internet business, but there is a world in which a large part of the value proposition of Starlink for SpaceX is the new activity it drives to their launch business by lowering the barrier to entry to productively using space.
 
 Thus, it seems to safe to assume that this future is coming - [in the words of former SpaceX exec Abhi Tripathi](https://www.cnbc.com/2024/03/21/investing-in-space-what-to-make-of-spacex-selling-satellite-lasers.html), "[SpaceX] are laying track. You could decide you want to get in the track-laying business, or you could decide what you want to put on that track." Just as it did for the American West, I expect this interstellar railroad to have transformational impacts, in more ways than just expanded terrestrial access to internet.
 
 There are a lot of important businesses and products to build. Let's get to work.
-
-
 
 [^0]: And even this is shaping up to be a large market - Starlink brought in an [estimated \$4 billion in revenue in 2023](https://payloadspace.com/estimating-spacexs-2023-revenue/), with estimates even higher for 2024. Communications is one of the few trillion dollar industries, and [this blog post](https://caseyhandmer.wordpress.com/2019/11/02/starlink-is-a-very-big-deal/) effectively outlines the technical aspects and potential of the consumer internet space.
 [^1]: Data from [Our World in Data](https://ourworldindata.org/grapher/yearly-number-of-objects-launched-into-outer-space), minus Starlink and Planet satellite launches.
@@ -112,3 +115,4 @@ There are a lot of important businesses and products to build. Let's get to work
 [^4]: Or perhaps bring internet access everywhere into the *constellation* era - the [higher speed of light in a vacuum](https://en.wikipedia.org/wiki/Speed_of_light) vs. in air means that in the physical limit, in-space communications could provide lower latency and higher bandwidth than even fiber.
 [^5]: Tasks in the context of satellite constellations means the actions you want your satellites to take, i.e. capturing photos of specific locations or providing internet to a geographic region. Task assignment is then the process of optimally assigning satellites to complete tasks. There is an extensive body of work on this problem (including my thesis) - see [this survey article](https://arxiv.org/abs/2003.06169) for a flavor of the problem.
 [^6]: Assuming [60 Starlink satellites per Falcon 9, 400 per Starship launch](https://www.pcmag.com/news/spacex-both-falcon-9-and-starship-will-deploy-second-gen-starlink-satellites), 5 year lifetime, and internal launch costs of \$20 million for both Falcon 9 and Starship.
+[^7]: Although it's easy to brush over the details here, it's also interesting to speculate about the technical details of how this will actually be accomplished. Starlink laser links are paired, so Starlink satellites will have to be cooperative with other satellites attempting to use their service. Will these links with outside satellites occur through standard satellites, or will they design custom multi-ISL satellite buses for this purpose? Some interesting discussion [here.](https://forum.nasaspaceflight.com/index.php?topic=60578.0)
