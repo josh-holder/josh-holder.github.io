@@ -3,14 +3,9 @@ title: "A perspective on the decoupling of spacecraft launch cost with mass and 
 excerpt_separator: "<!--more-->"
 categories:
   - writings
-  - featured
 tags:
   - Spaceflight
 ---
-<!---
-Note that if you take this piece out of the featured tag, also update other links.
-i.e. in the Constellation blog post.
--->
 
 This piece aims to clearly and concisely lay out the bull case for a post-Starship space industry. While I wasn't breaking new ground with this analysis (a lot of the core ideas are inspired by [Casey Handmer's excellent blog post](https://caseyhandmer.wordpress.com/2021/10/28/starship-is-still-not-understood/)), it was a fantastic exercise to distill this core thesis into a two page brief aimed at those with little previous exposure to the space industry. I also dipped my toes into the world of company annual reports to perform some rudimentary financial analysis. How this thesis pans out is an open question, but I feel that it faithfully communicates the optimistic case.[^0]
 {: .notice}
