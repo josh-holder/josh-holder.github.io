@@ -135,7 +135,7 @@ To bootstrap the betting model, I set up a simple supervised learning pipeline o
 
 ![mlbet_perform](/assets/judgement/mlbet_perform.jpg){: width="500px"}
 
-To pretrain the action and evaluation models, I implemented to simplest possible version of imitation learning - I simulated several thousand games of the heuristic policy + the bootstrapped betting model, collected data, and then trained the initial action and evaluation models in a supervised fashion on the collected data.
+To pretrain the action and evaluation models, I implemented the simplest possible version of imitation learning - I simulated several thousand games of the heuristic policy + the bootstrapped betting model, collected data, and then trained the initial action and evaluation models in a supervised fashion on the collected data.
 
 #### Self-play
 
