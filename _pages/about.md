@@ -11,7 +11,7 @@ i've worked mostly in the space domain thus far in my career, starting at NASA J
 
 professionally: GN&C, spacecraft flight software, robotics, machine learning, test engineering
 
-unprofessionally: reinforcement learning, game theory, travel, [reading](https://www.goodreads.com/user/show/127201982-josh-holder), strategy games, soccer, classical music/jazz, backpacking (wilderness and urban), making large wooden structures for the bit (see below)
+unprofessionally: reinforcement learning, game theory, travel, [reading](https://app.thestorygraph.com/profile/joshholder), strategy games, soccer, classical music/jazz, backpacking (wilderness and urban), making large wooden structures for the bit (see below)
 
 {:refdef: style="text-align: center;"}
 ![mrworldwide](/assets/images/mrworldwide.jpg){: width="500px"}
