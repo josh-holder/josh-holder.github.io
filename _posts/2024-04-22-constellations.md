@@ -4,8 +4,7 @@ excerpt_separator: "<!--more-->"
 categories:
   - writings
 tags:
-  - spaceflight
-toc: true
+  - Spaceflight
 header:
   image: /assets/images/constellation_header.jpg
   image_description: "view of a satellite constellation"
@@ -21,7 +20,7 @@ While over the long term this thesis may play out, I'd argue that this obscures 
 
 ## The Birth of the Constellation Era
 
-The rapid drop in the price of launch has in some sense already caused a major phase shift in the space industry - looking at the now familiar graph of objects launched to space over time, shown below, it's hard to miss the story of explosive growth. However, removing the contributions of major constellations, it becomes clear that the real phenomenom is not an explosion in use-cases, but an explosion in the *number of satellites employed for a given use case*.[^1]
+The rapid drop in the price of launch has in some sense already caused a major phase shift in the space industry - looking at the now familiar graph of objects launched to space over time, shown below, it's hard to miss the story of explosive growth. However, removing the contributions of major constellations, it becomes clear that the real phenomenom is not yet an explosion in use-cases, but an explosion in the *number of satellites employed for a given use case*.[^1]
 
 ![objects_launched](/assets/constellation/objects_launched.png){: width="700px" .align-center}
 
