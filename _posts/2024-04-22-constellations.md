@@ -3,6 +3,7 @@ title: "Satellite Constellations are Still Not Understood."
 excerpt_separator: "<!--more-->"
 categories:
   - writings
+  - featured
 tags:
   - Spaceflight
 toc: true
