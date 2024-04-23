@@ -97,9 +97,8 @@ Industrial research labs and manufacturing facilities such as those planned by [
 
 Similarly, space tourism of longer duration will have a need for strong internet connections for FaceTimes, social media use, and entertainment. We already see examples of these partnerships, with [Vast Space committing to using Starlink](https://spacenews.com/vast-to-use-starlink-for-space-station-broadband-communications/) for broadband connection to their upcoming space station.
 
-### Test
-
 ## Summary
+
 In all these applications, the common thread is the ability of easy access to bandwidth to enable fundamentally new capabilities and business categories on-orbit. Much ink has been spilled on the viability of the consumer internet business, but there is a world in which a large part of the value proposition of Starlink for SpaceX is the new activity it drives to their launch business by lowering the barrier to entry to productively using space.
 
 Thus, it seems to safe to assume that this future is coming - [in the words of former SpaceX exec Abhi Tripathi](https://www.cnbc.com/2024/03/21/investing-in-space-what-to-make-of-spacex-selling-satellite-lasers.html), "[SpaceX] are laying track. You could decide you want to get in the track-laying business, or you could decide what you want to put on that track." Just as it did for the American West, I expect this interstellar railroad to have transformational impacts, in more ways than just expanded terrestrial access to internet.
