@@ -21,7 +21,7 @@ While over the long term this thesis may play out, I'd argue that this obscures 
 
 ## The Birth of the Constellation Era
 
-The rapid drop in the price of launch has in some sense already caused a major phase shift in the space industry - looking at the now familiar graph of objects launched to space over time below, it's hard to miss the story of explosive growth. However, removing the contributions of major constellations, it becomes clear that the real phenomenom is not an explosion in use-cases, but an explosion in the *number of satellites employed for a given use case*.[^1]
+The rapid drop in the price of launch has in some sense already caused a major phase shift in the space industry - looking at the now familiar graph of objects launched to space over time, shown below, it's hard to miss the story of explosive growth. However, removing the contributions of major constellations, it becomes clear that the real phenomenom is not an explosion in use-cases, but an explosion in the *number of satellites employed for a given use case*.[^1]
 
 ![objects_launched](/assets/constellation/objects_launched.png){: width="700px" .align-center}
 
@@ -101,6 +101,8 @@ Industrial research labs and manufacturing facilities such as those planned by [
 
 Similarly, space tourism of longer duration will have a need for strong internet connections for FaceTimes, social media use, and entertainment. We already see examples of these partnerships, with [Vast Space committing to using Starlink](https://spacenews.com/vast-to-use-starlink-for-space-station-broadband-communications/) for broadband connection to their upcoming space station.
 
+###
+
 ## Summary
 In all these applications, the common thread is the ability of easy access to bandwidth to enable fundamentally new capabilities and business categories on-orbit. Much ink has been spilled on the viability of the consumer internet business, but there is a world in which a large part of the value proposition of Starlink for SpaceX is the new activity it drives to their launch business by lowering the barrier to entry to productively using space.
 
@@ -114,5 +116,5 @@ There are a lot of important businesses and products to build. Let's get to work
 [^3]: According to [this article](https://www.pcmag.com/news/starlinks-laser-system-is-beaming-42-million-gb-of-data-per-day), maximum laser link data rate can be closer to 200 Gbps.
 [^4]: Or perhaps bring internet access everywhere into the *constellation* era - the [higher speed of light in a vacuum](https://en.wikipedia.org/wiki/Speed_of_light) vs. in air means that in the physical limit, in-space communications could provide lower latency and higher bandwidth than even fiber.
 [^5]: Tasks in the context of satellite constellations means the actions you want your satellites to take, i.e. capturing photos of specific locations or providing internet to a geographic region. Task assignment is then the process of optimally assigning satellites to complete tasks. There is an extensive body of work on this problem (including my thesis) - see [this survey article](https://arxiv.org/abs/2003.06169) for a flavor of the problem.
-[^6]: Assuming [60 Starlink satellites per Falcon 9, 400 per Starship launch](https://www.pcmag.com/news/spacex-both-falcon-9-and-starship-will-deploy-second-gen-starlink-satellites), 5 year lifetime, and internal launch costs of \$20 million for both Falcon 9 and Starship.
+[^6]: Assuming [60 Starlink satellites per Falcon 9, 400 per Starship,](https://www.pcmag.com/news/spacex-both-falcon-9-and-starship-will-deploy-second-gen-starlink-satellites), a 5 year satellite lifetime, and internal launch costs of \$20 million for both Falcon 9 and Starship.
 [^7]: Although it's easy to brush over the details here, it's also interesting to speculate about the technical details of how this will actually be accomplished. Starlink laser links are paired, so Starlink satellites will have to be cooperative with other satellites attempting to use their service. Will these links with outside satellites occur through standard satellites, or will they design custom multi-ISL satellite buses for this purpose? Some interesting discussion [here.](https://forum.nasaspaceflight.com/index.php?topic=60578.0)
