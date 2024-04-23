@@ -64,7 +64,7 @@ Other players in the space no doubt have similar plans - [Kuiper satellites](htt
 
 What applications, concretely, will this unprecedented access to bandwidth in space make possible? Below are some ideas:
 
-#### 24/7 Earth Observation
+### 24/7 Earth Observation
 
 Currently, two major factors affect the latency of Earth observation data. One, satellites physically pass by locations on Earth only so often - the [frequency at which a satellite platform can observe a given location](https://en.wikipedia.org/wiki/Satellite_revisit_period) is determined by orbital mechanics, satellite maneuverability, and of course the number of satellites in the constellation. Second, as discussed above, satellites can only transmit their data when they are directly in view of a ground station. To make matters worse, if weather conditions above the ground stations are poor, satellites might have to wait for a future ground station pass to transmit their data. This fundamentally limits the speed at which data, and especially data from remote locations, can reach end users.
 
@@ -75,7 +75,7 @@ Theoretically, this would allow a company could provide *live, high-definition f
  - **Effectively remove fog of war in military engagements** - this would redefine the way military engagements are conducted, and hopefully make them more humane. Speculation on SpaceX's Starshield constellation already [provides a window into this future.](https://www.twz.com/space/if-spacexs-secret-constellation-is-what-we-think-it-is-its-game-changing)
  - **Better weather prediction** - [bleeding-edge weather models]((https://deepmind.google/discover/blog/graphcast-ai-model-for-faster-and-more-accurate-global-weather-forecasting/)) increasingly use data-hungry AI algorithms to make predictions. Currently, though, the data used to train these models is relatively sparse (i.e. [31km, hourly resolution across a handful of modalities](https://www.science.org/stoken/author-tokens/ST-1550/full)). Given how increased model scale and dataset size [has correlated directly with performance in other domains](https://arxiv.org/pdf/2001.08361.pdf), it seems likely that weather models would be similarly improved by an increase in the temporal resolution, accuracy, and multi-modality of the data used to train them. These same atmospheric models could be used to gain insight into our changing climate and evaluate the potential effectiveness of tools like [solar radiation modification](https://en.wikipedia.org/wiki/Solar_radiation_modification) in mitigating it.
 
-#### Reactive Satellite Tasking
+### Reactive Satellite Tasking
 
 Even in architectures with less than the amount of satellites required for continuous full-Earth coverage, broadband constellations can be transformative by allowing platforms to make more efficient, reactive use of the satellites that are available.
 
@@ -89,7 +89,7 @@ Recently, there is a huge amount of demand for these kinds of distributed archit
  - [XPRIZE Wildfire](https://www.xprize.org/prizes/wildfire), in which an \$11 million dollar prize will be awarded to a team who "rapidly and accurately detect[s] all fires across a vast and remote area and transmit[s] data to ground stations." One can imagine an architecture where satellites instantly notify nearby satellites of a suspected fire and request more images of the fire to better characterize it.
  - Other science applications like [earthquake monitoring](https://www.preventionweb.net/news/space-based-system-can-provide-seismic-monitoring-large-earthquakes-tsunamis), where satellite-based systems have potential to collect data before the earthquake is even over and thereby speed up tsunami warnings by crucial minutes.
 
-#### Tourism and Industry in Space
+### Tourism and Industry in Space
 
 Finally, as the internet further pervades every aspect of our lives, so too will it pervade every aspect of our usage of space.
 
