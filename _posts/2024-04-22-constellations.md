@@ -5,6 +5,7 @@ categories:
   - writings
 tags:
   - Spaceflight
+toc: true
 header:
   image: /assets/images/constellation_header.jpg
   image_description: "view of a satellite constellation"
