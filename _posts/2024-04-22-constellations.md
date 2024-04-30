@@ -102,9 +102,7 @@ Similarly, longer-duration space tourism or [entertainment products](https://www
 
 ## Quantifying the Impact of Constellations
 
-Quantifying the monetary impact of such a transformation is difficult for several reasons[^8]. First and foremost, it's notoriously difficult to get imagery pricing information without requesting specific quotes or signing an NDA. As such, most pricing data can only be sourced from [third-party data brokers](https://landinfo.com/satellite-imagery-pricing/).
-
-Second, the value landscape of satellite images is highly multi-dimensional - resolution, spectrum, coverage, and revisit time all combine in nonlinear ways to determine the value of an image. Some combinations represent phase shifts into entirely new categories of product - twice-daily revisit time is a fundamentally different capability than *continuous* coverage.
+Quantifying the monetary impact of such a transformation is difficult for several reasons[^8]. First and foremost, it's notoriously difficult to get imagery pricing information without requesting specific quotes or signing an NDA. As such, most pricing data can only be sourced from [third-party data brokers](https://landinfo.com/satellite-imagery-pricing/). Second, the value landscape of satellite images is highly multi-dimensional - resolution, spectrum, coverage, and revisit time all combine in nonlinear ways to determine the value of an image. Some combinations represent phase shifts into entirely new categories of product - twice-daily revisit time is a fundamentally different capability than *continuous* coverage.
 
 In an industry where [even the most well established firms](https://s29.q4cdn.com/903184914/files/doc_financials/2023/q4/Planet-Fiscal-4Q-23-and-Full-Year-2023-Update-Presentation.pdf) can lose \$40 million in 2024, though, quantification becomes even more important. Despite many years of effort, it has been difficult to fully capture the value of this technology. However, there are some quantitative reasons to believe this transformation will have real effects.
 
@@ -112,13 +110,33 @@ First, the price of satellite imagery increases dramatically with resolution. Wh
 
 ![resolution_cost](/assets/constellation/resolution_cost.png){: width="500px" .align-center}[^9]
 
-Similar trends exist for imaging frequency - the chart below shows that up-to-date data is approximately twice as valuable as outdated data. The market shows that satellite imagery customers are willing to shell out for low-latency data, and this is precisely where constellations are poised to make the greatest impact.
-<!-- The semi-continuous, real-time data enabled by satellite constellations is then many, many times as valuable as the data provided by Landsat or even other 
-Perhaps the largest part of the internet constellation value proposition for imaging is a reduction in latency, and the chart below shows that low-latency data is approximately twice as valuable as outdated data. -->
+Similar trends exist for imaging frequency - the market tells us that satellite imagery customers are willing to shell out for low-latency data (~a 2x premium), and this is precisely where constellations are poised to make the greatest impact.
 
 ![timeliness](/assets/constellation/timeliness.png){: width="500px" .align-center}[^10]
 
-As an example, a Starlink laser terminal connection might allow for a 1m resolution image delivered within a day to become a 50cm image delivered in near real-time, **corresponding to a ~7x increase in value.** Effects like these will allow for higher margin businesses which at the same time providing a larger consumer surplus.
+As an example, a Starlink laser terminal connection might allow for a 1m resolution image delivered within a day to become a 50cm image delivered in near real-time, **corresponding to a ~7x increase in value.** Effects like these will allow for higher margin businesses which at the same time provide a larger consumer surplus.
+
+Of course, this is an analysis based on currently availabe data products, saying nothing of the fundamentally new products that various companies and private organizations will be willing to shell out for.
+
+## Quantifying the Impact of Constellations
+
+In an industry where [even the most well established firms](https://s29.q4cdn.com/903184914/files/doc_financials/2023/q4/Planet-Fiscal-4Q-23-and-Full-Year-2023-Update-Presentation.pdf) are on track to \$40 million in 2024, quantifying claims is critical. Despite many years of effort, it has been difficult to fully capture the value of this technology. However, there are some quantitative reasons to believe this transformation will have real effects.
+
+The value landscape of satellite images is highly multi-dimensional - resolution, spectrum, coverage, and revisit time all combine in nonlinear ways to determine the value of an image. Focusing on any one parameter, though, it becomes clear that image value scales rapidly with increasing quality. Although on some level, 
+
+By focusing our analysis on a single parameter at a time, though, we can gain some insight. Considering only visual spectrum images, we can see that the value of satellite imagery increases dramatically with resolution. While resolution is limited by hardware, reduction in the cost of transmitting that data will no doubt push more imagery products into the exponential part of the curve.
+
+![resolution_cost](/assets/constellation/resolution_cost.png){: width="500px" .align-center}[^8]
+
+Similar trends exist for imaging frequency - the market tells us that satellite imagery customers are willing to shell out for low-latency data (~a 2x premium), and this is precisely where constellations are poised to make the greatest impact.
+
+![timeliness](/assets/constellation/timeliness.png){: width="500px" .align-center}[^9]
+
+As an example, a Starlink laser terminal connection might allow for a 1m resolution image delivered within a day to become a 50cm image delivered in near real-time, **corresponding to a ~7x increase in value.** Effects like these will allow for higher margin businesses which at the same time provide a larger consumer surplus.
+
+Of course, this is an analysis based on currently availabe data products, saying nothing of the fundamentally new products that various companies and private organizations will be willing to shell out for.
+
+Some combinations represent phase shifts into entirely new categories of product - twice-daily revisit time is a fundamentally different capability than *continuous* coverage.
 
 ## The Post-Constellation Future
 
@@ -136,6 +154,5 @@ There are a lot of important businesses and products to build. Let's get to work
 [^5]: Tasks in the context of satellite constellations means the actions you want your satellites to take, i.e. capturing photos of specific locations or providing internet to a geographic region. Task assignment is then the process of optimally assigning satellites to complete tasks. There is an extensive body of work on this problem (including my thesis) - see [this survey article](https://arxiv.org/abs/2003.06169) for a flavor of the problem.
 [^6]: Assuming [60 Starlink satellites per Falcon 9, 400 per Starship,](https://www.pcmag.com/news/spacex-both-falcon-9-and-starship-will-deploy-second-gen-starlink-satellites), a 5 year satellite lifetime, and internal launch costs of \$20 million for both Falcon 9 and Starship.
 [^7]: Although it's easy to brush over the details here, it's also interesting to speculate about the technical details of how this will actually be accomplished. Starlink laser links are paired, so Starlink satellites will have to be cooperative with other satellites attempting to use their service. Will these links with outside satellites occur through standard satellites, or will they design custom multi-ISL satellite buses for this purpose? Some interesting discussion [here.](https://forum.nasaspaceflight.com/index.php?topic=60578.0)
-[^8]: 
-[^9]: SPOT, KOMPSAT, and WorldView data from [here](https://landinfo.com/satellite-imagery-pricing/), Landsat data from [here](https://landsat.gsfc.nasa.gov/satellites/landsat-9/), Rapideye data from [here](https://apollomapping.com/rapideye-satellite-imagery).
-[^10]: Graphic taken from [this website.](https://up42.com/blog/a-definitive-guide-to-buying-and-using-satellite-imagery)
+[^8]: Resolution cost data is assuming 2D color images. Pliéades, SPOT, KOMPSAT, and WorldView data from [here](https://landinfo.com/satellite-imagery-pricing/), Landsat data from [here](https://landsat.gsfc.nasa.gov/satellites/landsat-9/), Rapideye data from [here](https://apollomapping.com/rapideye-satellite-imagery).
+[^9]: Graphic taken from [this website.](https://up42.com/blog/a-definitive-guide-to-buying-and-using-satellite-imagery)
