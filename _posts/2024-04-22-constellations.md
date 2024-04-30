@@ -1,5 +1,5 @@
 ---
-title: "Satellite Constellations are Still Not Understood."
+title: "Internet Constellations are Still Not Understood."
 excerpt_separator: "<!--more-->"
 categories:
   - writings
@@ -100,7 +100,7 @@ Industrial research labs and manufacturing facilities such as those planned by [
 
 Similarly, longer-duration space tourism or [entertainment products](https://www.smithsonianmag.com/smart-news/nasa-considers-filming-reality-show-competition-international-space-station-more-space-commercialization-emerges-180977511/) will have a need for strong internet connections for FaceTimes, social media use, and broadcasting. We already see examples of these partnerships, with [Vast Space committing to using Starlink](https://spacenews.com/vast-to-use-starlink-for-space-station-broadband-communications/) for broadband connection to their upcoming space station.
 
-## Quantifying the Impact of Constellations
+<!-- ## Quantifying the Impact of Constellations
 
 Quantifying the monetary impact of such a transformation is difficult for several reasons[^8]. First and foremost, it's notoriously difficult to get imagery pricing information without requesting specific quotes or signing an NDA. As such, most pricing data can only be sourced from [third-party data brokers](https://landinfo.com/satellite-imagery-pricing/). Second, the value landscape of satellite images is highly multi-dimensional - resolution, spectrum, coverage, and revisit time all combine in nonlinear ways to determine the value of an image. Some combinations represent phase shifts into entirely new categories of product - twice-daily revisit time is a fundamentally different capability than *continuous* coverage.
 
@@ -116,15 +116,13 @@ Similar trends exist for imaging frequency - the market tells us that satellite 
 
 As an example, a Starlink laser terminal connection might allow for a 1m resolution image delivered within a day to become a 50cm image delivered in near real-time, **corresponding to a ~7x increase in value.** Effects like these will allow for higher margin businesses which at the same time provide a larger consumer surplus.
 
-Of course, this is an analysis based on currently availabe data products, saying nothing of the fundamentally new products that various companies and private organizations will be willing to shell out for.
+Of course, this is an analysis based on currently availabe data products, saying nothing of the fundamentally new products that various companies and private organizations will be willing to shell out for. -->
 
-## Quantifying the Impact of Constellations
+## Quantifying the Impact on Earth Observation
 
-In an industry where [even the most well established firms](https://s29.q4cdn.com/903184914/files/doc_financials/2023/q4/Planet-Fiscal-4Q-23-and-Full-Year-2023-Update-Presentation.pdf) are on track to \$40 million in 2024, quantifying claims is critical. Despite many years of effort, it has been difficult to fully capture the value of this technology. However, there are some quantitative reasons to believe this transformation will have real effects.
+In an industry where [even the most well established firms](https://s29.q4cdn.com/903184914/files/doc_financials/2023/q4/Planet-Fiscal-4Q-23-and-Full-Year-2023-Update-Presentation.pdf) are on track to \$40 million in 2024, quantifying claims is critical - despite many years of effort, it has been difficult to fully capture the value of this technology. However, there are some quantitative reasons to believe this transformation will have real effects.
 
-The value landscape of satellite images is highly multi-dimensional - resolution, spectrum, coverage, and revisit time all combine in nonlinear ways to determine the value of an image. Focusing on any one parameter, though, it becomes clear that image value scales rapidly with increasing quality. Although on some level, 
-
-By focusing our analysis on a single parameter at a time, though, we can gain some insight. Considering only visual spectrum images, we can see that the value of satellite imagery increases dramatically with resolution. While resolution is limited by hardware, reduction in the cost of transmitting that data will no doubt push more imagery products into the exponential part of the curve.
+The value landscape of satellite images is highly multi-dimensional - resolution, spectrum, coverage, and revisit time all combine in nonlinear ways to determine the value of an image. Focusing on any one parameter, though, it becomes clear that image value scales rapidly with increasing quality. Although on some level resolution and imagery type are limited by optical hardware, simplified hardware design and the removal of bandwidth constraints will no doubt push more imagery products into the exponential part of the curve.
 
 ![resolution_cost](/assets/constellation/resolution_cost.png){: width="500px" .align-center}[^8]
 
@@ -134,13 +132,11 @@ Similar trends exist for imaging frequency - the market tells us that satellite 
 
 As an example, a Starlink laser terminal connection might allow for a 1m resolution image delivered within a day to become a 50cm image delivered in near real-time, **corresponding to a ~7x increase in value.** Effects like these will allow for higher margin businesses which at the same time provide a larger consumer surplus.
 
-Of course, this is an analysis based on currently availabe data products, saying nothing of the fundamentally new products that various companies and private organizations will be willing to shell out for.
-
-Some combinations represent phase shifts into entirely new categories of product - twice-daily revisit time is a fundamentally different capability than *continuous* coverage.
+Of course, this is an analysis based on currently availabe data products. Some combinations of image parameters represent phase shifts into entirely new categories of product - twice-daily revisit time is a fundamentally different capability than *continuous* coverage, for example. These new capabilities (and the resulting applications imagined in the previous section) could spawn entirely new companies and sources of demand.
 
 ## The Post-Constellation Future
 
-In all these applications, the common thread is the ability of easy access to bandwidth to enable fundamentally new capabilities and business categories on-orbit. Much ink has been spilled on the viability of the consumer internet business, but there is a world in which a significant part of the value proposition of Starlink for SpaceX is the new activity it drives to their launch business by lowering the barrier to entry to productively using space.
+In all these applications, the common thread is the ability of easy access to bandwidth to not only improve existing capabilities and business categories on-orbit, but also enable fundamentally new ones. Much ink has been spilled on the viability of the consumer internet business, but **there is a world in which a significant part of the value proposition of Starlink for SpaceX is the new activity it drives to their launch business by lowering the barrier to entry to productively using space.**
 
 Thus, it seems to safe to assume that this future is coming - [in the words of former SpaceX exec Abhi Tripathi](https://www.cnbc.com/2024/03/21/investing-in-space-what-to-make-of-spacex-selling-satellite-lasers.html), "[SpaceX] are laying track. You could decide you want to get in the track-laying business, or you could decide what you want to put on that track." Just as it did for the American West, I expect this interstellar railroad to have transformational impacts, in more ways than just expanded terrestrial access to internet.
 
