@@ -14,9 +14,7 @@ header:
 
 It's May 2024: [Falcon 9 is roughly on-target](https://en.wikipedia.org/w/index.php?title=List_of_Falcon_9_and_Falcon_Heavy_launches) for a mind-boggling 144 launches this year, [Starship continues its march to full capability,](https://en.wikipedia.org/wiki/SpaceX_Starship_integrated_flight_test_3) and thanks to [various](https://josh-holder.github.io/writings/launch-mass/) [articles](https://ntrs.nasa.gov/citations/20200001093) (most prominently [Starship is Still Not Understood](https://caseyhandmer.wordpress.com/2021/10/28/starship-is-still-not-understood/) by Casey Handmer), many in the tech community have built an intuition for what this might mean for the space industry as a whole - cheaper mass to orbit leads to more lenient mass constraints leads to far cheaper satellites leads to an explosion in the usage of space by a wide array of players.
 
-While over the long term this thesis may play out, I'd argue that this obscures the deeper, much more near-term trend enabled by this new paradigm: the rise of satellite constellations. And in fact this rise might be the key factor which allows the flywheel to get started in the first place - **it's about so much more than just consumer internet.**[^0]
-
-Internet infrastructure in space allows individual satellite owners to link directly into the terrestrial internet without having to worry about expensive and bandwidth-limited downlinking. More data, delivered faster, and with fewer constraints.
+While over the long term this thesis may play out, I'd argue that this obscures the deeper, much more near-term trend enabled by this new paradigm: the rise of satellite constellations. And in fact this rise might be the key factor which allows the flywheel to get started in the first place. Internet infrastructure in space allows individual satellite owners to link directly into the terrestrial internet without having to worry about expensive and bandwidth-limited downlinking. More data, delivered faster, and with fewer constraints - **it's about so much more than just consumer internet.**[^0]
 
 ## The Birth of the Constellation Era
 
@@ -100,31 +98,13 @@ Industrial research labs and manufacturing facilities such as those planned by [
 
 Similarly, longer-duration space tourism or [entertainment products](https://www.smithsonianmag.com/smart-news/nasa-considers-filming-reality-show-competition-international-space-station-more-space-commercialization-emerges-180977511/) will have a need for strong internet connections for FaceTimes, social media use, and broadcasting. We already see examples of these partnerships, with [Vast Space committing to using Starlink](https://spacenews.com/vast-to-use-starlink-for-space-station-broadband-communications/) for broadband connection to their upcoming space station.
 
-<!-- ## Quantifying the Impact of Constellations
-
-Quantifying the monetary impact of such a transformation is difficult for several reasons[^8]. First and foremost, it's notoriously difficult to get imagery pricing information without requesting specific quotes or signing an NDA. As such, most pricing data can only be sourced from [third-party data brokers](https://landinfo.com/satellite-imagery-pricing/). Second, the value landscape of satellite images is highly multi-dimensional - resolution, spectrum, coverage, and revisit time all combine in nonlinear ways to determine the value of an image. Some combinations represent phase shifts into entirely new categories of product - twice-daily revisit time is a fundamentally different capability than *continuous* coverage.
-
-In an industry where [even the most well established firms](https://s29.q4cdn.com/903184914/files/doc_financials/2023/q4/Planet-Fiscal-4Q-23-and-Full-Year-2023-Update-Presentation.pdf) can lose \$40 million in 2024, though, quantification becomes even more important. Despite many years of effort, it has been difficult to fully capture the value of this technology. However, there are some quantitative reasons to believe this transformation will have real effects.
-
-First, the price of satellite imagery increases dramatically with resolution. While resolution is limited by hardware, reduction in the cost of transmitting that data will no doubt push more imagery products into the exponential part of the curve.
-
-![resolution_cost](/assets/constellation/resolution_cost.png){: width="500px" .align-center}[^9]
-
-Similar trends exist for imaging frequency - the market tells us that satellite imagery customers are willing to shell out for low-latency data (~a 2x premium), and this is precisely where constellations are poised to make the greatest impact.
-
-![timeliness](/assets/constellation/timeliness.png){: width="500px" .align-center}[^10]
-
-As an example, a Starlink laser terminal connection might allow for a 1m resolution image delivered within a day to become a 50cm image delivered in near real-time, **corresponding to a ~7x increase in value.** Effects like these will allow for higher margin businesses which at the same time provide a larger consumer surplus.
-
-Of course, this is an analysis based on currently availabe data products, saying nothing of the fundamentally new products that various companies and private organizations will be willing to shell out for. -->
-
 ## Quantifying the Impact on Earth Observation
 
-In an industry where [even the most well established firms](https://s29.q4cdn.com/903184914/files/doc_financials/2023/q4/Planet-Fiscal-4Q-23-and-Full-Year-2023-Update-Presentation.pdf) are on track to \$40 million in 2024, quantifying claims is critical - despite many years of effort, it has been difficult to fully capture the value of this technology. However, there are some quantitative reasons to believe this transformation will have real effects.
+In an industry where [even the most well established firms](https://s29.q4cdn.com/903184914/files/doc_financials/2023/q4/Planet-Fiscal-4Q-23-and-Full-Year-2023-Update-Presentation.pdf) are on track to lose \$40 million in 2024, quantifying claims is critical - despite many years of effort, it has been difficult to fully capture the value of this technology. However, there are some quantitative reasons to believe this transformation will have real effects.
 
 The value landscape of satellite images is highly multi-dimensional - resolution, spectrum, coverage, and revisit time all combine in nonlinear ways to determine the value of an image. Focusing on any one parameter, though, it becomes clear that image value scales rapidly with increasing quality. Although on some level resolution and imagery type are limited by optical hardware, simplified hardware design and the removal of bandwidth constraints will no doubt push more imagery products into the exponential part of the curve.
 
-![resolution_cost](/assets/constellation/resolution_cost.png){: width="500px" .align-center}[^8]
+![resolution_cost](/assets/constellation/resolution_cost.png){: width="700px" .align-center}[^8]
 
 Similar trends exist for imaging frequency - the market tells us that satellite imagery customers are willing to shell out for low-latency data (~a 2x premium), and this is precisely where constellations are poised to make the greatest impact.
 
