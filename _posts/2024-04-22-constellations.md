@@ -16,8 +16,6 @@ It's May 2024: [Falcon 9 is roughly on-target](https://en.wikipedia.org/w/index.
 
 While over the long term this thesis may play out, I'd argue that this obscures the deeper, much more near-term trend enabled by this new paradigm: the rise of satellite constellations. And in fact this rise might be the key factor which allows the flywheel to get started in the first place. Internet infrastructure in space allows individual satellite owners to link directly into the terrestrial internet without having to worry about expensive and bandwidth-limited downlinking. More data, delivered faster, and with fewer constraints - **it's about so much more than just consumer internet.**[^0]
 
-<span style="font-size:0.5em;">(Note that as of the writing of this article I have never worked on the Starlink program, nor am I privy to any inside information about the company or their plans going forward. This blog post contains only my speculation based on public information which I've synthesized after following the space for a while.)</span>
-
 ## The Birth of the Constellation Era
 
 The rapid drop in the price of launch has in some sense already caused a major phase shift in the space industry - looking at the now familiar graph of objects launched to space over time, shown below, it's hard to miss the story of explosive growth. However, removing the contributions of major constellations, it becomes clear that the real phenomenom is not yet an explosion in use-cases, but an explosion in the *number of satellites employed for a given use case*.[^1]
