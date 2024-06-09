@@ -65,7 +65,7 @@ author:
   name   : "josh holder"
   avatar : "/assets/images/prof_pic_nasa_small.jpeg"
   # bio    : "when i do or write something interesting, i try to post it here. \nspace tech, game-playing AI, large wooden structures, general musings. 🚀🤖🃏🌱"
-  bio    : "interested in optimization and control, especially in large-scale distributed systems. thinking and writing about satellite constellations and electric grids, but also game theory, ML, and GNC. this page is a semi-random collection of some of my work."
+  bio    : "interested in optimization and control, especially in large-scale distributed systems. currently thinking and writing about satellite constellations 🛰️ and electric grids 🔋, but also game theory 🃏, ML 🤖, and GNC 🚀. this page is a semi-random collection of some of my work."
   links:
     - label: "linkedin"
       icon: "fab fa-fw fa-linkedin"
