@@ -63,7 +63,7 @@ author:
   name   : "josh holder"
   avatar : "/assets/images/prof_pic_nasa_small.jpeg"
   # bio    : "when i do or write something interesting, i try to post it here. \nspace tech, game-playing AI, large wooden structures, general musings. 🚀🤖🃏🌱"
-  bio    : "a collection of my work and writing across optimization and control, ML, and space tech. 🚀🤖🃏🔋"
+  bio    : "a collection of my work and writing across optimization and control, ML, large-scale distributed systems, and space tech. 🚀🤖🃏🔋"
   links:
     - label: "linkedin"
       icon: "fab fa-fw fa-linkedin"
