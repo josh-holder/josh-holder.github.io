@@ -5,7 +5,6 @@ categories:
   - projects
   - featured
 tags:
-  - Algorithms
   - Game Theory
   - Machine Learning
 toc: true
