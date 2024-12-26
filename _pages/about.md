@@ -7,7 +7,7 @@ just trying to figure out my [ikigai](https://modelthinkers.com/mental-model/iki
 
 i've worked mostly in the space domain thus far in my career, starting at NASA JSC where i wrote a good chunk of the [orion](https://en.wikipedia.org/wiki/Orion_(spacecraft)) backup flight control software stack.
 
-i then had a brief stint in academia, where i [published work on MARL](https://arxiv.org/abs/2412.15573) and [distributed optimization](https://www.proquest.com/openview/92632c8e8e694159bb1be40a29e03d03/1?pq-origsite=gscholar&cbl=18750&diss=y). 
+i then had a brief stint in academia (see [google scholar](https://scholar.google.com/citations?view_op=list_works&hl=en&user=H9c37N4AAAAJ)), where i published work on MARL and distributed optimization. 
 
 now, as I shift my focus more towards providing terrestrial benefit and growing the in-space economy, i'm working on the [starlink](https://en.wikipedia.org/wiki/Starlink) GN&C team at spacex.
 
