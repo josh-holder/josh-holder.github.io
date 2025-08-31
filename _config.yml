@@ -13,10 +13,10 @@
 # you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
-title: jholder | blog + creations
+title: jh | writing + projects
 email: josh.holder72@gmail.com
 description: >- # this means to ignore newlines until "baseurl:"
-  a collection of work and writings on optimization and control, space tech, and game-playing AI. 🚀🤖🃏🌱
+  a collection of my work and writing across optimization and control, AI, and space tech. 🚀🤖🃏🌱
 # satellite constellations, optimization, task allocation, power grids, game theory, blog, reinforcement learning, AI, SpaceX, NASA, GNC, guidance navigation and control, card games.
 # twitter_username: josh-holder
 github_username: josh-holder

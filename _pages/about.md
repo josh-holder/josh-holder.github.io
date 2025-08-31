@@ -9,7 +9,9 @@ i've worked mostly in the space domain thus far in my career, starting at NASA J
 
 i then had a brief stint in academia (see [google scholar](https://scholar.google.com/citations?view_op=list_works&hl=en&user=H9c37N4AAAAJ)), where i published work on MARL and distributed optimization. 
 
-now, as I shift my focus more towards providing terrestrial benefit and growing the in-space economy, i'm working on the [starlink](https://en.wikipedia.org/wiki/Starlink) GN&C team at spacex.
+currently, i help fly 8000 satellites safely and autonomously as part of the [starlink](https://en.wikipedia.org/wiki/Starlink) GN&C team at spacex.
+
+(shockingly) i'm also interested in how AI can contribute to autonomous systems in a safe way. writing as part of the [asterisk AI writing fellowship](https://www.asteriskmag.ai/p/the-asterisk-ai-blogging-fellowship) over on [substack](https://substack.com/@joshholder)!
 
 **an (incomplete) list of my interests and favorite photos:**
 
