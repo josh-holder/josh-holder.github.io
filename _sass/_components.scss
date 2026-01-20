@@ -1,0 +1,169 @@
+// Post lists
+.post-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.post-item {
+  margin-bottom: $spacing-md;
+  line-height: 1.5;
+
+  .post-date {
+    color: $muted-color;
+    font-size: $font-size-small;
+    margin-right: $spacing-xs;
+  }
+
+  .post-link {
+    color: $text-color;
+
+    &:hover {
+      color: $accent-color;
+    }
+  }
+
+  .post-excerpt {
+    color: $muted-color;
+    font-size: $font-size-small;
+    margin-top: $spacing-xs;
+    margin-bottom: 0;
+  }
+}
+
+.more-link {
+  margin-top: $spacing-md;
+
+  a {
+    color: $muted-color;
+    font-size: $font-size-small;
+
+    &:hover {
+      color: $accent-color;
+    }
+  }
+}
+
+.no-posts {
+  color: $muted-color;
+  font-style: italic;
+}
+
+// Tags archive
+.tags-archive {
+  .tag-cloud {
+    margin-bottom: $spacing-md;
+    line-height: 2;
+
+    .tag-link {
+      margin-right: $spacing-sm;
+      white-space: nowrap;
+    }
+  }
+
+  .tag-section {
+    margin-bottom: $spacing-xl;
+  }
+
+  .tag-name {
+    font-size: 1rem;
+    color: $accent-color;
+    font-weight: 400;
+    margin-bottom: $spacing-sm;
+  }
+}
+
+// Images
+.post-content, .page-content {
+  img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: $spacing-md auto;
+    border: 1px solid $border-color;
+    border-radius: 4px;
+  }
+
+  // Centered images
+  .align-center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  // Image captions (using figure + figcaption)
+  figure {
+    margin: $spacing-md 0;
+
+    img {
+      margin-bottom: $spacing-xs;
+    }
+
+    figcaption {
+      text-align: center;
+      color: $muted-color;
+      font-size: $font-size-small;
+      font-style: italic;
+    }
+  }
+}
+
+// Responsive iframes (for embeds)
+.responsive-iframe {
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+  overflow: hidden;
+  margin: $spacing-md 0;
+
+  iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 1px solid $border-color;
+  }
+}
+
+// 404 page
+.error-page {
+  text-align: center;
+  padding: $spacing-xl 0;
+
+  .error-code {
+    font-size: 4rem;
+    color: $accent-color;
+    margin-bottom: $spacing-sm;
+  }
+
+  .error-message {
+    color: $muted-color;
+  }
+}
+
+// Archive sections
+.archive {
+  .post-item {
+    display: block;
+
+    .post-date {
+      display: inline-block;
+      min-width: 7rem;
+    }
+  }
+}
+
+// Mobile adjustments
+@media (max-width: $breakpoint-sm) {
+  .post-item {
+    .post-date {
+      display: block;
+      margin-bottom: $spacing-xs;
+    }
+  }
+
+  .archive .post-item .post-date {
+    min-width: auto;
+  }
+}

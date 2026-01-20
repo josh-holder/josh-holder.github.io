@@ -1,0 +1,32 @@
+---
+layout: default
+---
+
+<div class="tags-archive">
+  <header class="archive-header">
+    <h1 class="archive-title">{{ page.title }}</h1>
+  </header>
+
+  <div class="tag-cloud">
+    {% assign sorted_tags = site.tags | sort %}
+    {% for tag in sorted_tags %}
+    <a href="#{{ tag[0] | slugify }}" class="tag-link">[{{ tag[0] }}]</a>
+    {% endfor %}
+  </div>
+
+  <hr class="divider">
+
+  {% for tag in sorted_tags %}
+  <section class="tag-section" id="{{ tag[0] | slugify }}">
+    <h2 class="tag-name">// {{ tag[0] }}</h2>
+    <ul class="post-list">
+      {% for post in tag[1] %}
+      <li class="post-item">
+        <span class="post-date">[{{ post.date | date: "%Y-%m-%d" }}]</span>
+        <a href="{{ post.url | relative_url }}" class="post-link">{{ post.title }}</a>
+      </li>
+      {% endfor %}
+    </ul>
+  </section>
+  {% endfor %}
+</div>

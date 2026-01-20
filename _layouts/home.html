@@ -1,0 +1,36 @@
+---
+layout: default
+---
+
+<div class="home">
+  <div class="intro">
+    <p class="tagline">> spacecraft engineer | ai researcher | systems thinker</p>
+    <p class="current">currently: <a href="https://en.wikipedia.org/wiki/Starlink">starlink</a><br>
+    previously: <a href="https://www.nasa.gov/johnson/">nasa jsc</a> | <a href="https://aeroastro.mit.edu/">mit aero/astro</a></p>
+
+    <p class="links">
+      [<a href="https://github.com/josh-holder">github</a>] /
+      [<a href="https://www.linkedin.com/in/joshua-holder-798386155/">linkedin</a>] /
+      [<a href="https://scholar.google.com/citations?view_op=list_works&hl=en&user=H9c37N4AAAAJ">scholar</a>] /
+      [<a href="mailto:josh.holder72@gmail.com">email</a>]
+    </p>
+  </div>
+
+  <hr class="divider">
+
+  <section class="recent-posts">
+    <h2 class="section-title">// recent writings</h2>
+
+    <ul class="post-list">
+      {% assign featured_posts = site.posts | where_exp: "post", "post.categories contains 'featured'" %}
+      {% for post in featured_posts limit:5 %}
+      <li class="post-item">
+        <span class="post-date">[{{ post.date | date: "%Y-%m-%d" }}]</span>
+        <a href="{{ post.url | relative_url }}" class="post-link">{{ post.title }}</a>
+      </li>
+      {% endfor %}
+    </ul>
+
+    <p class="more-link"><a href="{{ '/writings/' | relative_url }}">view all writings →</a></p>
+  </section>
+</div>

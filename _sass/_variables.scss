@@ -1,1 +1,32 @@
-$doc-font-size: 10 !default;
+// Terminal Color Palette
+$bg-color: #0a0a0a;
+$text-color: #e0e0e0;
+$muted-color: #808080;
+$accent-color: #ffcc00;
+$accent-dim: #cc9900;
+$border-color: #333333;
+$code-bg: #1a1a1a;
+
+// Typography
+$font-mono: 'JetBrains Mono', 'Fira Code', 'Consolas', 'Monaco', monospace;
+$font-size-base: 16px;
+$font-size-small: 14px;
+$font-size-smaller: 12px;
+$font-size-large: 18px;
+$line-height: 1.7;
+
+// Spacing
+$spacing-xs: 0.5rem;
+$spacing-sm: 1rem;
+$spacing-md: 1.5rem;
+$spacing-lg: 2rem;
+$spacing-xl: 3rem;
+
+// Layout
+$max-width: 720px;
+$content-padding: 1.5rem;
+
+// Breakpoints
+$breakpoint-sm: 480px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 1024px;

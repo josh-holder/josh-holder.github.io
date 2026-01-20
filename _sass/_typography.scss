@@ -1,0 +1,177 @@
+// Headings
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 500;
+  line-height: 1.3;
+  margin-top: $spacing-lg;
+  margin-bottom: $spacing-sm;
+  color: $text-color;
+}
+
+h1 {
+  font-size: 1.75rem;
+  margin-top: 0;
+}
+
+h2 {
+  font-size: 1.35rem;
+  color: $accent-color;
+}
+
+h3 {
+  font-size: 1.15rem;
+}
+
+h4, h5, h6 {
+  font-size: 1rem;
+}
+
+// Paragraphs
+p {
+  margin: 0 0 $spacing-md;
+}
+
+// Links
+a {
+  color: $accent-color;
+  text-decoration: none;
+  transition: color 0.2s ease;
+
+  &:hover {
+    color: $accent-dim;
+    text-decoration: underline;
+  }
+}
+
+// Strong and emphasis
+strong, b {
+  font-weight: 700;
+}
+
+em, i {
+  font-style: italic;
+}
+
+// Lists
+ul, ol {
+  margin: 0 0 $spacing-md;
+  padding-left: $spacing-lg;
+}
+
+li {
+  margin-bottom: $spacing-xs;
+}
+
+// Blockquotes
+blockquote {
+  margin: $spacing-md 0;
+  padding: $spacing-sm $spacing-md;
+  border-left: 3px solid $accent-color;
+  background-color: $code-bg;
+  color: $muted-color;
+
+  p:last-child {
+    margin-bottom: 0;
+  }
+}
+
+// Code
+code {
+  font-family: $font-mono;
+  font-size: 0.9em;
+  background-color: $code-bg;
+  padding: 0.2em 0.4em;
+  border-radius: 3px;
+}
+
+pre {
+  margin: $spacing-md 0;
+  padding: $spacing-md;
+  background-color: $code-bg;
+  border: 1px solid $border-color;
+  border-radius: 4px;
+  overflow-x: auto;
+
+  code {
+    padding: 0;
+    background: none;
+    font-size: $font-size-small;
+  }
+}
+
+// Tables
+table {
+  width: 100%;
+  margin: $spacing-md 0;
+  border-collapse: collapse;
+  font-size: $font-size-small;
+}
+
+th, td {
+  padding: $spacing-xs $spacing-sm;
+  text-align: left;
+  border: 1px solid $border-color;
+}
+
+th {
+  background-color: $code-bg;
+  font-weight: 500;
+  color: $accent-color;
+}
+
+tr:nth-child(even) {
+  background-color: rgba(255, 255, 255, 0.02);
+}
+
+// Horizontal rule
+hr {
+  border: none;
+  border-top: 1px solid $border-color;
+  margin: $spacing-lg 0;
+}
+
+// Footnotes
+.footnotes {
+  margin-top: $spacing-xl;
+  padding-top: $spacing-md;
+  border-top: 1px solid $border-color;
+  font-size: $font-size-small;
+  color: $muted-color;
+
+  ol {
+    padding-left: $spacing-md;
+  }
+
+  li {
+    margin-bottom: $spacing-sm;
+  }
+
+  p {
+    margin-bottom: $spacing-xs;
+  }
+}
+
+// Superscript for footnote references
+sup {
+  font-size: 0.75em;
+
+  a {
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+// Abbreviations
+abbr[title] {
+  border-bottom: 1px dotted $muted-color;
+  cursor: help;
+}
+
+// Mark/highlight
+mark {
+  background-color: $accent-color;
+  color: $bg-color;
+  padding: 0.1em 0.2em;
+}

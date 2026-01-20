@@ -1,0 +1,76 @@
+// Reset and base styles
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: $font-size-base;
+  scroll-behavior: smooth;
+
+  @media (max-width: $breakpoint-sm) {
+    font-size: $font-size-small;
+  }
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: $font-mono;
+  font-size: 1rem;
+  line-height: $line-height;
+  color: $text-color;
+  background-color: $bg-color;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+// Selection
+::selection {
+  background-color: $accent-color;
+  color: $bg-color;
+}
+
+::-moz-selection {
+  background-color: $accent-color;
+  color: $bg-color;
+}
+
+// Site wrapper
+.site-wrapper {
+  max-width: $max-width;
+  margin: 0 auto;
+  padding: $spacing-lg $content-padding;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.site-content {
+  flex: 1;
+}
+
+// Divider
+.divider {
+  border: none;
+  border-top: 1px solid $border-color;
+  margin: $spacing-lg 0;
+}
+
+// Scrollbar styling
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: $bg-color;
+}
+
+::-webkit-scrollbar-thumb {
+  background: $border-color;
+  border-radius: 4px;
+
+  &:hover {
+    background: $muted-color;
+  }
+}

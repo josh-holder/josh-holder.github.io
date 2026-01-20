@@ -1,0 +1,35 @@
+---
+layout: default
+---
+
+<article class="post">
+  <header class="post-header">
+    <h1 class="post-title">{{ page.title }}</h1>
+    <div class="post-meta">
+      <span class="post-date">{{ page.date | date: "%Y-%m-%d" }}</span>
+      {% if page.categories %}
+      <span class="post-categories">
+        {% for category in page.categories %}
+        <span class="category">{{ category }}</span>
+        {% endfor %}
+      </span>
+      {% endif %}
+      {% if page.tags %}
+      <span class="post-tags">
+        {% for tag in page.tags %}
+        <a href="{{ '/tags/' | relative_url }}#{{ tag | slugify }}" class="tag">{{ tag }}</a>
+        {% endfor %}
+      </span>
+      {% endif %}
+    </div>
+  </header>
+
+  <div class="post-content">
+    {{ content }}
+  </div>
+
+  <footer class="post-footer">
+    <hr class="divider">
+    <p class="back-link"><a href="{{ '/writings/' | relative_url }}">← back to writings</a></p>
+  </footer>
+</article>

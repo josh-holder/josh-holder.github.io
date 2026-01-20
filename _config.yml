@@ -1,127 +1,63 @@
-# Welcome to Jekyll!
-#
-# This config file is meant for settings that affect your whole blog, values
-# which you are expected to set up once and rarely edit after that. If you find
-# yourself editing this file very often, consider using Jekyll's data files
-# feature for the data you need to update frequently.
-#
-# For technical reasons, this file is *NOT* reloaded automatically when you use
-# 'bundle exec jekyll serve'. If you change this file, please restart the server process.
-
 # Site settings
-# These are used to personalize your new site. If you look in the HTML files,
-# you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
-# You can create any custom variable you would like, and they will be accessible
-# in the templates via {{ site.myvariable }}.
-title: jh | writing + projects
+title: josh holder
 email: josh.holder72@gmail.com
-description: >- # this means to ignore newlines until "baseurl:"
-  a collection of my work and writing across optimization and control, AI, and space tech. 🚀🤖🃏🌱
-# satellite constellations, optimization, task allocation, power grids, game theory, blog, reinforcement learning, AI, SpaceX, NASA, GNC, guidance navigation and control, card games.
-# twitter_username: josh-holder
+description: >-
+  spacecraft engineer | ai researcher | systems thinker
 github_username: josh-holder
-minimal_mistakes_skin: dark
-search: true
-
-minima:
-  skin: dark
+search: false
 
 # Build settings
 markdown: kramdown
-remote_theme: mmistakes/minimal-mistakes
+kramdown:
+  toc_levels: 2..3
+  input: GFM
+  auto_ids: true
+
 # Outputting
 permalink: /:categories/:title/
-paginate: 5 # amount of posts to show
-paginate_path: /page:num/
-timezone: # https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+timezone: America/Los_Angeles
 
 include:
   - _pages
 
-# Exclude from processing.
-# The following items will not be processed, by default. Create a custom list
-# to override the default setting.
-# exclude:
-#   - Gemfile
-#   - Gemfile.lock
-#   - node_modules
-#   - vendor/bundle/
-#   - vendor/cache/
-#   - vendor/gems/
-#   - vendor/ruby/
-
-# Plugins (previously gems:)
+# Plugins
 plugins:
-  - jekyll-paginate
   - jekyll-sitemap
-  - jekyll-gist
   - jekyll-feed
-  - jemoji
-  - jekyll-include-cache
+  - jekyll-seo-tag
 
+# Author
 author:
-  name   : "josh holder"
-  avatar : "/assets/images/prof_pic_nasa_small.jpeg"
-  # bio    : "when i do or write something interesting, i try to post it here. \nspace tech, game-playing AI, large wooden structures, general musings. 🚀🤖🃏🌱"
-  bio    : "a collection of my work and writing across optimization and control, ML, distributed systems, and space tech. 🚀🤖🃏🔋"
-  links:
-    - label: "linkedin"
-      icon: "fab fa-fw fa-linkedin"
-      url: "https://www.linkedin.com/in/joshua-holder-798386155/"
-    - label: "twitter"
-      icon: "fab fa-fw fa-twitter-square"
-      url: "https://twitter.com/joshgholder"
-    - label: "github"
-      icon: "fab fa-fw fa-github"
-      url: "https://github.com/josh-holder"
-    - label: "josh.holder72@gmail.com"
-      icon: "far fa-fw fa-envelope"
-      url: "https://mail.google.com/mail/u/0/#inbox"
-    # - label: "Stack Overflow"
-    #   icon: "fab fa-fw fa-stack-overflow"
-    #   url: "https://stackoverflow.com/users/12960701/jgholder"
-    
+  name: "josh holder"
+  email: "josh.holder72@gmail.com"
 
-footer:
-  links:
-    - label: "LinkedIn"
-      icon: "fab fa-fw fa-linkedin"
-      url: "https://www.linkedin.com/in/joshua-holder-798386155/"
-    - label: "GitHub"
-      icon: "fab fa-fw fa-github"
-      url: "https://github.com/josh-holder"
-    - label: "josh.holder72@gmail.com"
-      icon: "far fa-fw fa-envelope"
-      url: "https://mail.google.com/mail/u/0/#inbox"
-
+# Defaults
 defaults:
   # _posts
-  - fonts:
-      size: 10px
   - scope:
       path: ""
       type: posts
     values:
-      layout: single
-      author_profile: false
-      read_time: false
-      comments: true
-      share: true
-      related: true
+      layout: post
       show_date: true
   # _pages
   - scope:
       path: "_pages"
       type: pages
     values:
-      layout: single
-      author_profile: true
+      layout: page
 
+# Tag archive
 tag_archive:
   type: liquid
   path: /tags/
 
+# Collections
 collections:
   creations:
     output: true
     permalink: /:collection/:path/
+
+# Sass settings
+sass:
+  style: compressed

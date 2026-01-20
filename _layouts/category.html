@@ -1,0 +1,27 @@
+---
+layout: default
+---
+
+<div class="archive">
+  <header class="archive-header">
+    <h1 class="archive-title">{{ page.title }}</h1>
+  </header>
+
+  <ul class="post-list">
+    {% assign category = page.taxonomy %}
+    {% assign posts = site.posts | where_exp: "post", "post.categories contains category" %}
+    {% for post in posts %}
+    <li class="post-item">
+      <span class="post-date">[{{ post.date | date: "%Y-%m-%d" }}]</span>
+      <a href="{{ post.url | relative_url }}" class="post-link">{{ post.title }}</a>
+      {% if post.excerpt %}
+      <p class="post-excerpt">{{ post.excerpt | strip_html | truncate: 150 }}</p>
+      {% endif %}
+    </li>
+    {% endfor %}
+  </ul>
+
+  {% if posts.size == 0 %}
+  <p class="no-posts">no posts found in this category.</p>
+  {% endif %}
+</div>

@@ -1,0 +1,7 @@
+<nav class="site-nav">
+  <span class="nav-prompt">></span>
+  {% for link in site.data.navigation.main %}
+    <a href="{{ link.url | relative_url }}" class="nav-link{% if page.url == link.url %} active{% endif %}">{{ link.title }}</a>
+    {% unless forloop.last %} / {% endunless %}
+  {% endfor %}
+</nav>
