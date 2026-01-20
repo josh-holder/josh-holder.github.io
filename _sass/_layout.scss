@@ -75,16 +75,19 @@
 }
 
 // Game of Life
+// Grid: 145 cols × 22 rows, font-size 0.5rem, line-height 0.6
+// Height calculation: 22 rows × 0.5rem × 0.6 = 6.6rem (use slightly less to clip cleanly)
 .life-container {
   margin-top: $spacing-lg;
   width: 100%;
+  max-height: 6.5rem; // Clip any overflow from the 22-row grid
   overflow: hidden;
-  -ms-overflow-style: none; // Hide scrollbar in IE/Edge
-  scrollbar-width: none; // Hide scrollbar in Firefox
+  -ms-overflow-style: none;
+  scrollbar-width: none;
   overscroll-behavior: none;
 
   &::-webkit-scrollbar {
-    display: none; // Hide scrollbar in Chrome/Safari
+    display: none;
   }
 
   #life-canvas {
@@ -101,8 +104,9 @@
     user-select: none;
     letter-spacing: -0.05em;
     white-space: pre;
-    touch-action: none; // Prevent touch scrolling
-    -webkit-touch-callout: none; // Prevent iOS callout
+    touch-action: none;
+    -webkit-touch-callout: none;
+    overflow: hidden;
 
     @media (max-width: $breakpoint-sm) {
       font-size: 0.28rem;

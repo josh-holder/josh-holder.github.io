@@ -8,8 +8,8 @@
   const MAX_AGE = 10; // generations until fully gray
   const FRESH_AGE = 1; // age for mouse-spawned cells
 
-  // Color interpolation from accent (gold) to muted (gray)
-  const COLOR_ACCENT = { r: 255, g: 204, b: 0 };   // #ffcc00
+  // Color interpolation from muted gold to gray (slightly dimmer than theme accent)
+  const COLOR_ACCENT = { r: 204, g: 163, b: 0 };   // #cca300 - dimmed from #ffcc00
   const COLOR_MUTED = { r: 128, g: 128, b: 128 };  // #808080
 
   let grid = [];      // stores age: 0 = dead, 1+ = alive with age
