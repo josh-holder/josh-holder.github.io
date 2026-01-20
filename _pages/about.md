@@ -3,21 +3,19 @@ permalink: /about/
 title: "about me"
 ---
 
-just trying to figure out my [ikigai](https://modelthinkers.com/mental-model/ikigai) tbh. i have a deep passion for learning, and love diving into new fields and asking many consecutive stupid questions to people who know more than me. **if you're in Seattle, let's meet up for coffee or a walk!**
+i've worked mostly in the space domain thus far in my career, starting at NASA JSC where i wrote a good chunk of the [orion](https://en.wikipedia.org/wiki/Orion_(spacecraft)) backup flight control software stack. space exploration is, in my mind, the most pure and exciting human pursuit in tech and it's a blast to contribute every day.
 
-i've worked mostly in the space domain thus far in my career, starting at NASA JSC where i wrote a good chunk of the [orion](https://en.wikipedia.org/wiki/Orion_(spacecraft)) backup flight control software stack.
+i've also had interests in RL, which I explored in my brief stint in academia (see [google scholar](https://scholar.google.com/citations?view_op=list_works&hl=en&user=H9c37N4AAAAJ)).
 
-i then had a brief stint in academia (see [google scholar](https://scholar.google.com/citations?view_op=list_works&hl=en&user=H9c37N4AAAAJ)), where i published work on MARL and distributed optimization. 
+currently, i help fly 8000 satellites safely and autonomously as part of the [starlink](https://en.wikipedia.org/wiki/Starlink) GN&C team at spacex. this role and my experience w/ RL have made me passionate about the potentials and perils of next-gen autonomy systems - i've done some writing on this over on [substack](https://substack.com/@joshholder)!
 
-currently, i help fly 8000 satellites safely and autonomously as part of the [starlink](https://en.wikipedia.org/wiki/Starlink) GN&C team at spacex.
-
-(shockingly) i'm also interested in how AI can contribute to autonomous systems in a safe way. writing as part of the [asterisk AI writing fellowship](https://www.asteriskmag.ai/p/the-asterisk-ai-blogging-fellowship) over on [substack](https://substack.com/@joshholder)!
+**i love hosting people and learning new things. if you're in Seattle, let's meet up for coffee or a walk!**
 
 **an (incomplete) list of my interests and favorite photos:**
 
-professionally: GN&C, spacecraft flight software, robotics, reinforcement learning, test engineering
+professionally: GN&C, spacecraft flight software, robotics, reinforcement learning, simulation engineering
 
-unprofessionally: game theory, travel, [reading](https://app.thestorygraph.com/profile/joshholder), strategy games, soccer, classical music/jazz, backpacking (wilderness and urban), making large wooden structures for the bit (see below)
+unprofessionally: game theory, [incredibly long biographies](https://app.thestorygraph.com/profile/joshholder), strategy games, soccer, backpacking (wilderness and urban), making large wooden structures for the bit (see below)
 
 {:refdef: style="text-align: center;"}
 ![mrworldwide](/assets/images/mrworldwide.jpg){: width="500px"}
