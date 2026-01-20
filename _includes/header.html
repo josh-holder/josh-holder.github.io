@@ -1,5 +1,6 @@
 <header class="site-header">
-  <div class="ascii-art">
+  <a href="{{ '/' | relative_url }}" class="ascii-art-link">
+    <div class="ascii-art">
 <pre>
      _           _       _           _     _
     (_) ___  ___| |__   | |__   ___ | | __| | ___ _ __
@@ -8,7 +9,8 @@
    _/ |\___/|___/_| |_| |_| |_|\___/|_|\__,_|\___|_|
   |__/
 </pre>
-  </div>
+    </div>
+  </a>
 
   {% include navigation.html %}
 </header>

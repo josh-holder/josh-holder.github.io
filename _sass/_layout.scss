@@ -3,6 +3,15 @@
   margin-bottom: $spacing-lg;
 }
 
+.ascii-art-link {
+  text-decoration: none;
+  display: block;
+
+  &:hover {
+    text-decoration: none;
+  }
+}
+
 .ascii-art {
   margin-bottom: $spacing-md;
 
