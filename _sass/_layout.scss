@@ -74,6 +74,31 @@
   font-size: $font-size-smaller;
 }
 
+// Game of Life
+.life-container {
+  margin-top: $spacing-lg;
+  text-align: center;
+  overflow: hidden;
+
+  #life-canvas {
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+    background: none;
+    border: none;
+    font-size: 0.5rem;
+    line-height: 0.6;
+    color: $border-color;
+    cursor: pointer;
+    user-select: none;
+    letter-spacing: 0.1em;
+
+    @media (max-width: $breakpoint-sm) {
+      font-size: 0.35rem;
+    }
+  }
+}
+
 // Home page
 .home {
   .intro {

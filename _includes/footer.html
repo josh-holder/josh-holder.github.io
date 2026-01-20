@@ -9,4 +9,10 @@
     </p>
     <p class="copyright">&copy; {{ site.time | date: '%Y' }} {{ site.author.name }}</p>
   </div>
+
+  <div class="life-container">
+    <pre id="life-canvas" title="click to reset"></pre>
+  </div>
 </footer>
+
+<script src="{{ '/assets/js/life.js' | relative_url }}"></script>
