@@ -108,6 +108,40 @@
       init();
       render();
     });
+
+    // Mouse move to spawn cells
+    container.addEventListener('mousemove', function(e) {
+      const rect = container.getBoundingClientRect();
+      const style = window.getComputedStyle(container);
+      const fontSize = parseFloat(style.fontSize);
+      const lineHeight = parseFloat(style.lineHeight) || fontSize * 0.6;
+      const letterSpacing = parseFloat(style.letterSpacing) || 0;
+
+      // Calculate character dimensions
+      const charWidth = fontSize * 0.6 + letterSpacing; // Approximate monospace char width
+      const charHeight = lineHeight;
+
+      // Get mouse position relative to container
+      const mouseX = e.clientX - rect.left;
+      const mouseY = e.clientY - rect.top;
+
+      // Convert to grid coordinates
+      const gridX = Math.floor(mouseX / charWidth);
+      const gridY = Math.floor(mouseY / charHeight);
+
+      // Spawn a small cluster of cells around the mouse position
+      for (let dy = -1; dy <= 1; dy++) {
+        for (let dx = -1; dx <= 1; dx++) {
+          const x = (gridX + dx + COLS) % COLS;
+          const y = (gridY + dy + ROWS) % ROWS;
+          if (x >= 0 && x < COLS && y >= 0 && y < ROWS) {
+            if (Math.random() < 0.5) { // 50% chance to spawn each cell
+              grid[y][x] = 1;
+            }
+          }
+        }
+      }
+    });
   }
 
   if (document.readyState === 'loading') {

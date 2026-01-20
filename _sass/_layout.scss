@@ -79,6 +79,13 @@
   margin-top: $spacing-lg;
   width: 100%;
   overflow: hidden;
+  -ms-overflow-style: none; // Hide scrollbar in IE/Edge
+  scrollbar-width: none; // Hide scrollbar in Firefox
+  overscroll-behavior: none;
+
+  &::-webkit-scrollbar {
+    display: none; // Hide scrollbar in Chrome/Safari
+  }
 
   #life-canvas {
     display: block;
@@ -94,6 +101,8 @@
     user-select: none;
     letter-spacing: -0.05em;
     white-space: pre;
+    touch-action: none; // Prevent touch scrolling
+    -webkit-touch-callout: none; // Prevent iOS callout
 
     @media (max-width: $breakpoint-sm) {
       font-size: 0.28rem;
