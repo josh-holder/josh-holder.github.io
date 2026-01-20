@@ -2,9 +2,9 @@
 (function() {
   const CELL_ALIVE = '█';
   const CELL_DEAD = ' ';
-  const COLS = 120;
-  const ROWS = 18;
-  const INTERVAL = 300; // ms between generations
+  const COLS = 145;
+  const ROWS = 22;
+  const INTERVAL = 200; // ms between generations
 
   let grid = [];
   let container = null;

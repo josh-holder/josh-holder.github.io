@@ -82,22 +82,22 @@
 
   #life-canvas {
     display: block;
-    width: 100%;
     margin: 0;
     padding: 0;
     background: none;
     border: none;
-    font-size: 0.38rem;
-    line-height: 0.55;
+    font-family: $font-mono;
+    font-size: 0.5rem;
+    line-height: 0.6;
     color: $border-color;
     cursor: pointer;
     user-select: none;
-    letter-spacing: 0;
+    letter-spacing: -0.05em;
     white-space: pre;
-    overflow: hidden;
 
     @media (max-width: $breakpoint-sm) {
-      font-size: 0.25rem;
+      font-size: 0.28rem;
+      letter-spacing: -0.02em;
     }
   }
 }
