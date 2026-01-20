@@ -135,7 +135,7 @@
           const x = (gridX + dx + COLS) % COLS;
           const y = (gridY + dy + ROWS) % ROWS;
           if (x >= 0 && x < COLS && y >= 0 && y < ROWS) {
-            if (Math.random() < 0.5) { // 50% chance to spawn each cell
+            if (Math.random() < 1.0) { // 100% chance to spawn each cell
               grid[y][x] = 1;
             }
           }
