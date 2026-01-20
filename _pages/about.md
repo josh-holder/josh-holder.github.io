@@ -3,13 +3,13 @@ permalink: /about/
 title: "about me"
 ---
 
-i've worked mostly in the space domain thus far in my career, starting at NASA JSC where i wrote a good chunk of the [orion](https://en.wikipedia.org/wiki/Orion_(spacecraft)) backup flight control software stack. space exploration is, in my mind, the most pure and exciting human pursuit in tech and it's a blast to contribute every day.
+**i love hosting people and learning new things. if you're in Seattle, let's meet up for coffee or a walk!**
 
-i've also had interests in RL, which I explored in my brief stint in academia (see [google scholar](https://scholar.google.com/citations?view_op=list_works&hl=en&user=H9c37N4AAAAJ)).
+i started my career at NASA JSC where i wrote a good chunk of the [orion](https://en.wikipedia.org/wiki/Orion_(spacecraft)) backup flight control software stack. space exploration is, in my mind, the most pure and exciting human pursuit in tech and it's a blast to contribute every day.
+
+i also have an interest in RL, which I explored in my stint in academia (see [google scholar](https://scholar.google.com/citations?view_op=list_works&hl=en&user=H9c37N4AAAAJ)).
 
 currently, i help fly 8000 satellites safely and autonomously as part of the [starlink](https://en.wikipedia.org/wiki/Starlink) GN&C team at spacex. this role and my experience w/ RL have made me passionate about the potentials and perils of next-gen autonomy systems - i've done some writing on this over on [substack](https://substack.com/@joshholder)!
-
-**i love hosting people and learning new things. if you're in Seattle, let's meet up for coffee or a walk!**
 
 **an (incomplete) list of my interests and favorite photos:**
 
