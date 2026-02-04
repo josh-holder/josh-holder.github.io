@@ -1,5 +1,5 @@
 ---
-title: "The ever-increasing importance of simulation"
+title: "The Ever-Increasing Importance of Simulation"
 excerpt_separator: "<!--more-->"
 categories:
   - writings
