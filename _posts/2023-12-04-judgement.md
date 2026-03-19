@@ -6,7 +6,7 @@ categories:
   - featured
 tags:
   - Game Theory
-  - Machine Learning
+  - AI
 toc: true
 ---
 <!-- 

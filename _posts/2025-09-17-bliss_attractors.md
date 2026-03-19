@@ -5,7 +5,7 @@ categories:
   - writings
 tags:
   - Optimization
-  - Machine Learning
+  - AI
 toc: true
 ---
 <!-- 

@@ -3,10 +3,8 @@ title: "The Ever-Increasing Importance of Simulation"
 excerpt_separator: "<!--more-->"
 categories:
   - writings
-  - featured
 tags:
-  - Optimization
-  - Machine Learning
+  - AI
 toc: true
 ---
 <!-- 
