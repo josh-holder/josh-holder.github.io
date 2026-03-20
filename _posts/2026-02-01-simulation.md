@@ -1,5 +1,5 @@
 ---
-title: "The Ever-Increasing Importance of Simulation"
+title: "Simulation is the New High Ground"
 excerpt_separator: "<!--more-->"
 categories:
   - writings
