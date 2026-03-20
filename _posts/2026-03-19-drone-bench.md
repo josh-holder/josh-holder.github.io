@@ -61,10 +61,10 @@ For the estimation problem, agents are tasked with designing an estimator which 
 
 These requirements necessitate the agent estimating the drone's full 9 DOF state (position, velocity, orientation) from these measurements. This requires working with Kalman filter math, state dynamics, and quaternions (typically very tricky).
 
-![[estimation.png]]
-
 #### Results
 While logs reveal that 4.5 models know most of the relevant concepts, they often make one or two crucial mistakes in the code and fail to discover them. The 4.6 models are a clear step change in performance for this task. 
+
+![](/assets/dronebench/estimation.png)
 
 While this functionality is certainly well represented in LLM training data, this is a large chunk of the estimation in the context of drones. In that sense, although this may not fully stress the estimation capabilities of LLMs, to the extent that we care about the ability of LLMs to develop an drone autonomy stack, no harder benchmark is necessary!
 
