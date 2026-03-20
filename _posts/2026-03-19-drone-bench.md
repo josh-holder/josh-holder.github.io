@@ -26,7 +26,7 @@ To answer these questions, I built DroneBench - a closed source benchmark[^0] wh
 - **There has been a lot of benchmarking effort focused on the [modern autonomy stack](https://openreview.net/forum?id=IEduRUO55F), but far less so on simpler autonomy methods.** I think this is mostly because of a lack of overlap of expertise - the researchers familiar with cutting-edge AI systems are rarely also familiar with classical control theory. In reality, I suspect that outside specific areas (target identification, vision-based guidance,) the future of drone control will be more like the present than we think, i.e. still largely driven by simple techniques like PID control, just generated largely by machine intelligences rather than biological ones.
 - **Drones are the future of warfare, so capabilities here are very salient to how we should use and regulate these models.** For the same reasons we benchmark bio capabilities of models, we should benchmark capabilities related to physical autonomy. I'll talk more about this in the last section of the piece.
 
-<figure>
+<figure class="figure-wide">
   <img src="/assets/dronebench/all_benchmarks.png" alt="">
   <figcaption>Benchmark results show that models have been steadily increasing in performance over time, with recent models rising above a 50% success rate.</figcaption>
 </figure>
@@ -127,7 +127,9 @@ Several parts about this benchmark were unrealistically favorable to the agent, 
 ![](/assets/dronebench/estimation_vla.gif)
 
 ## Summary and Practical Implications
-![](/assets/dronebench/all_benchmarks.png)
+<figure class="figure-wide">
+  <img src="/assets/dronebench/all_benchmarks.png" alt="">
+</figure>
 
 What do these results say about model capabilities in this area? A few things stand out:
 - The models seem less capable on a relative level at tasks in this area than they do at tasks in pure software. This can be explained most simply by a bias in the training data -  the modal line of drone control code is deep in an ITAR-controlled repository at Lockheed Martin, while the modal line of frontend code is in an open-source repo on Github.
@@ -163,4 +165,4 @@ And the only thing better than awareness is actually reducing the risk. In my op
 DroneBench shows that we have just a few model generations left to get ahead of this. We should start now.
 
 [^0]: I chose to make the repo closed source for 1) the integrity of the results going forward, and 2) because I don't think it's a good idea to encourage hillclimbing on this specific benchmark. Feel free to email me at josh.holder72@gmail.com if you want to work on top of the results!
-[^1]: TODO: explain evaluation setup.
+[^1]: Agents are provided a template file which has the desired output structure. They can operate in a sandboxed python environment with access to three tools: write_file (which updates the file to be submitted for evaluation), run_python (which executes arbitrary python code, used to test their solution file), and submit (self-explanatory.) Agents are not allowed access to the exact evaluation functions, and just receive general information on the requirements. Logs are created which store all model-submitted code and python commands, which allows us to have observability into model behavior during the test.
