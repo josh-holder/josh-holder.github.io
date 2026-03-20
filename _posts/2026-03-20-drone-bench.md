@@ -26,14 +26,14 @@ To answer these questions, I built DroneBench - a closed source benchmark[^0] wh
 - **There has been a lot of benchmarking effort focused on the [modern autonomy stack](https://openreview.net/forum?id=IEduRUO55F), but far less so on simpler autonomy methods.** I think this is mostly because of a lack of overlap of expertise - the researchers familiar with cutting-edge AI systems are rarely also familiar with classical control theory. In reality, I suspect that outside specific areas (target identification, vision-based guidance) the future of drone control will be more like the present than we think, i.e. still largely driven by simple techniques like PID control, just generated largely by machine intelligences rather than biological ones.
 - **Drones are the future of warfare, so capabilities here are very salient to how we should use and regulate these models.** For the same reasons we benchmark bio capabilities of models, we should benchmark capabilities related to physical autonomy. More on this in the last section of the piece.
 
+## DroneBench Tasks
+
+DroneBench contains 4 challenging tasks across the classical autonomy stack. Taken together, success on these problems indicates that a model can make significant progress in building a drone control system from scratch. (For details on the evaluation setup, see footnote[^1].)
+
 <figure style="width: min(90vw, 1100px); position: relative; left: 50%; transform: translateX(-50%);">
   <img src="/assets/dronebench/all_benchmarks.png" alt="">
   <figcaption>Benchmark results show that models have been steadily increasing in performance over time, with recent models rising above a 50% success rate.</figcaption>
 </figure>
-
-## DroneBench Tasks
-
-DroneBench contains 4 challenging tasks across the classical autonomy stack. Taken together, success on these problems indicates that a model can make significant progress in building a drone control system from scratch. (For details on the evaluation setup, see footnote[^1].)
 
 ### System Identification
 In the system identification task, agents are given an unknown black box system, and have to interact with it to figure out a way to control the system to get to an arbitrary target. 
@@ -123,20 +123,24 @@ Reading the logs reveals that Opus 4.6 took an extremely systematic approach:
 - Addressed an issue with tokenization
 - Retrained and submitted a flawless controller
 
-Several aspects of this benchmark were unrealistically favorable to the agent, like clear arrows in the images and a ready-made function for data generation. But despite this, the approach was rock solid and passed the bar for full credit with ease. Here especially it seems that the labs’ focus on AI for AI research is paying dividends.
-
-![](/assets/dronebench/estimation_vla.gif)
-
-## Summary and Practical Implications
-<figure style="width: min(90vw, 1100px); position: relative; left: 50%; transform: translateX(-50%);">
-  <img src="/assets/dronebench/all_benchmarks.png" alt="">
+<figure>
+  <img src="/assets/dronebench/estimation_vla.gif" alt="">
+  <figcaption>When prompted to "Follow the arrows to the Washington Monument and stop when you're there," Opus 4.6's trained policy beelines straight for the target.</figcaption>
 </figure>
 
-A few things stand out.
+Several aspects of this benchmark were unrealistically favorable to the agent, like clear arrows in the images and a ready-made function for data generation. But despite this, the approach was rock solid and passed the bar for full credit with ease. Here especially it seems that the labs’ focus on AI for AI research is paying dividends.
+
+## Summary and Practical Implications
+At a high level, a few things stand out from these results.
 - The models seem less capable on a relative level at tasks in this area than they do at tasks in pure software. This can be explained most simply by a bias in the training data -  the modal line of drone control code is deep in an ITAR-controlled repository at Lockheed Martin, while the modal line of frontend code is in an open-source repo on Github.
     - Model performance in this area does seem like it's in the *ballpark* of the [METR evals](https://metr.org/time-horizons/). For context, I implemented a baseline solution to all of these problems myself, and most took me on the order of an hour or two. METR trends would predict closer to an 80% pass rate given this task time.
 - Despite this, LLMs (and especially the 4.6 generation) are significantly competent at all points in the stack. While it's unlikely that a current Claude model could design a drone controller fully end to end today, the requisite knowledge is there. More than anything, it seems the missing element is coherence over long context windows, more than specific knowledge. I would not be surprised if Claude 5 knocked all the above tasks out of the park.
 - For a variety of reasons, the aerospace industry has been remarkably resistant to most of the previous advances in AI and autonomy. This one will have real effects, even if the majority of the algorithms running on any given drone are not directly AI-driven. (I want to write up a full post on this in the future.)
+
+<figure style="width: min(90vw, 1100px); position: relative; left: 50%; transform: translateX(-50%);">
+  <img src="/assets/dronebench/all_benchmarks.png" alt="">
+  <figcaption>Benchmark results across all tasks.</figcaption>
+</figure>
 
 ## Safety Implications and Threat Models
 The results of these evaluations, if properly internalized, should be chilling. This means that an LLM in 2026 (the worst LLMs will ever be) can autonomously:
