@@ -1,5 +1,5 @@
 ---
-title: "DroneBench (TODO: title)"
+title: "DroneBench: Quantifying Model Estimation, Control, and Autonomy"
 excerpt_separator: "<!--more-->"
 categories:
   - projects
@@ -11,61 +11,32 @@ tags:
 toc: true
 ---
 
-A neverending holy war rages on Twitter over the future of the robotic form factor; legged or wheeled, highly general or hyperspecialized, Figure or ABB. Overlooked in these debates, like water by a fish, is the most common robotic form factor in our society--the drone. And as the fiber-optic-laden fields of Ukraine have shown us, drones are here to stay.
+A neverending holy war rages on Twitter over the future of the robotic form factor; legged or wheeled, highly general or hyperspecialized, Figure or ABB. Overlooked in these debates, like water by a fish, is the most common robotic form factor in our society - the drone. And as the fiber-optic-laden fields of Ukraine have shown us, drones are here to stay.
 
-Drones will be one of the first vectors through which emerging intelligences like LLMs will interact with the physical world. As such, it's important that we understand and track the current capabilities of LLMs in areas like drone control. Can Claude identify an unknown system and drive it to a setpoint? Can it develop a 6DOF drone controller? Autonomously finetune a VLA?
-![all_opus4p6](/assets/dronebench/opus4p6_combined.gif)
+Drones will be one of the first vectors through which emerging intelligences like LLMs will interact with the physical world. It's important that we track the current capabilities of LLMs in areas like drone control, so that we understand the limits of the technology, and where it might provide opportunities for bad actors. Can Claude identify an unknown system and drive it to a setpoint? Can it develop a 6DOF drone controller? Autonomously finetune a VLA?
 
-To answer these questions, I built DroneBench - a closed source benchmark (footnote: I developed this as closed source repo for a few reasons, namely that I don't think it's good to hillclimb this benchmark. Email me if you want access.) which tests the ability of SOTA LLMs to autonomously complete the critical tasks necessary for building an autonomy stack.  (footnote: Surprisingly little work focuses on this, most being in the realm of "can GPT 4o answer multiple choice questions about drones?")
+![](/assets/dronebench/opus4p6_combined.gif)
+*Spoiler alert: Opus 4.6 can do all of these things.*
 
-I think this benchmark is especially interesting for 3 reasons:
+
+To answer these questions, I built DroneBench - a closed source benchmark[^0] which tests the ability of SOTA LLMs to autonomously complete the critical tasks necessary for building an autonomy stack. I think this benchmark is especially interesting for 3 reasons:
 - I'm an aerospace autonomy engineer in my day job, and as such these examples are particularly salient to me as a measure of AI progress. This is also an interesting niche to benchmark for in that controls engineers are uniquely allergic to AI hype, having lived through the "should we replace all PID controllers with RL?" era of the late 2010s. This benchmark shows that AI can still be transformative for aerospace engineering, even if it doesn't replace PID control.
-- There has been a lot of benchmarking effort focused on the modern autonomy stack (LINK?), but far less so on simpler but more practical autonomy methods. I think this is mostly because of a lack of overlap of expertise - the researchers familiar with cutting-edge AI systems are rarely also familiar with classical control theory. In reality, I suspect that outside specific areas (target identification, vision-based guidance,) the future of autonomous systems will be more like the present than we think, i.e. still largely driven by simple techniques like PID control, just generated largely by machine intelligences rather than biological ones.
+- There has been a lot of benchmarking effort focused on the [modern autonomy stack](https://openreview.net/forum?id=IEduRUO55F), but far less so on simpler but more practical autonomy methods. I think this is mostly because of a lack of overlap of expertise - the researchers familiar with cutting-edge AI systems are rarely also familiar with classical control theory. In reality, I suspect that outside specific areas (target identification, vision-based guidance,) the future of drone control will be more like the present than we think, i.e. still largely driven by simple techniques like PID control, just generated largely by machine intelligences rather than biological ones.
 - As I mentioned above, drones are the future of warfare, so capabilities here are very salient to how we should use and regulate these models. For the same reasons we benchmark bio capabilities of models, we should benchmark capabilities related to physical autonomy.
 
-![all_benchmarks](/assets/dronebench/all_benchmarks.png)
+![](/assets/dronebench/all_benchmarks.png)
+*Benchmark results show that models have been steadily increasing in performance over time, with recent models rising above a 50% success rate.*
 
-DroneBench contains 4 challenging tasks across the classical autonomy stack. The results are fascinating - in summary:
-- Model performance in these domains is not as saturated as it is in domains like math and pure coding.
-- Despite this, SOTA LLMs, and especially models in the 4.6 generation, represent a step change in these capabilities.
-The throughline of this work is that model performance in these domains is not nearly as saturated as in many other domains, including in math. However, as in so many other domains, I've found that the 4.6 models are a step change in capabilities. We are now very close to models having the fundamental knowledge and abilities necessary to design a control system for a novel drone from scratch.
+## DroneBench Tasks
 
-## The Elements of the Classical Autonomy Stack
+DroneBench contains 4 challenging tasks across the classical autonomy stack. Taken together, success on these problems indicates that a model can make significant progress in building a drone control system from scratch. (For details on the evaluation setup, see footnote[^1].)
 
-The design of a drone system from scratch can be divided into 4 main buckets.
-- **[System ID](https://en.wikipedia.org/wiki/System_identification)**: Let's say you're given a new drone off the shelf. The first step of using the drone is figuring out what type of system you're working with - what's its mass, how much delay do the motor inputs have, what are the natural frequencies that cause it to resonate?
-- **Estimation**: You now know how your drone behaves at a low level, but another necessary prerequisite is determining the current state of the drone - how is it oriented, where is it on Earth, how fast is it moving, etc. Estimation is the process of determining this complete picture from a intermittent and potentially noisy sensor measurements.
-- **Control**: You know where your drone is and how it responds to inputs. The next step is determining *which* inputs to give the system to drive it to a desired outcome.
-- **Target identification and guidance**: At this point, you know where your drone is and can drive it to a desired location. The last step is figuring out where the desired location *is*. For an autonomous system, this information typically comes from a computer vision system.
-
-With a mastery of each of these four components, one can take a drone out of the box and make it perform arbitrary tasks. DroneBench has a task related to each of these areas.
 ### System Identification
-In the system identification task, agents are given an unknown black box system, and have to interact with the system to figure out a way to control the system to get to the target. 
+In the system identification task, agents are given an unknown black box system, and have to interact with it to figure out a way to control the system to get to an arbitrary target. 
 
-```python
-
-from _motor_system import _MotorSystem
-
-sys = _MotorSystem(dt=0.001)
-
-sys.step(input) # apply an input and get the (noisy) output
-
-sys.getOutput() # read the current (noisy) output without stepping
-
-sys.reset() # reset the system state to zero
-
-```
-
-The success criteria are measured as follows:
-**Core requirements (partial credit):**
-- Overshoot < 25%
-- 0–90% rise time < 1.25 s
-- 5% settling time < 2.5 s
-
-**Bonus requirements (full credit):**
-- Steady-state error < 1% under a constant disturbance
-- Phase margin > 30°, gain margin > 20 dB
-- Closed-loop −3 dB bandwidth > 5 rad/s
+| Partial Credit                                                             | Full Credit                                                                                                                                 | Number of Attempts | Wall Clock Time |
+|----------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------|--------------------|-----------------|
+| -Overshoot < 25%<br>-0–90% rise time < 1.25 s<br>-5% settling time < 2.5 s | -Steady-state error < 1% under a constant disturbance<br>-Phase margin > 30°, gain margin > 20 dB<br>-Closed-loop −3 dB bandwidth > 5 rad/s | 15                 | 450             |
 
 One possible solution is a simple PID controller, but the underlying system being third order and the various requirements make tuning a challenge.
 #### Results
@@ -73,29 +44,30 @@ All the models appeared to have the requisite control systems knowledge (i.e. me
 
 For example, Sonnet 4.5 often made fundamental mischaracterizations of the system, and mostly tried PID gains one at a time, at random. By contrast, 4.6 models immediately honed in on a hypothesis for system type, and performed large-scale and targeted searches for potential gains, i.e. "Settling time is very close - let me try higher integral gains while varying Kd."
 
-![[motor_tuning.png]]
+![](/assets/dronebench/sysid.png)
+*Benchmark results for system identification task.*
 
-These results are pretty striking, and show that models are already highly capable in system identification. It would be interesting to see how this knowledge scales to more complicated systems, though, where a simple PID controller doesn't cut it.
+These results are pretty striking, and show that models are already highly capable in system identification. It would be interesting to see how this knowledge scales to more complicated systems, where a simple PID controller isn't sufficient.
+
 ### Estimation
-For the estimation task, agents are tasked with designing an estimator which can determine the position and velocity of a drone system based on infrequent GPS and accelerometer measurements. The specific requirements were as follows:
+For the estimation problem, agents are tasked with designing an estimator which can determine the position and velocity of a drone system based on infrequent GPS and accelerometer measurements. The specific requirements were as follows:
 
-**Core requirements (partial credit):**
-- RMS position error < 1.0 m over the full trajectory
-- RMS velocity error < 0.5 m/s over the full trajectory
+| Partial Credit                                                                                                 | Full Credit                                                                                                                                | Number of Attempts | Wall Clock Time |
+|----------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------|--------------------|-----------------|
+| -RMS position error < 1.0 m over the full trajectory<br>-RMS velocity error < 0.5 m/s over the full trajectory | -Maintain reasonable position tracking during temporary GPS outages<br>-Maintain reasonable position tracking during temporary IMU outages | 15                 | 450             |
 
-**Bonus requirements (full credit):**
-- Maintain reasonable position tracking during temporary GPS outages
-- Maintain reasonable position tracking during temporary IMU outages
+![](/assets/dronebench/estimation_combined.gif)
+*The qualitative performance of the agent-designed estimators significantl increases over time.*
 
 These requirements necessitate the agent estimating the drone's full 9 DOF state (position, velocity, orientation) from these measurements. This requires working with Kalman filter math, state dynamics, and quaternions (typically very tricky).
 
 ![[estimation.png]]
 
 #### Results
-![/Users/joshholder/code/GNC_Bench/estimation_combined.gif](file:///Users/joshholder/code/GNC_Bench/estimation_combined.gif)
-While 4.5 models know most of the relevant concepts, they often make a critical mistake or two and fail to recover. The 4.6 models are a clear step change in performance for this task. 
+While logs reveal that 4.5 models know most of the relevant concepts, they often make one or two crucial mistakes in the code and fail to discover them. The 4.6 models are a clear step change in performance for this task. 
 
-While this is a piece of code that is almost certainly in their training data multiple times, this is... basically the whole problem of estimation in the context of drones. In that sense, although this may not fully stress the estimation capabilities of LLMs, to the extent that we care about the ability of LLMs to develop an drone autonomy stack, no harder benchmark is necessary! 
+While this functionality is certainly well represented in LLM training data, this is a large chunk of the estimation in the context of drones. In that sense, although this may not fully stress the estimation capabilities of LLMs, to the extent that we care about the ability of LLMs to develop an drone autonomy stack, no harder benchmark is necessary!
+
 ![[quadcopter_control 1.png]]
 ### End-to-end Control
 In this benchmark problem, the agent has to design a full control scheme to get the drone from one position to another, using standard fixed rotors as actuators. This means that it needs to implement a cascading control PID control loop - first induce a desired tilt, move laterally to your destination, and the detilt the drone. The requirements additionally impose robustness constraints on the resultant policy:
@@ -182,3 +154,6 @@ Some ideas about stopping this: to what extent does safety training extend to mo
 
 
 (Further evidence - [METR can't pay developers enough to stop using AI](https://metr.org/blog/2026-02-24-uplift-update/) long enough to measure how much AI speeds them up. Money talks.)
+
+[^0]: I chose to make the repo closed source for 1) the integrity of the results going forward, and 2) because I don't think it's a good idea to encourage hillclimbing on this specific benchmark. Feel free to email me at josh.holder72@gmail.com if you want to work on top of the results!
+[^1]: TODO: explain evaluation setup.
