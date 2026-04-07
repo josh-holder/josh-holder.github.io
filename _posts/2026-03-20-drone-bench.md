@@ -156,6 +156,7 @@ A potentially bigger issue here is the prospect of **putting this capability in 
 
 ## Conclusion
 The results of this benchmark seem to imply that current AIs are not yet capable enough to design a drone policy from scratch. However, Opus 4.6 has nonzero pass rates on all tasks. This implies to me that the remaining challenges lie in reliability and coherence over long contexts, rather than any specific skills that need to be trained. Coherence is the one capability that improves most reliably from model to model, and in 3 months, Claude went from 20% to 60% capable at these tasks. How much longer is required for the last 40%?
+
 <!-- 
 To make matters worse, DroneBench measures one threat vector — the ability of models to *build* autonomous systems. But there's a complementary threat that's worth mentioning: **with VLAs, it's now possible to develop flexible drone policies that take actions in response to natural language without the need for retraining.** In the past, if one wanted a drone to target something new, one had to explicitly train a computer vision model or input a desired trajectory. With VLAs, this barrier is removed. Operators, whether human or machine, can now command vast swarms of drones with natural language, offloading detailed reasoning to individual drones and greatly magnifying their capabilities.
 
@@ -163,7 +164,8 @@ So what can we do? For one thing, I think tasks of this nature should be in eval
 
 The only thing better than raising awareness and gathering information is actually reducing the risk. In my opinion, one of the most promising directions here is to investigate ways to embed safety training into the base models used for VLAs. Currently, [several](https://arxiv.org/abs/2410.13691) [papers](https://arxiv.org/html/2503.03480v1) suggest that harmlessness training for base models does not extend easily into VLAs - if you stick even the most well-aligned 2026 model into a VLA and ask it to do something bad, it likely will. **Figuring out how to get alignment training to translate into the VLA context would go a long way in diminishing the threat posed by rogue actors with drones.**
 
-DroneBench shows that we have just a few model generations left to get ahead of this. We should start now. -->
+DroneBench shows that we have just a few model generations left to get ahead of this. We should start now.
+-->
 
 [^0]: I chose to make the repo closed source for 1) the integrity of the results going forward, and 2) because I don't think it's a good idea to encourage hillclimbing on this specific benchmark. Feel free to email me at josh.holder72@gmail.com if you want to extend this work!
 [^1]: Agents are provided a template file which has the desired output structure. They can operate in a sandboxed python environment with access to three tools: write_file (which updates the file to be submitted for evaluation), run_python (which executes arbitrary python code, used to test their solution file), and submit (self-explanatory.) Agents are not allowed access to the exact evaluation functions, and just receive general information on the requirements. Logs are created which store all model-submitted code and python commands, which allows us to have observability into model behavior during the test.
